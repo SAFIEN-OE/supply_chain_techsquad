@@ -95,7 +95,7 @@ class Graph:
     nodes = None
     edges = None
 
-    def __init__(self, nodes, edges):
+    def __init__(self, nodes = None, edges = None):
         self.nodes = nodes
         self.edges = edges
 
