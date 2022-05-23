@@ -11,12 +11,23 @@ STANDARD_RISK = lambda probability, impact: probability * impact
 
 # Constants based on existing input file format
 DEFAULT_NODE_ID_LBL = 'Node ID'
+DEFAULT_NODE_LATITUDE_LBL = 'Latitude'
+DEFAULT_NODE_LONGITUDE_LBL = 'Longitude'
+DEFAULT_NODE_THROUGHPUT_LBL = 'Throughput'
+DEFAULT_NODE_STORAGE_CAPACITY_LBL = 'Storage Capacity'
+DEFAULT_NODE_RISK_LBL = 'Risk'
+DEFAULT_NODE_SUPPLY_LBL = 'Supply'
+DEFAULT_NODE_DEMAND_LBL = 'Demand'
+DEFAULT_NODE_CURRENT_STORAGE_LBL = 'Current Storage'
+
 DEFAULT_EDGE_ID_LBL = 'Edge ID'
-DEFAULT_START_NODE_LBL = 'Start Node'
-DEFAULT_END_NODE_LBL = 'End Node'
-DEFAULT_OUTER_DISTANCE_LBL = 'Outer Distance'
-DEFAULT_LATITUDE_LBL = 'Latitude'
-DEFAULT_LONGITUDE_LBL = 'Longitude'
+DEFAULT_EDGE_START_LBL = 'Start Node'
+DEFAULT_EDGE_END_LBL = 'End Node'
+DEFAULT_EDGE_CAPACITY_LBL = 'Capacity'
+DEFAULT_EDGE_RISK_LBL = 'Risk'
+
+DEFAULT_LOCATION_OUTER_DISTANCE_LBL = 'Outer Distance'
+
 DEFAULT_RISK_PROBABILITY_LBL = 'Probability'
 DEFAULT_RISK_IMPACT_LBL = 'Impact'
 
@@ -28,14 +39,26 @@ class Graph:
     class Node:
 
         id = 0
-        props = None
-        risks = []
+        throughput = 0
+        storage_capacity = 0
+        risk = 0
+        supply = 0
+        demand = 0
+        current_storage = 0
+        lat_long = (0.0, 0.0)
+        props = {}
         
-        def __init__(self, id, risks = [], **kwargs):
-
-            self.id = id
-            self.props = pd.Series(data=kwargs)
-            self.risks = risks
+        # TODO: This should take a label dictionary, specific to the graph, that allows mapping properties w/out assumptions
+        def __init__(self, props):
+            self.id = props[DEFAULT_NODE_ID_LBL]
+            self.throughput = props[DEFAULT_NODE_THROUGHPUT_LBL]
+            self.storage_capacity = props[DEFAULT_NODE_STORAGE_CAPACITY_LBL]
+            self.risk = props[DEFAULT_NODE_RISK_LBL]
+            self.supply = props[DEFAULT_NODE_SUPPLY_LBL]
+            self.demand = props[DEFAULT_NODE_DEMAND_LBL]
+            self.current_storage = props[DEFAULT_NODE_CURRENT_STORAGE_LBL]
+            self.lat_long = (props[DEFAULT_NODE_LATITUDE_LBL], props[DEFAULT_NODE_LONGITUDE_LBL])
+            self.props = props.to_dict()
 
         @classmethod
         def fromPandas(cls, series, node_id_lbl = DEFAULT_NODE_ID_LBL):
@@ -44,11 +67,19 @@ class Graph:
     class Edge:
         
         id = 0
-        props = None
+        start_node_id = 0
+        end_node_id = 0
+        capacity = 0
+        risk = 0
+        props = {}
 
-        def __init__(self, id, **kwargs):
-            self.id = id
-            self.props = pd.Series(data=kwargs)
+        def __init__(self, props):
+            self.id = props[DEFAULT_EDGE_ID_LBL]
+            self.start_node_id = props[DEFAULT_EDGE_START_LBL]
+            self.end_node_id = props[DEFAULT_EDGE_END_LBL]
+            self.capacity = props[DEFAULT_EDGE_CAPACITY_LBL]
+            self.risk = props[DEFAULT_EDGE_RISK_LBL]
+            self.props = props.to_dict()
 
         def __str__(self):
             return self.props.__str__()
@@ -64,11 +95,36 @@ class Graph:
     nodes = None
     edges = None
 
+    def __init__(self, nodes, edges):
+        self.nodes = nodes
+        self.edges = edges
+
     def get_nodes(self):
         return self.nodes
 
     def get_edges(self):
         return self.edges
+
+    def get_node(self, id):
+        return self.Node(self.nodes.loc[[id]])
+
+    def get_edge(self, id = None, source = None, sink = None):
+        if id != None:
+            return self.Edge(self.edges.loc[[id]])
+        else:
+            try:
+                return self.edges.loc[self.edges[(DEFAULT_EDGE_START_LBL == source) & (DEFAULT_EDGE_END_LBL == sink)]]
+            except KeyError:
+                return None
+        
+    def copy(self):
+        return Graph(self.nodes.copy(), self.egdes.copy())
+
+    def export_to_xlsx(self, filename, nodes_sheet_name = "Nodes", edges_sheet_name = "Edges"):
+        with pd.ExcelWriter(filename, engine = 'openpyxl') as writer:
+            self.nodes.to_excel(writer, sheet_name = nodes_sheet_name)
+            self.edges.to_excel(writer, sheet_name = edges_sheet_name)
+
 
     # TODO: For now, assumes Types are disjoint for edges and nodes
     # Note: it appears some geopandas functions rely on the geometry column being called "geometry";
@@ -91,7 +147,7 @@ class Graph:
             shapes['geometry'] = shapes.apply(lambda r: shp.geometry.Point(*r[point_columns]), axis = 1)
             shapes = gpd.GeoDataFrame(shapes, crs = spherical_projection)
             shapes = shapes.to_crs(crs=flat_projection)
-            shapes['geometry'] = shapes['geometry'].buffer(shapes[DEFAULT_OUTER_DISTANCE_LBL]).to_crs(spherical_projection)
+            shapes['geometry'] = shapes['geometry'].buffer(shapes[DEFAULT_LOCATION_OUTER_DISTANCE_LBL]).to_crs(spherical_projection)
         elif shape == 'Point':
             shapes['geometry'] = shapes.apply(lambda r: shp.geometry.Point(*r[point_columns]), axis = 1)
             shapes = gpd.GeoDataFrame(shapes, crs = spherical_projection)
@@ -103,13 +159,12 @@ class Graph:
     
         return gdf.merge(shapes) if shape_column else shapes
         
-    def populate_from_xlsx(self, filename, nodes_sheet_name = 'Nodes', edges_sheet_name = 'Edges', node_id_col = DEFAULT_NODE_ID_LBL, start_node_col = DEFAULT_START_NODE_LBL, end_node_col = DEFAULT_END_NODE_LBL, latitude_column = DEFAULT_LATITUDE_LBL, longitude_column = DEFAULT_LONGITUDE_LBL):
+    def populate_from_xlsx(self, filename, nodes_sheet_name = 'Nodes', edges_sheet_name = 'Edges', node_id_col = DEFAULT_NODE_ID_LBL, start_node_col = DEFAULT_EDGE_START_LBL, end_node_col = DEFAULT_EDGE_END_LBL, latitude_column = DEFAULT_NODE_LATITUDE_LBL, longitude_column = DEFAULT_NODE_LONGITUDE_LBL):
         g = pd.read_excel(filename, sheet_name = [nodes_sheet_name, edges_sheet_name], engine='openpyxl')
 
         # Add geometry column for points
         self.nodes = g[nodes_sheet_name]
         self.nodes = self.geometry_from_points(self.nodes, shape = 'Point', point_columns = [latitude_column, longitude_column])
-        self.nodes['Risk'] = 0
 
         # Add geometry column for edges
         self.edges = g[edges_sheet_name]
@@ -118,38 +173,43 @@ class Graph:
         self.edges = self.edges.merge(node_locations, left_on = end_node_col, right_on = node_id_col).rename(columns = {'geometry' : 'End Point'})
         self.edges = self.geometry_from_points(self.edges, shape = 'Line', point_columns = ['Start Point', 'End Point'])
         self.edges = self.edges.drop(['Node ID_x', 'Node ID_y', 'Start Point', 'End Point'], axis = 1)
-        self.edges['Risk'] = 0
     
     def compute_location_risk(self, lrisks, risk_metric = STANDARD_RISK):
         '''For each node/edge, compute which risks in lrisks overlap it and apply risk_metric to calculate and update the risk for that node/edge.
             Modifies risks IN PLACE.'''
 
+        self.nodes[DEFAULT_NODE_RISK_LBL] = 0
+        self.edges[DEFAULT_EDGE_RISK_LBL] = 0
+
         for i, node in self.nodes.iterrows():
             applied_risks = lrisks[lrisks.contains(node['geometry'])] 
-            self.nodes.at[i, 'Risk'] += risk_metric(applied_risks['Probability'], applied_risks['Impact']).sum()
+            self.nodes.at[i, DEFAULT_NODE_RISK_LBL] += risk_metric(applied_risks['Probability'], applied_risks['Impact']).sum()
 
         for i, edge in self.edges.iterrows():
             applied_risks = lrisks[lrisks.intersects(edge['geometry'])]
-            self.edges.at[i, 'Risk'] += risk_metric(applied_risks['Probability'],applied_risks['Impact']).sum()
+            self.edges.at[i, DEFAULT_EDGE_RISK_LBL] += risk_metric(applied_risks['Probability'],applied_risks['Impact']).sum()
 
         # Assume total risk should be capped at 1
-        self.nodes.loc[self.nodes['Risk'] > 1, 'Risk'] = 1.0
-        self.edges.loc[self.edges['Risk'] > 1, 'Risk'] = 1.0
+        self.nodes.loc[self.nodes[DEFAULT_NODE_RISK_LBL] > 1, DEFAULT_NODE_RISK_LBL] = 1.0
+        self.edges.loc[self.edges[DEFAULT_EDGE_RISK_LBL] > 1, DEFAULT_EDGE_RISK_LBL] = 1.0
 
     def compute_risk(self, risks, risk_metric = STANDARD_RISK, apply_node_risk_to_edges = False, edge_or_nodes_col_name = 'Edge or Node', name_col = 'Risk Name', 
                     node_str = 'Node', edge_str = 'Edge', node_id_risk_col = DEFAULT_NODE_ID_LBL, edge_id_risk_col = DEFAULT_EDGE_ID_LBL, 
                     node_id_col = DEFAULT_NODE_ID_LBL, edge_id_col = DEFAULT_EDGE_ID_LBL, risk_probability_col = DEFAULT_RISK_PROBABILITY_LBL,
-                    risk_impact_col = DEFAULT_RISK_IMPACT_LBL, edge_start_node_col = DEFAULT_START_NODE_LBL, edge_end_node_col = DEFAULT_END_NODE_LBL):
+                    risk_impact_col = DEFAULT_RISK_IMPACT_LBL, edge_start_node_col = DEFAULT_EDGE_START_LBL, edge_end_node_col = DEFAULT_EDGE_END_LBL):
         '''Take risks as input and compute which nodes/edges are affected based on shared attributes (e.g., type, description, etc.).
             Modifies risks IN PLACE. Currently this assumes that all shared attributes must match'''
         
+        self.nodes[DEFAULT_NODE_RISK_LBL] = 0
+        self.edges[DEFAULT_EDGE_RISK_LBL] = 0
+
         # Compute risks associated with nodes, based on intersecting columns
         node_risks = risks[risks[edge_or_nodes_col_name] == node_str].rename(columns = {node_id_risk_col : node_id_col})
         intersection = node_risks.columns.intersection(self.nodes.columns) 
         comb_risks = pd.merge(node_risks, self.nodes, how = 'inner', on = intersection.tolist())
 
         for i, row in comb_risks.iterrows():
-            self.nodes.loc[self.nodes[node_id_col] == row[node_id_col], 'Risk'] += risk_metric(row[risk_probability_col], row[risk_impact_col])
+            self.nodes.loc[self.nodes[node_id_col] == row[node_id_col], DEFAULT_NODE_RISK_LBL] += risk_metric(row[risk_probability_col], row[risk_impact_col])
 
         # Compute risks associated with edges, based on intersecting columns
         edge_risks = risks[risks[edge_or_nodes_col_name] == edge_str].rename(columns = {edge_id_risk_col : edge_id_col})
@@ -157,19 +217,20 @@ class Graph:
         comb_risks = pd.merge(edge_risks, self.edges, how = 'inner', on = intersection.tolist())
 
         for i, row in comb_risks.iterrows():
-            self.edges.loc[self.edges[edge_id_col] == row[edge_id_col], 'Risk'] += risk_metric(row[risk_probability_col], row[risk_impact_col])
+            self.edges.loc[self.edges[edge_id_col] == row[edge_id_col], DEFAULT_EDGE_RISK_LBL] += risk_metric(row[risk_probability_col], row[risk_impact_col])
 
         # Add risk of start_node and end_node to edge risk if appropriate
         if apply_node_risk_to_edges:
-            edges_to_nodes = pd.merge(pd.merge(self.edges, self.nodes[[node_id_col, 'Risk']], how = 'left', left_on = edge_start_node_col, right_on = node_id_col), self.nodes[[node_id_col, 'Risk']], how = 'left', left_on = edge_end_node_col, right_on = node_id_col)
+            edges_to_nodes = pd.merge(pd.merge(self.edges, self.nodes[[node_id_col, DEFAULT_NODE_RISK_LBL]], how = 'left', left_on = edge_start_node_col, right_on = node_id_col), self.nodes[[node_id_col, DEFAULT_NODE_RISK_LBL]], how = 'left', left_on = edge_end_node_col, right_on = node_id_col)
             for i, row in edges_to_nodes.iterrows():
-                self.edges.loc[self.edges[edge_id_col] == row[edge_id_col], 'Risk'] += row['Risk_y'] + row['Risk']
+                self.edges.loc[self.edges[edge_id_col] == row[edge_id_col], DEFAULT_EDGE_RISK_LBL] += row[DEFAULT_EDGE_RISK_LBL + '_y'] + row[DEFAULT_EDGE_RISK_LBL]
         
         # Assume total risk should be capped at 1
-        self.nodes.loc[self.nodes['Risk'] > 1, 'Risk'] = 1.0
-        self.edges.loc[self.edges['Risk'] > 1, 'Risk'] = 1.0
+        self.nodes.loc[self.nodes[DEFAULT_NODE_RISK_LBL] > 1, DEFAULT_NODE_RISK_LBL] = 1.0
+        self.edges.loc[self.edges[DEFAULT_EDGE_RISK_LBL] > 1, DEFAULT_EDGE_RISK_LBL] = 1.0
 
     def compute_min_cost_flow(self, use_expected_capacity = False):
+        '''Returns a dictionary mapping edge_id to amount of flow.'''
 
         # Operate on copies
         nodes = self.nodes.copy()

@@ -23,6 +23,6 @@ circle_risks = graph_pd.Graph.geometry_from_points(lrisks, shape = 'Circle', sha
 lrisks = box_risks.append(circle_risks)
 g.compute_location_risk(lrisks)
 
-g.compute_min_cost_flow(use_expected_capacity = True)
+g.compute_min_cost_flow(use_expected_capacity = False)
 
 print(g.get_nodes())
