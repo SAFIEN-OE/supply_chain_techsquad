@@ -59,6 +59,9 @@ class Graph:
             self.current_storage = props[DEFAULT_NODE_CURRENT_STORAGE_LBL]
             self.lat_long = (props[DEFAULT_NODE_LATITUDE_LBL], props[DEFAULT_NODE_LONGITUDE_LBL])
             self.props = props.to_dict()
+            
+        def __str__(self):
+            return self.props.__str__()
 
         @classmethod
         def fromPandas(cls, series, node_id_lbl = DEFAULT_NODE_ID_LBL):
@@ -106,14 +109,15 @@ class Graph:
         return self.edges
 
     def get_node(self, id):
-        return self.Node(self.nodes.loc[[id]])
+        return self.Node(self.nodes.loc[id])
 
+    # Implicit assumption: at most one edge per source/sink pair
     def get_edge(self, id = None, source = None, sink = None):
         if id != None:
-            return self.Edge(self.edges.loc[[id]])
+            return self.Edge(self.edges.loc[id])
         else:
             try:
-                return self.edges.loc[self.edges[(DEFAULT_EDGE_START_LBL == source) & (DEFAULT_EDGE_END_LBL == sink)]]
+                return self.Edge(self.edges.loc[(self.edges[DEFAULT_EDGE_START_LBL] == source) & (self.edges[DEFAULT_EDGE_END_LBL] == sink)].squeeze())
             except KeyError:
                 return None
         
@@ -177,9 +181,11 @@ class Graph:
     def compute_location_risk(self, lrisks, risk_metric = STANDARD_RISK):
         '''For each node/edge, compute which risks in lrisks overlap it and apply risk_metric to calculate and update the risk for that node/edge.
             Modifies risks IN PLACE.'''
-
-        self.nodes[DEFAULT_NODE_RISK_LBL] = 0
-        self.edges[DEFAULT_EDGE_RISK_LBL] = 0
+            
+        if DEFAULT_NODE_RISK_LBL not in self.nodes.columns:
+            self.nodes[DEFAULT_NODE_RISK_LBL] = 0
+        if DEFAULT_EDGE_RISK_LBL not in self.edges.columns:
+            self.edges[DEFAULT_EDGE_RISK_LBL] = 0
 
         for i, node in self.nodes.iterrows():
             applied_risks = lrisks[lrisks.contains(node['geometry'])] 
@@ -199,9 +205,11 @@ class Graph:
                     risk_impact_col = DEFAULT_RISK_IMPACT_LBL, edge_start_node_col = DEFAULT_EDGE_START_LBL, edge_end_node_col = DEFAULT_EDGE_END_LBL):
         '''Take risks as input and compute which nodes/edges are affected based on shared attributes (e.g., type, description, etc.).
             Modifies risks IN PLACE. Currently this assumes that all shared attributes must match'''
-        
-        self.nodes[DEFAULT_NODE_RISK_LBL] = 0
-        self.edges[DEFAULT_EDGE_RISK_LBL] = 0
+            
+        if DEFAULT_NODE_RISK_LBL not in self.nodes.columns:
+            self.nodes[DEFAULT_NODE_RISK_LBL] = 0
+        if DEFAULT_EDGE_RISK_LBL not in self.edges.columns:
+            self.edges[DEFAULT_EDGE_RISK_LBL] = 0
 
         # Compute risks associated with nodes, based on intersecting columns
         node_risks = risks[risks[edge_or_nodes_col_name] == node_str].rename(columns = {node_id_risk_col : node_id_col})
