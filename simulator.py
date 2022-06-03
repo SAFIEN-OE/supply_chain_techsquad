@@ -56,9 +56,13 @@ def simulate(graph, flow, probabilistic = False):
     '''Takes a graph and flow as input and returns a deep-copy of graph with flow performed
         If probabilistic is True, risk is taken into account when simulating flow.'''
 
-    validate_flow(graph, flow)
+    #validate_flow(graph, flow)
 
     output = graph.copy()
+
+    # Sort intended flow by topological ordering of graph
+    top_sort = graph.topological_sort()
+    flow.sort(key=lambda f: top_sort.index(f['source']))
 
     for f in flow:
         output.flow(f['source'], f['sink'], f['amount'], with_risk = probabilistic)

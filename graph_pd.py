@@ -1,5 +1,4 @@
 from platform import node
-from xml.dom.minicompat import NodeList
 import pandas as pd
 import geopandas as gpd
 import shapely as shp
@@ -41,7 +40,8 @@ class Graph:
         id = 0
         throughput = 0
         storage_capacity = 0
-        risk = 0
+        overall_risk = 0
+        risks = {}
         supply = 0
         demand = 0
         current_storage = 0
@@ -53,7 +53,7 @@ class Graph:
             self.id = props[DEFAULT_NODE_ID_LBL]
             self.throughput = props[DEFAULT_NODE_THROUGHPUT_LBL]
             self.storage_capacity = props[DEFAULT_NODE_STORAGE_CAPACITY_LBL]
-            self.risk = props[DEFAULT_NODE_RISK_LBL]
+            self.overall_risk = props[DEFAULT_NODE_RISK_LBL] if DEFAULT_NODE_RISK_LBL in props.keys() else 0
             self.supply = props[DEFAULT_NODE_SUPPLY_LBL]
             self.demand = props[DEFAULT_NODE_DEMAND_LBL]
             self.current_storage = props[DEFAULT_NODE_CURRENT_STORAGE_LBL]
@@ -73,7 +73,8 @@ class Graph:
         start_node_id = 0
         end_node_id = 0
         capacity = 0
-        risk = 0
+        overall_risk = 0
+        risks = {}
         props = {}
 
         def __init__(self, props):
@@ -81,7 +82,7 @@ class Graph:
             self.start_node_id = props[DEFAULT_EDGE_START_LBL]
             self.end_node_id = props[DEFAULT_EDGE_END_LBL]
             self.capacity = props[DEFAULT_EDGE_CAPACITY_LBL]
-            self.risk = props[DEFAULT_EDGE_RISK_LBL]
+            self.overall_risk = props[DEFAULT_EDGE_RISK_LBL] if DEFAULT_EDGE_RISK_LBL in props.keys() else 0
             self.props = props.to_dict()
 
         def __str__(self):
@@ -105,25 +106,79 @@ class Graph:
     def get_nodes(self):
         return self.nodes
 
-    def get_edges(self):
+    def get_all_edges(self):
         return self.edges
 
     def get_node(self, id):
         return self.Node(self.nodes.loc[id])
 
-    # Implicit assumption: at most one edge per source/sink pair
-    def get_edge(self, id = None, source = None, sink = None):
+    def get_sinks_from_source(self, id):
+        '''Return a list of the indices of all nodes that have an incoming edge from id'''
+        return self.edges.loc[self.edges[DEFAULT_EDGE_START_LBL] == id, DEFAULT_EDGE_END_LBL].tolist()
+
+    def cut_edges(self, id = None, source = None, sink = None):
+        if id == None:
+            self.edges.drop(self.edges[(self.edges[DEFAULT_EDGE_START_LBL] == source) & (self.edges[DEFAULT_EDGE_END_LBL] == sink)].index, inplace=True)
+        else:
+            self.edges.drop(id, inplace=True)
+
+    def get_edges(self, id = None, source = None, sink = None):
         if id != None:
             return self.Edge(self.edges.loc[id])
         else:
             try:
-                return self.Edge(self.edges.loc[(self.edges[DEFAULT_EDGE_START_LBL] == source) & (self.edges[DEFAULT_EDGE_END_LBL] == sink)].squeeze())
+                return [self.Edge(i.squeeze()) for x, i in self.edges.loc[(self.edges[DEFAULT_EDGE_START_LBL] == source) & (self.edges[DEFAULT_EDGE_END_LBL] == sink)].iterrows()]
+                #return self.Edge(self.edges.loc[(self.edges[DEFAULT_EDGE_START_LBL] == source) & (self.edges[DEFAULT_EDGE_END_LBL] == sink)].squeeze())
             except KeyError:
                 return None
         
     def copy(self):
-        return Graph(self.nodes.copy(), self.egdes.copy())
+        return Graph(self.nodes.copy(), self.edges.copy())
 
+    def to_adj_list(self):
+        g = {}
+        for i, node in self.nodes.iterrows():
+            g[node[DEFAULT_NODE_ID_LBL]] = self.get_sinks_from_source(node[DEFAULT_NODE_ID_LBL])
+        return g
+
+    def topological_sort(self, DEBUG = False):
+        '''Returns a list of node indices, sorted s.t. E(A,B) implies a < b in ordering'''
+        adj_list = self.to_adj_list()
+        unmarked_nodes = self.nodes[DEFAULT_NODE_ID_LBL].tolist()
+        temporary_mark = dict([(id, False) for id in unmarked_nodes])
+        sort = []
+
+        def visit(id, tabs = 0):
+            if DEBUG:
+                print(''.join(['\t' for i in range(tabs)]), id)
+            if id not in unmarked_nodes:
+                return
+            elif temporary_mark[id]:
+                raise Exception("Graph is not a DAG; Topological Sort makes no sense!")
+
+            temporary_mark[id] = True
+            tabs += 1
+            for sink_id in adj_list[id]:
+                visit(sink_id, tabs)
+            temporary_mark[id] = False
+
+            unmarked_nodes.remove(id)
+            sort.append(id)
+
+        while unmarked_nodes:
+            cur = unmarked_nodes[0]
+            visit(cur)
+
+        return sort
+
+    def flow(self, src, sink, amt, with_risk = False):
+        # Flow up to amt
+        # Underlying assumption: flow may begin at supply, but always ends at current storage
+        tank_lbl = DEFAULT_NODE_SUPPLY_LBL if self.nodes.loc[src, DEFAULT_NODE_SUPPLY_LBL] > 0 else DEFAULT_NODE_CURRENT_STORAGE_LBL
+        actual_flow = min(amt, self.nodes.loc[src, tank_lbl])
+        self.nodes.loc[self.nodes[DEFAULT_NODE_ID_LBL] == src, tank_lbl] -= actual_flow
+        self.nodes.loc[self.nodes[DEFAULT_NODE_ID_LBL] == sink, DEFAULT_NODE_CURRENT_STORAGE_LBL] += actual_flow
+    
     def export_to_xlsx(self, filename, nodes_sheet_name = "Nodes", edges_sheet_name = "Edges"):
         with pd.ExcelWriter(filename, engine = 'openpyxl') as writer:
             self.nodes.to_excel(writer, sheet_name = nodes_sheet_name)
