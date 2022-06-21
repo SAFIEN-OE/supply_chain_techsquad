@@ -1,9 +1,12 @@
 from platform import node
 import pandas as pd
 import geopandas as gpd
+import geojson
 import shapely as shp
 import numpy as np
 from enum import Enum
+import json
+from io import StringIO
 from ortools.graph import pywrapgraph
 
 STANDARD_RISK = lambda probability, impact: probability * impact
@@ -49,7 +52,8 @@ class Graph:
         props = {}
         
         # TODO: This should take a label dictionary, specific to the graph, that allows mapping properties w/out assumptions
-        def __init__(self, props):
+        def __init__(self, graph, props):
+            self.graph = graph
             self.id = props[DEFAULT_NODE_ID_LBL]
             self.throughput = props[DEFAULT_NODE_THROUGHPUT_LBL]
             self.storage_capacity = props[DEFAULT_NODE_STORAGE_CAPACITY_LBL]
@@ -58,7 +62,18 @@ class Graph:
             self.demand = props[DEFAULT_NODE_DEMAND_LBL]
             self.current_storage = props[DEFAULT_NODE_CURRENT_STORAGE_LBL]
             self.lat_long = (props[DEFAULT_NODE_LATITUDE_LBL], props[DEFAULT_NODE_LONGITUDE_LBL])
-            self.props = props.to_dict()
+            self.risks = props['Risks']
+            self.props = props if isinstance(props, dict) else props.to_dict()
+            
+        def to_json(self):
+            dict = {}
+            dict['type'] = 'node'
+            dict['id'] = self.id
+            dict['location'] = {'latitude' : self.lat_long[0], 'longitude' : self.lat_long[1]}
+            dict['geometry'] = geojson.dumps(self.graph.nodes.loc[self.id, 'geometry']) if 'geometry' in self.graph.nodes.columns else 'null'
+            dict['risks'] = self.graph.node_risks[self.id]
+            return json.dumps(dict)
+            
             
         def __str__(self):
             return self.props.__str__()
@@ -84,6 +99,16 @@ class Graph:
             self.capacity = props[DEFAULT_EDGE_CAPACITY_LBL]
             self.overall_risk = props[DEFAULT_EDGE_RISK_LBL] if DEFAULT_EDGE_RISK_LBL in props.keys() else 0
             self.props = props.to_dict()
+            
+        def to_json(self):
+            dict = {}
+            dict['type'] = 'edge'
+            dict['id'] = self.id
+            dict['start'] = self.start_node_id
+            dict['end'] = self.end_node_id
+            dict['location'] = {'latitude' : self.lat_long[0], 'longitude' : self.lat_long[1]}
+            dict['risks'] = self.risks
+            return json.dumps(dict)
 
         def __str__(self):
             return self.props.__str__()
@@ -98,6 +123,9 @@ class Graph:
 
     nodes = None
     edges = None
+    
+    node_risks = None
+    edge_risks = None
 
     def __init__(self, nodes = None, edges = None):
         self.nodes = nodes
@@ -110,8 +138,10 @@ class Graph:
         return self.edges
 
     def get_node(self, id):
-        return self.Node(self.nodes.loc[id])
-
+        ret = self.nodes.loc[id].to_dict()
+        ret.update([('Risks', self.node_risks[id])])
+        return self.Node(self, ret)
+        
     def get_sinks_from_source(self, id):
         '''Return a list of the indices of all nodes that have an incoming edge from id'''
         return self.edges.loc[self.edges[DEFAULT_EDGE_START_LBL] == id, DEFAULT_EDGE_END_LBL].tolist()
@@ -220,9 +250,10 @@ class Graph:
         
     def populate_from_xlsx(self, filename, nodes_sheet_name = 'Nodes', edges_sheet_name = 'Edges', node_id_col = DEFAULT_NODE_ID_LBL, start_node_col = DEFAULT_EDGE_START_LBL, end_node_col = DEFAULT_EDGE_END_LBL, latitude_column = DEFAULT_NODE_LATITUDE_LBL, longitude_column = DEFAULT_NODE_LONGITUDE_LBL):
         g = pd.read_excel(filename, sheet_name = [nodes_sheet_name, edges_sheet_name], engine='openpyxl')
-
+        
         # Add geometry column for points
         self.nodes = g[nodes_sheet_name]
+        self.node_risks = dict([(id, []) for id in self.nodes[node_id_col]])
         self.nodes = self.geometry_from_points(self.nodes, shape = 'Point', point_columns = [latitude_column, longitude_column])
 
         # Add geometry column for edges
@@ -244,6 +275,8 @@ class Graph:
 
         for i, node in self.nodes.iterrows():
             applied_risks = lrisks[lrisks.contains(node['geometry'])] 
+            for i, ar in applied_risks.iterrows():
+                self.node_risks[node['Node ID']].append({'type' : 'location', 'probability' : ar['Probability'], 'impact' : ar['Impact']})
             self.nodes.at[i, DEFAULT_NODE_RISK_LBL] += risk_metric(applied_risks['Probability'], applied_risks['Impact']).sum()
 
         for i, edge in self.edges.iterrows():
