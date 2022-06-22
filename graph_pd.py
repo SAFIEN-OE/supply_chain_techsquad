@@ -62,7 +62,6 @@ class Graph:
             self.demand = props[DEFAULT_NODE_DEMAND_LBL]
             self.current_storage = props[DEFAULT_NODE_CURRENT_STORAGE_LBL]
             self.lat_long = (props[DEFAULT_NODE_LATITUDE_LBL], props[DEFAULT_NODE_LONGITUDE_LBL])
-            self.risks = props['Risks']
             self.props = props if isinstance(props, dict) else props.to_dict()
             
         def to_json(self):
@@ -71,9 +70,8 @@ class Graph:
             dict['id'] = self.id
             dict['location'] = {'latitude' : self.lat_long[0], 'longitude' : self.lat_long[1]}
             dict['geometry'] = geojson.dumps(self.graph.nodes.loc[self.id, 'geometry']) if 'geometry' in self.graph.nodes.columns else 'null'
-            dict['risks'] = self.graph.node_risks[self.id]
+            dict['risks'] = self.graph.node_ind_risks[self.id]
             return json.dumps(dict)
-            
             
         def __str__(self):
             return self.props.__str__()
@@ -92,8 +90,9 @@ class Graph:
         risks = {}
         props = {}
 
-        def __init__(self, props):
+        def __init__(self, graph, props):
             self.id = props[DEFAULT_EDGE_ID_LBL]
+            self.graph = graph
             self.start_node_id = props[DEFAULT_EDGE_START_LBL]
             self.end_node_id = props[DEFAULT_EDGE_END_LBL]
             self.capacity = props[DEFAULT_EDGE_CAPACITY_LBL]
@@ -103,11 +102,11 @@ class Graph:
         def to_json(self):
             dict = {}
             dict['type'] = 'edge'
-            dict['id'] = self.id
-            dict['start'] = self.start_node_id
-            dict['end'] = self.end_node_id
-            dict['location'] = {'latitude' : self.lat_long[0], 'longitude' : self.lat_long[1]}
-            dict['risks'] = self.risks
+            dict['id'] = int(self.id)
+            dict['start'] = int(self.start_node_id)
+            dict['end'] = int(self.end_node_id)
+            dict['geometry'] = geojson.dumps(self.graph.edges.loc[self.id, 'geometry']) if 'geometry' in self.graph.edges.columns else 'null'
+            dict['risks'] = self.graph.edge_ind_risks[self.id]
             return json.dumps(dict)
 
         def __str__(self):
@@ -124,8 +123,8 @@ class Graph:
     nodes = None
     edges = None
     
-    node_risks = None
-    edge_risks = None
+    node_ind_risks = None
+    edge_ind_risks = None
 
     def __init__(self, nodes = None, edges = None):
         self.nodes = nodes
@@ -138,8 +137,8 @@ class Graph:
         return self.edges
 
     def get_node(self, id):
-        ret = self.nodes.loc[id].to_dict()
-        ret.update([('Risks', self.node_risks[id])])
+        ret = self.nodes.loc[self.nodes['Node ID'] == id].set_index('Node ID', drop = False).to_dict('index')[id]
+        ret.update([('Risks', self.node_ind_risks[id])])
         return self.Node(self, ret)
         
     def get_sinks_from_source(self, id):
@@ -152,12 +151,18 @@ class Graph:
         else:
             self.edges.drop(id, inplace=True)
 
+    def get_all_edges(self):
+        return [self.Edge(self, i.squeeze()) for x, i in self.edges.iterrows()]
+        
+    def get_all_nodes(self):
+        return [self.get_node(n['Node ID']) for x, n in self.nodes.iterrows()]
+
     def get_edges(self, id = None, source = None, sink = None):
         if id != None:
-            return self.Edge(self.edges.loc[id])
+            return self.Edge(self, self.edges.loc[id])
         else:
             try:
-                return [self.Edge(i.squeeze()) for x, i in self.edges.loc[(self.edges[DEFAULT_EDGE_START_LBL] == source) & (self.edges[DEFAULT_EDGE_END_LBL] == sink)].iterrows()]
+                return [self.Edge(self, i.squeeze()) for x, i in self.edges.loc[(self.edges[DEFAULT_EDGE_START_LBL] == source) & (self.edges[DEFAULT_EDGE_END_LBL] == sink)].iterrows()]
                 #return self.Edge(self.edges.loc[(self.edges[DEFAULT_EDGE_START_LBL] == source) & (self.edges[DEFAULT_EDGE_END_LBL] == sink)].squeeze())
             except KeyError:
                 return None
@@ -248,17 +253,17 @@ class Graph:
     
         return gdf.merge(shapes) if shape_column else shapes
         
-    def populate_from_xlsx(self, filename, nodes_sheet_name = 'Nodes', edges_sheet_name = 'Edges', node_id_col = DEFAULT_NODE_ID_LBL, start_node_col = DEFAULT_EDGE_START_LBL, end_node_col = DEFAULT_EDGE_END_LBL, latitude_column = DEFAULT_NODE_LATITUDE_LBL, longitude_column = DEFAULT_NODE_LONGITUDE_LBL):
+    def populate_from_xlsx(self, filename, nodes_sheet_name = 'Nodes', edges_sheet_name = 'Edges', node_id_col = DEFAULT_NODE_ID_LBL, edge_id_col = DEFAULT_EDGE_ID_LBL, start_node_col = DEFAULT_EDGE_START_LBL, end_node_col = DEFAULT_EDGE_END_LBL, latitude_column = DEFAULT_NODE_LATITUDE_LBL, longitude_column = DEFAULT_NODE_LONGITUDE_LBL):
         g = pd.read_excel(filename, sheet_name = [nodes_sheet_name, edges_sheet_name], engine='openpyxl')
-        
         # Add geometry column for points
         self.nodes = g[nodes_sheet_name]
-        self.node_risks = dict([(id, []) for id in self.nodes[node_id_col]])
+        self.node_ind_risks = dict([(id, []) for id in self.nodes[node_id_col]])
         self.nodes = self.geometry_from_points(self.nodes, shape = 'Point', point_columns = [latitude_column, longitude_column])
 
         # Add geometry column for edges
         self.edges = g[edges_sheet_name]
         node_locations = self.nodes[[node_id_col, 'geometry']]
+        self.edge_ind_risks = dict([(id, []) for id in self.edges[edge_id_col]])
         self.edges = self.edges.merge(node_locations, left_on = start_node_col, right_on = node_id_col).rename(columns = {'geometry' : 'Start Point'})
         self.edges = self.edges.merge(node_locations, left_on = end_node_col, right_on = node_id_col).rename(columns = {'geometry' : 'End Point'})
         self.edges = self.geometry_from_points(self.edges, shape = 'Line', point_columns = ['Start Point', 'End Point'])
@@ -276,16 +281,21 @@ class Graph:
         for i, node in self.nodes.iterrows():
             applied_risks = lrisks[lrisks.contains(node['geometry'])] 
             for i, ar in applied_risks.iterrows():
-                self.node_risks[node['Node ID']].append({'type' : 'location', 'probability' : ar['Probability'], 'impact' : ar['Impact']})
+                self.node_ind_risks[node['Node ID']].append({'type' : 'location', 'probability' : ar['Probability'], 'impact' : ar['Impact']})
             self.nodes.at[i, DEFAULT_NODE_RISK_LBL] += risk_metric(applied_risks['Probability'], applied_risks['Impact']).sum()
 
         for i, edge in self.edges.iterrows():
             applied_risks = lrisks[lrisks.intersects(edge['geometry'])]
+            for i, ar in applied_risks.iterrows():
+                self.edge_ind_risks[node['Node ID']].append({'type' : 'location', 'probability' : ar['Probability'], 'impact' : ar['Impact']})
             self.edges.at[i, DEFAULT_EDGE_RISK_LBL] += risk_metric(applied_risks['Probability'],applied_risks['Impact']).sum()
 
         # Assume total risk should be capped at 1
         self.nodes.loc[self.nodes[DEFAULT_NODE_RISK_LBL] > 1, DEFAULT_NODE_RISK_LBL] = 1.0
         self.edges.loc[self.edges[DEFAULT_EDGE_RISK_LBL] > 1, DEFAULT_EDGE_RISK_LBL] = 1.0
+        
+    def to_json(self):
+        return [n.to_json() for n in self.get_all_nodes()].append([e.to_json() for e in self.get_all_edges()])
 
     def compute_risk(self, risks, risk_metric = STANDARD_RISK, apply_node_risk_to_edges = False, edge_or_nodes_col_name = 'Edge or Node', name_col = 'Risk Name', 
                     node_str = 'Node', edge_str = 'Edge', node_id_risk_col = DEFAULT_NODE_ID_LBL, edge_id_risk_col = DEFAULT_EDGE_ID_LBL, 
