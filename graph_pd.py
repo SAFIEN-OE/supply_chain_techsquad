@@ -6,7 +6,6 @@ import shapely as shp
 import numpy as np
 from enum import Enum
 import json
-from io import StringIO
 from ortools.graph import pywrapgraph
 
 STANDARD_RISK = lambda probability, impact: probability * impact
@@ -40,21 +39,22 @@ class Graph:
 
     class Node:
 
-        id = 0
-        throughput = 0
-        storage_capacity = 0
-        overall_risk = 0
-        risks = {}
-        supply = 0
-        demand = 0
-        current_storage = 0
-        lat_long = (0.0, 0.0)
-        props = {}
+        # TODO: In Python, is there really ever a need for default values
+        # id = 0
+        # throughput = 0
+        # storage_capacity = 0
+        # overall_risk = 0
+        # risks = {}
+        # supply = 0
+        # demand = 0
+        # current_storage = 0
+        # lat_long = (0.0, 0.0)
+        # props = {}
         
-        # TODO: This should take a label dictionary, specific to the graph, that allows mapping properties w/out assumptions
-        def __init__(self, graph, props):
+        # Captures reference to enclosing graph; better way to do mapping to containing object?
+        def __init__(self, graph, id, props):
             self.graph = graph
-            self.id = props[DEFAULT_NODE_ID_LBL]
+            self.id = id #props[DEFAULT_NODE_ID_LBL]
             self.throughput = props[DEFAULT_NODE_THROUGHPUT_LBL]
             self.storage_capacity = props[DEFAULT_NODE_STORAGE_CAPACITY_LBL]
             self.overall_risk = props[DEFAULT_NODE_RISK_LBL] if DEFAULT_NODE_RISK_LBL in props.keys() else 0
@@ -82,17 +82,18 @@ class Graph:
 
     class Edge:
         
-        id = 0
-        start_node_id = 0
-        end_node_id = 0
-        capacity = 0
-        overall_risk = 0
-        risks = {}
-        props = {}
+        # TODO: In Python, is there really ever a need for default values
+        # id = 0
+        # start_node_id = 0
+        # end_node_id = 0
+        # capacity = 0
+        # overall_risk = 0
+        # risks = {}
+        # props = {}
 
-        def __init__(self, graph, props):
-            self.id = props[DEFAULT_EDGE_ID_LBL]
-            self.graph = graph
+        def __init__(self, id, props):
+            self.id = id #props[DEFAULT_EDGE_ID_LBL]
+            self.graph = self
             self.start_node_id = props[DEFAULT_EDGE_START_LBL]
             self.end_node_id = props[DEFAULT_EDGE_END_LBL]
             self.capacity = props[DEFAULT_EDGE_CAPACITY_LBL]
@@ -139,7 +140,7 @@ class Graph:
     def get_node(self, id):
         ret = self.nodes.loc[self.nodes['Node ID'] == id].set_index('Node ID', drop = False).to_dict('index')[id]
         ret.update([('Risks', self.node_ind_risks[id])])
-        return self.Node(self, ret)
+        return self.Node(self, id, ret)
         
     def get_sinks_from_source(self, id):
         '''Return a list of the indices of all nodes that have an incoming edge from id'''
@@ -152,7 +153,7 @@ class Graph:
             self.edges.drop(id, inplace=True)
 
     def get_all_edges(self):
-        return [self.Edge(self, i.squeeze()) for x, i in self.edges.iterrows()]
+        return [self.Edge(i['Edge ID'], i.squeeze()) for x, i in self.edges.iterrows()]
         
     def get_all_nodes(self):
         return [self.get_node(n['Node ID']) for x, n in self.nodes.iterrows()]
