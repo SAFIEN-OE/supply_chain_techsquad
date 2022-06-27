@@ -1,100 +1,117 @@
 {
-    "graph" :
-    [
+    "graph": [
         {
-            "id" : 0,
-            "name" : "Sample Node 0",
-            "type" : ["node", "Production"],
-            "throughput" : 1000,
-            "storage capacity" : 0,
-            "supply" : 100,
-            "demand" : 0,
-            "current storage" : 0,
-            "resupply" : false,
-            "location" : [0.0, 0.0],
-            "risks" :
-                [
+            "id": 0,
+            "name": "Sample Node 0",
+            "type": [
+                "node", 
+                "Production"
+            ],
+            "throughput": 1000,
+            "storage capacity": 0,
+            "supply": 100,
+            "demand": 0,
+            "current storage": 0,
+            "resupply": false,
+            "location": [0.0,0.0],
+            "risks": [
                     {
-                        "type" : "location",
-                        "probability" : 0.3,
-                        "impact" : 0.5
+                        "type": "location",
+                        "probability": 0.3,
+                        "impact": 0.5
                     },
                     {
-                        "type" : "type",
-                        "probability" : 0.1,
-                        "impact" : 0.9
+                        "type": "type",
+                        "probability": 0.01,
+                        "impact": 0.9
                     }
                 ]
         },
         {
-            "id" : 1,
-            "name" : "Sample Node 1",
-            "type" : ["node", "Intermediate"],
-            "throughput" : 1000,
-            "storage capacity" : 50,
-            "supply" : 0,
-            "demand" : 0,
-            "current storage" : 25,
-            "resupply" : true,
-            "location" : [0.0, 0.0],
-            "risks" :
-                [
+            "id": 1,
+            "name": "Sample Node 1",
+            "type": [
+                "node",
+                "Intermediate"
+            ],
+            "throughput": 1000,
+            "storage capacity": 50,
+            "supply": 0,
+            "demand": 0,
+            "current storage": 25,
+            "resupply": true,
+            "location": [
+                0.0,
+                0.0
+            ],
+            "risks": [
                     {
-                        "type" : "type",
-                        "probability" : 0.01,
-                        "impact" : 0.95
+                        "type": "type",
+                        "probability": 0.01,
+                        "impact": 0.95
                     }
                 ]
         },
         {
-            "id" : 2,
-            "name" : "Sample Node 2",
-            "type" : ["node", "End"],
-            "throughput" : 1000,
-            "storage capacity" : 50,
-            "supply" : 0,
-            "demand" : 100,
-            "current storage" : 0,
-            "resupply" : false,
-            "location" : [0.0, 0.0],
-            "risks" :
-                [
+            "id": 2,
+            "name": "Sample Node 2",
+            "type": [
+                "node",
+                "End"
+            ],
+            "throughput": 1000,
+            "storage capacity": 50,
+            "supply": 0,
+            "demand": 100,
+            "current storage": 0,
+            "resupply": false,
+            "location": [
+                0.0,
+                0.0
+            ],
+            "risks": [
                     {
-                        "type" : "location",
-                        "probability" : 0.5,
-                        "impact" : 0.1
+                        "type": "location",
+                        "probability": 0.5,
+                        "impact": 0.1
                     }
                 ]
         },
         {
-            "id" : 0,
-            "name" : "Sample Edge 0",
-            "type" : ["edge", "Railroad"],
-            "start" : 0,
-            "end" : 1,
-            "flow" : 100,
-            "capacity" : 100,
-            "risks" :[
+            "id": 0,
+            "name": "Sample Edge 0",
+            "type": [
+                "edge",
+                "Railroad"
+            ],
+            "start": 0,
+            "end": 1,
+            "flow": 100,
+            "capacity": 100,
+            "risks": [
                 {
-                    "type" : "location",
-                    "probability" : 0.25,
-                    "impact" : 0.3
+                    "type": "location",
+                    "probability": 0.25,
+                    "impact": 0.3
                 }
             ]
         },
         {
-            "id" : 0,
-            "name" : "Sample Edge 1",
-            "type" : ["edge", "Pipeline"],
-            "start" : 1,
-            "end" : 2,
-            "flow" : 0,
-            "capacity" : 200,
-            "risks" :[
+            "id": 0,
+            "name": "Sample Edge 1",
+            "type": [
+                "edge",
+                "Pipeline"
+            ],
+            "start": 1,
+            "end": 2,
+            "flow": 25,
+            "capacity": 200,
+            "risks": [
                 {
-                    "type" : "type",
-                    "probability" : 0.3,
-                    "impact" : 0.5
+                    "type": "type",
+                    "probability": 0.3,
+                    "impact": 0.5
                 }
             ]
         }

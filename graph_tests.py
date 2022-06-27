@@ -1,6 +1,8 @@
 from graph_api_rewrite import Node, Edge, Graph
 import json
 
+## BASIC TEST 1: Manually constructing a graph
+
 # n0 = Node(id = 0, location = (0, 0))
 # n1 = Node(id = 1, location = (1, 1))
 # n2 = Node(id = 2, location = (2, 2))
@@ -12,47 +14,20 @@ import json
 
 # print(g.topological_sort())
 
-f = open("sample_network.json")
-test = json.load(f)
+## BASIC TEST 2: Importing a JSON Network, Simulating Flow, Exporting
 
-nodes = []
-edges = []
+# g = Graph(filename = "sample_network.json")
 
-for obj in test['graph']:
-    if obj['type'][0] == 'node':
-        nodes.append(Node(id = obj['id'], name = obj['name'], type = obj['type'], 
-        throughput=obj['throughput'], storage_capacity=obj['storage capacity'],
-        supply = obj['supply'], demand = obj['demand'], current_storage = obj['current storage'],
-        resupply = obj['resupply'], location = obj['location'], risks = obj['risks']))
-    elif obj['type'][0] == 'edge':
-        edges.append(Edge(id = obj['id'], name = obj['name'], start = obj['start'], end = obj['end'],
-                            type = obj['type'], flow = obj['flow'], capacity = obj['capacity'],
-                            risks = obj['risks']))
+# g.simulate(with_risk=True)
 
-g = Graph(nodes, edges)
+# g.export_json("sample_out.json")
 
-g.flow(edge = 0, amount = 100)
+## BASIC TEST 3: Importing a real JSON Network and simulating without any actual flow
 
-with(open('sample_out.json', 'w', encoding='utf-8')) as f:
-    json.dump(g.flatten(), f, ensure_ascii=False, indent = 4)
+g = Graph(filename = "IN_Supply_Chain_Model.json")
+# g.cut_edges(start_id = 39, end_id = 26)
+# g.cut_edges(start_id = 42, end_id = 40)
 
-f = open("sample_out.json")
-test = json.load(f)
+g.simulate(with_risk=True)
 
-nodes = []
-edges = []
-
-for obj in test['graph']:
-    if obj['type'][0] == 'node':
-        nodes.append(Node(id = obj['id'], name = obj['name'], type = obj['type'], 
-        throughput=obj['throughput'], storage_capacity=obj['storage capacity'],
-        supply = obj['supply'], demand = obj['demand'], current_storage = obj['current storage'],
-        resupply = obj['resupply'], location = obj['location'], risks = obj['risks']))
-    elif obj['type'][0] == 'edge':
-        edges.append(Edge(id = obj['id'], name = obj['name'], start = obj['start'], end = obj['end'],
-                            type = obj['type'], flow = obj['flow'], capacity = obj['capacity'],
-                            risks = obj['risks']))
-
-g = Graph(nodes, edges)
-
-print(g)
+g.export_json("Graph_Tests_IN_Supply_Chain_Model.json")

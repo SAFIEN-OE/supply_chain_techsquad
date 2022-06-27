@@ -9,6 +9,7 @@ from enum import Enum
 from ortools.graph import pywrapgraph
 import constants
 import json
+import random
 
 class GraphComponent():
 
@@ -178,20 +179,20 @@ class Graph:
     def __init__(self, nodes = None, edges = None, filename = None):
 
         if filename:
-            nodes = []
-            edges = []
+            self.nodes = []
+            self.edges = []
             with open(filename) as f:
                 g = json.load(f)
                 try:
                     for obj in g['graph']:
                         match obj['type'][0]:
                             case 'node':
-                                nodes.append(Node(id = obj['id'], name = obj['name'], type = obj['type'], 
+                                self.nodes.append(Node(id = obj['id'], name = obj['name'], type = obj['type'], 
                                 throughput=obj['throughput'], storage_capacity=obj['storage capacity'],
                                 supply = obj['supply'], demand = obj['demand'], current_storage = obj['current storage'],
                                 resupply = obj['resupply'], location = obj['location'], risks = obj['risks']))
                             case 'edge':
-                                edges.append(Edge(id = obj['id'], name = obj['name'], start = obj['start'], end = obj['end'],
+                                self.edges.append(Edge(id = obj['id'], name = obj['name'], start = obj['start'], end = obj['end'],
                                 type = obj['type'], flow = obj['flow'], capacity = obj['capacity'],
                                 risks = obj['risks']))
 
@@ -201,9 +202,9 @@ class Graph:
             self.nodes = nodes
             self.edges = edges
 
-            self.edges_by_source = dict([(n.get_id(), []) for n in self.nodes])
-            for edge in self.edges:
-                self.edges_by_source[edge.start].append(edge)
+        self.edges_by_source = dict([(n.get_id(), []) for n in self.nodes])
+        for edge in self.edges:
+            self.edges_by_source[edge.start].append(edge)
 
     def get_node(self, id):
         return self.nodes[id]
@@ -243,7 +244,8 @@ class Graph:
             for e in edges:
                 if e.end == end_id:
                     # CHECK: Is e a live reference into edges? Might need to change below
-                    del e
+                    self.edges.remove(e)
+                    self.edges_by_source[start_id].remove(e)
 
     def copy(self):
         return Graph(self.nodes.copy(), self.edges.copy())
@@ -261,6 +263,7 @@ class Graph:
         sort = []
 
         def visit(id):
+            #g.cut_edges(start_id = 39, end_id = 26)
             if id not in unmarked_nodes:
                 return
             elif temporary_mark[id]:
@@ -288,15 +291,61 @@ class Graph:
         start = next((n for n in self.nodes if n.get_id() == edge.start))
         end = next((n for n in self.nodes if n.get_id() == edge.end))
 
+        getter = start.get_current_storage
+        setter = start.set_current_storage
         if start.get_supply() > 0:
-            actual_flow = min(start.get_supply(), amount)
-            start.set_supply(start.get_supply() - actual_flow)
-        else:
-            actual_flow = min(start.get_current_storage(), amount)
-            actual_flow = start.set_current_storage(start.get_current_storage() - actual_flow)
+            getter = start.get_supply
+            setter = start.set_supply
 
-        end.set_current_storage(end.get_current_storage() + actual_flow)
+        # Stage 1: Apply risk to start node (How much flows out?)
+        flow_out = amount
+        for risk in start.risks:
+            if random.random() < risk['probability']:
+                print("Simulation Impact: Flow out reduced from", flow_out)
+                flow_out *= (1.0 - risk['impact'])
+                print("\tto", flow_out)
+            else:
+                print("Simulation Impact: Flow out maintained at", flow_out)
 
-        edge.set_flow(edge.get_flow() - actual_flow)
+        flow_out = min(getter(), flow_out, edge.get_capacity())
+        setter(max(0, getter() - amount))
 
-        return actual_flow
+        # Stage 2: Apply risk to edge (How much flows along?)
+        flow_across = flow_out
+        for risk in edge.risks:
+            if random.random() < risk['probability']:
+                print("Simulation Impact: Flow across reduced from", flow_across)
+                flow_across *= (1.0 - risk['impact'])
+                print("\tto", flow_across)
+            else:
+                print("Simulation Impact: Flow across maintained", flow_across)
+        edge.set_flow(edge.get_flow() - flow_out)
+
+        # Stage 3: Apply risk to end node (How much flows in?)
+        flow_in = flow_across
+        for risk in end.risks:
+            if random.random() < risk['probability']:
+                print("Simulation Impact: Flow in reduced from", flow_in)
+                flow_in *= (1.0 - risk['impact'])
+                print("\tto", flow_in)
+            else:
+                print("Simulation Impact: Flow in maintained at", flow_in)
+
+        flow_in = min(end.get_throughput(), flow_in)
+        end.set_current_storage(end.get_current_storage() + flow_in)
+
+        return flow_in
+
+    def simulate(self, with_risk = False):
+        
+        ordering = self.topological_sort()
+
+        for node_id in ordering:
+            edges = self.get_edges_from_start(node_id)
+
+            for edge in edges:
+                self.flow(edge, edge.get_flow(), with_risk)
+
+    def export_json(self, filename):
+        with(open(filename, 'w', encoding='utf-8')) as f:
+            json.dump(self.flatten(), f, ensure_ascii=False, indent = 4)
