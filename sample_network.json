@@ -70,8 +70,9 @@
             "id" : 0,
             "name" : "Sample Edge 0",
             "type" : ["edge", "Railroad"],
-            "start_id" : 0,
-            "end_id" : 1,
+            "start" : 0,
+            "end" : 1,
+            "flow" : 100,
             "capacity" : 100,
             "risks" :[
                 {
@@ -85,8 +86,9 @@
             "id" : 0,
             "name" : "Sample Edge 1",
             "type" : ["edge", "Pipeline"],
-            "start_id" : 1,
-            "end_id" : 2,
+            "start" : 1,
+            "end" : 2,
+            "flow" : 0,
             "capacity" : 200,
             "risks" :[
                 {

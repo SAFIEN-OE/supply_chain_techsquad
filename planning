@@ -5,7 +5,11 @@ Need a way to flatten a list of risks
         - Would need to tag with a key to make sure risk file matches planning
         - Could output a "plan file" that contains both a plan and the assumptions
             that were made when generating that plan
-            
+
+    - Require JSON: 
+        - The graph/simulator library will start off only importing things in the JSON format
+            - You want something different; you write a converter for it
+
     - Proposed format (JSON):
         - 
         {

@@ -8,6 +8,7 @@ import numpy as np
 from enum import Enum
 from ortools.graph import pywrapgraph
 import constants
+import json
 
 class GraphComponent():
 
@@ -70,14 +71,20 @@ class Node(GraphComponent):
 
     def set_supply(self, new_supply):
         self.supply = new_supply
+        return self.supply
     
     def get_demand(self):
         return self.demand
 
     def set_demand(self, new_demand):
         self.demand = new_demand
+        return self.demand
 
     def get_current_storage(self):
+        return self.current_storage
+
+    def set_current_storage(self, new_current_storage):
+        self.current_storage = new_current_storage
         return self.current_storage
 
     def get_resupply(self):
@@ -91,6 +98,21 @@ class Node(GraphComponent):
 
     def get_risks(self):
         return super().get_risks()
+
+    def to_dict(self):
+        return {
+            "id" : self.id,
+            "name" : self.name,
+            "type" : self.type,
+            "throughput" : self.throughput,
+            "storage capacity" : self.storage_capacity,
+            "supply" : self.supply,
+            "demand" : self.demand,
+            "current storage" : self.current_storage,
+            "resupply" : self.resupply,
+            "location" : self.location,
+            "risks" : self.risks
+        }
 
 class Edge(GraphComponent):
 
@@ -138,15 +160,50 @@ class Edge(GraphComponent):
     def get_risks(self):
         return super().get_risks()
 
+    def to_dict(self):
+        return {
+            "id" : self.id,
+            "name" : self.name,
+            "type" : self.type,
+            "start" : self.start,
+            "end" : self.end,
+            "flow" : self.flow,
+            "capacity" : self.capacity,
+            "risks" : self.risks
+        }
+
 class Graph:
 
-    def __init__(self, nodes = None, edges = None):
-        self.nodes = nodes
-        self.edges = edges
+    # TODO: add support for additional properties packaged with nodes and edges
+    def __init__(self, nodes = None, edges = None, filename = None):
 
-        self.edges_by_source = dict([(n.get_id(), []) for n in self.nodes])
-        for edge in self.edges:
-            self.edges_by_source[edge.start.get_id()].append(edge)
+        if filename:
+            nodes = []
+            edges = []
+            with open(filename) as f:
+                g = json.load(f)
+                try:
+                    for obj in g['graph']:
+                        match obj['type'][0]:
+                            case 'node':
+                                nodes.append(Node(id = obj['id'], name = obj['name'], type = obj['type'], 
+                                throughput=obj['throughput'], storage_capacity=obj['storage capacity'],
+                                supply = obj['supply'], demand = obj['demand'], current_storage = obj['current storage'],
+                                resupply = obj['resupply'], location = obj['location'], risks = obj['risks']))
+                            case 'edge':
+                                edges.append(Edge(id = obj['id'], name = obj['name'], start = obj['start'], end = obj['end'],
+                                type = obj['type'], flow = obj['flow'], capacity = obj['capacity'],
+                                risks = obj['risks']))
+
+                except KeyError:
+                    print("Key Error: JSON incorrectly formatted")
+        else:
+            self.nodes = nodes
+            self.edges = edges
+
+            self.edges_by_source = dict([(n.get_id(), []) for n in self.nodes])
+            for edge in self.edges:
+                self.edges_by_source[edge.start].append(edge)
 
     def get_node(self, id):
         return self.nodes[id]
@@ -158,10 +215,13 @@ class Graph:
         return self.edges[id]
 
     def get_edges(self, start_id, end_id):
-        return [edge for edge in self.get_edges_from_start(start_id) if edge.end.id == end_id]
+        return [edge for edge in self.get_edges_from_start(start_id) if edge.end == end_id]
 
     def get_all_edges(self):
         return self.edges
+
+    def flatten(self):
+        return {'graph' : [n.to_dict() for n in self.nodes] + [e.to_dict() for e in self.edges]}
 
     # TODO: Change to assume edges hold references directly to nodes
     def get_edges_from_start(self, start_id):
@@ -181,7 +241,7 @@ class Graph:
         else:
             edges = self.edges_by_source[start_id]
             for e in edges:
-                if e.end.id == end_id:
+                if e.end == end_id:
                     # CHECK: Is e a live reference into edges? Might need to change below
                     del e
 
@@ -208,7 +268,7 @@ class Graph:
 
             temporary_mark[id] = True
             for end in adj_list[id]:
-                visit(end.get_id())
+                visit(end)
             temporary_mark[id] = False
 
             unmarked_nodes.remove(id)
@@ -219,3 +279,24 @@ class Graph:
             visit(cur)
 
         return sort
+
+    def flow(self, edge, amount, with_risk = False):
+
+        if isinstance(edge, int):
+            edge = next((e for e in self.edges if e.get_id() == edge))
+
+        start = next((n for n in self.nodes if n.get_id() == edge.start))
+        end = next((n for n in self.nodes if n.get_id() == edge.end))
+
+        if start.get_supply() > 0:
+            actual_flow = min(start.get_supply(), amount)
+            start.set_supply(start.get_supply() - actual_flow)
+        else:
+            actual_flow = min(start.get_current_storage(), amount)
+            actual_flow = start.set_current_storage(start.get_current_storage() - actual_flow)
+
+        end.set_current_storage(end.get_current_storage() + actual_flow)
+
+        edge.set_flow(edge.get_flow() - actual_flow)
+
+        return actual_flow

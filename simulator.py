@@ -61,7 +61,7 @@ def simulate(graph, flow, probabilistic = False):
     output = graph.copy()
 
     # Sort intended flow by topological ordering of graph
-    top_sort = graph.topological_sort()
+    top_sort = graph.topological_sort(DEBUG=True)
     flow.sort(key=lambda f: top_sort.index(f['source']))
 
     for f in flow:
