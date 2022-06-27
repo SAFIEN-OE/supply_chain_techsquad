@@ -10,6 +10,7 @@ from ortools.graph import pywrapgraph
 import constants
 import json
 import random
+import pyproj
 
 class GraphComponent():
 
@@ -176,11 +177,12 @@ class Edge(GraphComponent):
 class Graph:
 
     # TODO: add support for additional properties packaged with nodes and edges
-    def __init__(self, nodes = None, edges = None, filename = None):
+    def __init__(self, nodes = None, edges = None, risks = None, filename = None):
 
         if filename:
             self.nodes = []
             self.edges = []
+            self.risks = []
             with open(filename) as f:
                 g = json.load(f)
                 try:
@@ -195,12 +197,21 @@ class Graph:
                                 self.edges.append(Edge(id = obj['id'], name = obj['name'], start = obj['start'], end = obj['end'],
                                 type = obj['type'], flow = obj['flow'], capacity = obj['capacity'],
                                 risks = obj['risks']))
+                            # case 'risk':
+                            #     match obj['type'][1]:
+                            #         case 'location':
+                            #             location = (obj['Latitude'], obj['Longitude'], obj['Inner Distance'], obj['Outer Distance']) if obj['shape'] == 'Circle'
+                            #                     else (obj['Top Left Lat'], obj['Top Left Long'], obj['Bottom Right Lat'], obj['Bottom Right Long'])
+                            #         case 'type':
+                                    
+                            #         case 'list':
 
                 except KeyError:
                     print("Key Error: JSON incorrectly formatted")
         else:
             self.nodes = nodes
             self.edges = edges
+            self.risks = risks
 
         self.edges_by_source = dict([(n.get_id(), []) for n in self.nodes])
         for edge in self.edges:
@@ -222,7 +233,8 @@ class Graph:
         return self.edges
 
     def flatten(self):
-        return {'graph' : [n.to_dict() for n in self.nodes] + [e.to_dict() for e in self.edges]}
+        return {'graph' : [n.to_dict() for n in self.nodes] + [e.to_dict() for e in self.edges]
+                        + [r.to_dict() for r in self.risks]}
 
     # TODO: Change to assume edges hold references directly to nodes
     def get_edges_from_start(self, start_id):
@@ -248,7 +260,53 @@ class Graph:
                     self.edges_by_source[start_id].remove(e)
 
     def copy(self):
-        return Graph(self.nodes.copy(), self.edges.copy())
+        return Graph(self.nodes.copy(), self.edges.copy(), self.risks.copy())
+        
+    @staticmethod
+    def geometry_from_points(shape, points, outer_distance = 0, spherical_projection = constants.DEFAULT_SPHERICAL_PROJECTION, flat_projection = constants.DEFAULT_FLAT_PROJECTION):
+        spherical_to_flat = pyproj.Transformer.from_crs(pyproj.CRS(spherical_projection), pyproj.CRS(flat_projection), always_xy=True).transform
+        flat_to_spherical = pyproj.Transformer.from_crs(pyproj.CRS(flat_projection), pyproj.CRS(spherical_projection), always_xy=True).transform
+        
+        match shape.lower():
+            case 'box':
+                geometry = shp.geometry.box(*points)
+            case 'circle':
+                geometry = shp.ops.transform(spherical_to_flat, shp.geometry.Point(*points)).buffer(outer_distance)
+            case 'point':
+                geometry = shp.geometry.Point(*points)
+            case 'line':
+                geometry = shp.geometry.LineString(*points)
+            case 'polygon':
+                geometry = shp.geometry.Polygon(*points)
+                
+        return shp.ops.transform(flat_to_spherical, geometry)
+        
+    def compute_location_risk(self, lrisks, risk_metric = constants.STANDARD_RISK):
+        for node in self.nodes:
+            if not node.geometry:
+                node.geometry = geometry_from_points('Point', node.location)
+            for lrisk in lrisks:
+                if lrisk['geometry'].intersects(node.geometry):
+                    node.risks.append({'type' : 'location',
+                                        'probability' : lrisk['probability'],
+                                        'impact' : lrisk['impact']})
+                                        
+        for edge in self.edges:
+            if not edge.geometry:
+                p1 = next((n for n in self.nodes if n.get_id() == edge.start))
+                p2 = next((n for n in self.nodes if n.get_id() == edge.end))
+                edge.geometry = geometry_from_points('Line', [p1.location, p2.location])
+            for lrisk in lrisks:
+                if lrisk['geometry'].intersects(edge.geometry):
+                    edge.risks.append({'type' : 'location',
+                                        'probability' : lrisk['probability'],
+                                        'impact' : lrisk['impact']})
+                                        
+    def clear_risks(self):
+        for node in self.nodes:
+            node.risks = []
+        for edge in self.edges:
+            edge.risks = []
 
     def to_adj_list(self):
         g = {}
@@ -349,3 +407,43 @@ class Graph:
     def export_json(self, filename):
         with(open(filename, 'w', encoding='utf-8')) as f:
             json.dump(self.flatten(), f, ensure_ascii=False, indent = 4)
+            
+class Risk:
+    
+    def __init__(self, id = None, name = '', description = '', type = '', 
+                        affected_objects = [], shape = None, location = None, probability = 0.0, impact = 0.0,
+                        target_types = [], target_ids = []):
+        self.id = id
+        self.name = name
+        self.description = description
+        self.type = type
+        self.affected_objects = affected_objects
+        self.shape = shape
+        self.location = location
+        self.probability = probability
+        self.impact = impact
+        self.target_types = target_types
+        self.target_ids = target_ids
+
+    def to_dict(self):
+        ret = {
+            'id' : self.id,
+            'name' : self.name,
+            'description' : self.description,
+            'type' : self.type,
+            'probability' : self.probability,
+            'impact' : self.impact,
+        }
+        
+        match self.type[1]:
+            case 'location':
+                ret['shape'] = self.shape
+                ret['location'] = self.location
+            case 'type':
+                ret['affected_objects'] = self.affected_objects
+                ret['target_types'] = self.target_types
+            case 'list':
+                ret['affected_objects'] = self.affected_objects
+                ret['target_ids'] = self.target_ids
+                
+        return ret

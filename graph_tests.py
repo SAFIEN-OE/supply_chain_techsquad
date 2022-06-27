@@ -24,10 +24,16 @@ import json
 
 ## BASIC TEST 3: Importing a real JSON Network and simulating without any actual flow
 
-g = Graph(filename = "IN_Supply_Chain_Model.json")
+# g = Graph(filename = "IN_Supply_Chain_Model.json")
 # g.cut_edges(start_id = 39, end_id = 26)
 # g.cut_edges(start_id = 42, end_id = 40)
 
-g.simulate(with_risk=True)
+# g.simulate(with_risk=True)
 
-g.export_json("Graph_Tests_IN_Supply_Chain_Model.json")
+# g.export_json("Graph_Tests_IN_Supply_Chain_Model.json")
+
+## BASIC TEST 4: Generating basic geometric shapes
+
+p = Graph.geometry_from_points('Circle', [(0, 0)], outer_distance = 1000000)
+
+print(p)
