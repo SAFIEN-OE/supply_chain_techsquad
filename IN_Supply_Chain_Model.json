@@ -17,7 +17,14 @@
                 47.28,
                 -122.2
             ],
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    47.28,
+                    -122.2
+                ]
+            }
         },
         {
             "id": 2,
@@ -36,7 +43,14 @@
                 45.66,
                 -122.53
             ],
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.66,
+                    -122.53
+                ]
+            }
         },
         {
             "id": 3,
@@ -55,7 +69,14 @@
                 45.8,
                 -118.53
             ],
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.8,
+                    -118.53
+                ]
+            }
         },
         {
             "id": 4,
@@ -74,7 +95,14 @@
                 47.16,
                 -116.56
             ],
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    47.16,
+                    -116.56
+                ]
+            }
         },
         {
             "id": 5,
@@ -93,7 +121,14 @@
                 45.21,
                 -107.77
             ],
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.21,
+                    -107.77
+                ]
+            }
         },
         {
             "id": 6,
@@ -112,7 +147,14 @@
                 47.81,
                 -103.28
             ],
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    47.81,
+                    -103.28
+                ]
+            }
         },
         {
             "id": 7,
@@ -131,7 +173,14 @@
                 41.38,
                 -109.79
             ],
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    41.38,
+                    -109.79
+                ]
+            }
         },
         {
             "id": 8,
@@ -150,7 +199,14 @@
                 42.68,
                 -112.16
             ],
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    42.68,
+                    -112.16
+                ]
+            }
         },
         {
             "id": 9,
@@ -169,7 +225,14 @@
                 39.84,
                 -112.25
             ],
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    39.84,
+                    -112.25
+                ]
+            }
         },
         {
             "id": 10,
@@ -188,7 +251,14 @@
                 40.71,
                 -117.0
             ],
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    40.71,
+                    -117.0
+                ]
+            }
         },
         {
             "id": 11,
@@ -207,7 +277,14 @@
                 39.77,
                 -123.42
             ],
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    39.77,
+                    -123.42
+                ]
+            }
         },
         {
             "id": 12,
@@ -226,7 +303,14 @@
                 34.6,
                 -120.08
             ],
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    34.6,
+                    -120.08
+                ]
+            }
         },
         {
             "id": 13,
@@ -245,7 +329,14 @@
                 36.39,
                 -115.15
             ],
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    36.39,
+                    -115.15
+                ]
+            }
         },
         {
             "id": 14,
@@ -264,7 +355,14 @@
                 35.1,
                 -114.71
             ],
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    35.1,
+                    -114.71
+                ]
+            }
         },
         {
             "id": 15,
@@ -283,7 +381,14 @@
                 33.28,
                 -111.81
             ],
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    33.28,
+                    -111.81
+                ]
+            }
         },
         {
             "id": 16,
@@ -302,7 +407,14 @@
                 39.64,
                 -104.69
             ],
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    39.64,
+                    -104.69
+                ]
+            }
         },
         {
             "id": 17,
@@ -321,7 +433,14 @@
                 33.94,
                 -107.77
             ],
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    33.94,
+                    -107.77
+                ]
+            }
         },
         {
             "id": 18,
@@ -340,7 +459,14 @@
                 32.1,
                 -106.64
             ],
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    32.1,
+                    -106.64
+                ]
+            }
         },
         {
             "id": 19,
@@ -359,7 +485,14 @@
                 32.01,
                 -103.05
             ],
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    32.01,
+                    -103.05
+                ]
+            }
         },
         {
             "id": 20,
@@ -378,7 +511,14 @@
                 26.57,
                 -98.11
             ],
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    26.57,
+                    -98.11
+                ]
+            }
         },
         {
             "id": 21,
@@ -397,7 +537,14 @@
                 29.38,
                 -98.5
             ],
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    29.38,
+                    -98.5
+                ]
+            }
         },
         {
             "id": 22,
@@ -416,7 +563,14 @@
                 35.28,
                 -99.48
             ],
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    35.28,
+                    -99.48
+                ]
+            }
         },
         {
             "id": 23,
@@ -435,7 +589,14 @@
                 36.59,
                 -99.08
             ],
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    36.59,
+                    -99.08
+                ]
+            }
         },
         {
             "id": 24,
@@ -454,7 +615,14 @@
                 39.74,
                 -95.48
             ],
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    39.74,
+                    -95.48
+                ]
+            }
         },
         {
             "id": 25,
@@ -473,7 +641,14 @@
                 42.73,
                 -96.76
             ],
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    42.73,
+                    -96.76
+                ]
+            }
         },
         {
             "id": 26,
@@ -492,7 +667,14 @@
                 44.84,
                 -93.1
             ],
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.84,
+                    -93.1
+                ]
+            }
         },
         {
             "id": 27,
@@ -511,7 +693,14 @@
                 38.03,
                 -90.33
             ],
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    38.03,
+                    -90.33
+                ]
+            }
         },
         {
             "id": 28,
@@ -530,7 +719,14 @@
                 35.21,
                 -90.16
             ],
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    35.21,
+                    -90.16
+                ]
+            }
         },
         {
             "id": 29,
@@ -549,7 +745,14 @@
                 32.36,
                 -93.54
             ],
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    32.36,
+                    -93.54
+                ]
+            }
         },
         {
             "id": 30,
@@ -568,7 +771,14 @@
                 29.66,
                 -95.12
             ],
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    29.66,
+                    -95.12
+                ]
+            }
         },
         {
             "id": 31,
@@ -587,7 +797,14 @@
                 29.65,
                 -90.77
             ],
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    29.65,
+                    -90.77
+                ]
+            }
         },
         {
             "id": 32,
@@ -606,7 +823,14 @@
                 33.72,
                 -86.59
             ],
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    33.72,
+                    -86.59
+                ]
+            }
         },
         {
             "id": 33,
@@ -625,7 +849,14 @@
                 33.87,
                 -84.39
             ],
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    33.87,
+                    -84.39
+                ]
+            }
         },
         {
             "id": 34,
@@ -644,7 +875,14 @@
                 37.0,
                 -82.15
             ],
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    37.0,
+                    -82.15
+                ]
+            }
         },
         {
             "id": 35,
@@ -663,7 +901,14 @@
                 29.23,
                 -81.13
             ],
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    29.23,
+                    -81.13
+                ]
+            }
         },
         {
             "id": 36,
@@ -682,7 +927,14 @@
                 33.54,
                 -79.15
             ],
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    33.54,
+                    -79.15
+                ]
+            }
         },
         {
             "id": 37,
@@ -701,7 +953,14 @@
                 34.85,
                 -79.59
             ],
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    34.85,
+                    -79.59
+                ]
+            }
         },
         {
             "id": 38,
@@ -720,7 +979,14 @@
                 36.228,
                 -87.31
             ],
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    36.228,
+                    -87.31
+                ]
+            }
         },
         {
             "id": 39,
@@ -739,7 +1005,14 @@
                 40.41,
                 -85.9
             ],
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    40.41,
+                    -85.9
+                ]
+            }
         },
         {
             "id": 40,
@@ -758,7 +1031,14 @@
                 41.81,
                 -83.47
             ],
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    41.81,
+                    -83.47
+                ]
+            }
         },
         {
             "id": 41,
@@ -777,7 +1057,14 @@
                 39.3,
                 -82.47
             ],
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    39.3,
+                    -82.47
+                ]
+            }
         },
         {
             "id": 42,
@@ -796,7 +1083,14 @@
                 39.47,
                 -79.92
             ],
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    39.47,
+                    -79.92
+                ]
+            }
         },
         {
             "id": 43,
@@ -815,7 +1109,14 @@
                 38.17,
                 -78.03
             ],
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    38.17,
+                    -78.03
+                ]
+            }
         },
         {
             "id": 44,
@@ -834,7 +1135,14 @@
                 35.57,
                 -76.67
             ],
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    35.57,
+                    -76.67
+                ]
+            }
         },
         {
             "id": 45,
@@ -853,7 +1161,14 @@
                 38.29,
                 -76.39
             ],
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    38.29,
+                    -76.39
+                ]
+            }
         },
         {
             "id": 46,
@@ -872,7 +1187,14 @@
                 43.04,
                 -78.43
             ],
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    43.04,
+                    -78.43
+                ]
+            }
         },
         {
             "id": 47,
@@ -891,7 +1213,14 @@
                 40.61,
                 -73.95
             ],
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    40.61,
+                    -73.95
+                ]
+            }
         },
         {
             "id": 48,
@@ -910,7 +1239,14 @@
                 42.2,
                 -71.01
             ],
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    42.2,
+                    -71.01
+                ]
+            }
         },
         {
             "id": 49,
@@ -929,7 +1265,14 @@
                 44.37,
                 -68.32
             ],
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.37,
+                    -68.32
+                ]
+            }
         },
         {
             "id": 1,
@@ -942,7 +1285,20 @@
             "end": 10,
             "flow": 0,
             "capacity": 65627,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        45.66,
+                        -122.53
+                    ],
+                    [
+                        40.71,
+                        -117.0
+                    ]
+                ]
+            }
         },
         {
             "id": 2,
@@ -955,7 +1311,20 @@
             "end": 11,
             "flow": 0,
             "capacity": 64163,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        45.66,
+                        -122.53
+                    ],
+                    [
+                        39.77,
+                        -123.42
+                    ]
+                ]
+            }
         },
         {
             "id": 3,
@@ -968,7 +1337,20 @@
             "end": 6,
             "flow": 0,
             "capacity": 37775,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        45.8,
+                        -118.53
+                    ],
+                    [
+                        47.81,
+                        -103.28
+                    ]
+                ]
+            }
         },
         {
             "id": 4,
@@ -981,7 +1363,20 @@
             "end": 2,
             "flow": 0,
             "capacity": 53411,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        47.16,
+                        -116.56
+                    ],
+                    [
+                        45.66,
+                        -122.53
+                    ]
+                ]
+            }
         },
         {
             "id": 5,
@@ -994,7 +1389,20 @@
             "end": 8,
             "flow": 0,
             "capacity": 25437,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        45.21,
+                        -107.77
+                    ],
+                    [
+                        42.68,
+                        -112.16
+                    ]
+                ]
+            }
         },
         {
             "id": 6,
@@ -1007,7 +1415,20 @@
             "end": 3,
             "flow": 0,
             "capacity": 51966,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        41.38,
+                        -109.79
+                    ],
+                    [
+                        45.8,
+                        -118.53
+                    ]
+                ]
+            }
         },
         {
             "id": 7,
@@ -1020,7 +1441,20 @@
             "end": 6,
             "flow": 0,
             "capacity": 33701,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        41.38,
+                        -109.79
+                    ],
+                    [
+                        47.81,
+                        -103.28
+                    ]
+                ]
+            }
         },
         {
             "id": 8,
@@ -1033,7 +1467,20 @@
             "end": 26,
             "flow": 0,
             "capacity": 51645,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        41.38,
+                        -109.79
+                    ],
+                    [
+                        44.84,
+                        -93.1
+                    ]
+                ]
+            }
         },
         {
             "id": 9,
@@ -1046,7 +1493,20 @@
             "end": 4,
             "flow": 0,
             "capacity": 55521,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        39.84,
+                        -112.25
+                    ],
+                    [
+                        47.16,
+                        -116.56
+                    ]
+                ]
+            }
         },
         {
             "id": 10,
@@ -1059,7 +1519,20 @@
             "end": 8,
             "flow": 0,
             "capacity": 48574,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        39.84,
+                        -112.25
+                    ],
+                    [
+                        42.68,
+                        -112.16
+                    ]
+                ]
+            }
         },
         {
             "id": 11,
@@ -1072,7 +1545,20 @@
             "end": 13,
             "flow": 0,
             "capacity": 77138,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        39.84,
+                        -112.25
+                    ],
+                    [
+                        36.39,
+                        -115.15
+                    ]
+                ]
+            }
         },
         {
             "id": 12,
@@ -1085,7 +1571,20 @@
             "end": 8,
             "flow": 0,
             "capacity": 71864,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        40.71,
+                        -117.0
+                    ],
+                    [
+                        42.68,
+                        -112.16
+                    ]
+                ]
+            }
         },
         {
             "id": 13,
@@ -1098,7 +1597,20 @@
             "end": 11,
             "flow": 0,
             "capacity": 47774,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        40.71,
+                        -117.0
+                    ],
+                    [
+                        39.77,
+                        -123.42
+                    ]
+                ]
+            }
         },
         {
             "id": 14,
@@ -1111,7 +1623,20 @@
             "end": 12,
             "flow": 0,
             "capacity": 29599,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        40.71,
+                        -117.0
+                    ],
+                    [
+                        34.6,
+                        -120.08
+                    ]
+                ]
+            }
         },
         {
             "id": 15,
@@ -1124,7 +1649,20 @@
             "end": 12,
             "flow": 0,
             "capacity": 28083,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        39.77,
+                        -123.42
+                    ],
+                    [
+                        34.6,
+                        -120.08
+                    ]
+                ]
+            }
         },
         {
             "id": 16,
@@ -1137,7 +1675,20 @@
             "end": 12,
             "flow": 0,
             "capacity": 30263,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        39.77,
+                        -123.42
+                    ],
+                    [
+                        34.6,
+                        -120.08
+                    ]
+                ]
+            }
         },
         {
             "id": 17,
@@ -1150,7 +1701,20 @@
             "end": 1,
             "flow": 0,
             "capacity": 22220,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        34.6,
+                        -120.08
+                    ],
+                    [
+                        47.28,
+                        -122.2
+                    ]
+                ]
+            }
         },
         {
             "id": 18,
@@ -1163,7 +1727,20 @@
             "end": 13,
             "flow": 0,
             "capacity": 64381,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        34.6,
+                        -120.08
+                    ],
+                    [
+                        36.39,
+                        -115.15
+                    ]
+                ]
+            }
         },
         {
             "id": 19,
@@ -1176,7 +1753,20 @@
             "end": 3,
             "flow": 0,
             "capacity": 56440,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        35.1,
+                        -114.71
+                    ],
+                    [
+                        45.8,
+                        -118.53
+                    ]
+                ]
+            }
         },
         {
             "id": 20,
@@ -1189,7 +1779,20 @@
             "end": 9,
             "flow": 0,
             "capacity": 51458,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        33.28,
+                        -111.81
+                    ],
+                    [
+                        39.84,
+                        -112.25
+                    ]
+                ]
+            }
         },
         {
             "id": 21,
@@ -1202,7 +1805,20 @@
             "end": 10,
             "flow": 0,
             "capacity": 44104,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        33.28,
+                        -111.81
+                    ],
+                    [
+                        40.71,
+                        -117.0
+                    ]
+                ]
+            }
         },
         {
             "id": 22,
@@ -1215,7 +1831,20 @@
             "end": 12,
             "flow": 0,
             "capacity": 28384,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        33.28,
+                        -111.81
+                    ],
+                    [
+                        34.6,
+                        -120.08
+                    ]
+                ]
+            }
         },
         {
             "id": 23,
@@ -1228,7 +1857,20 @@
             "end": 12,
             "flow": 0,
             "capacity": 25080,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        33.28,
+                        -111.81
+                    ],
+                    [
+                        34.6,
+                        -120.08
+                    ]
+                ]
+            }
         },
         {
             "id": 24,
@@ -1241,7 +1883,20 @@
             "end": 13,
             "flow": 0,
             "capacity": 27521,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        33.28,
+                        -111.81
+                    ],
+                    [
+                        36.39,
+                        -115.15
+                    ]
+                ]
+            }
         },
         {
             "id": 25,
@@ -1254,7 +1909,20 @@
             "end": 5,
             "flow": 0,
             "capacity": 30976,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        39.64,
+                        -104.69
+                    ],
+                    [
+                        45.21,
+                        -107.77
+                    ]
+                ]
+            }
         },
         {
             "id": 26,
@@ -1267,7 +1935,20 @@
             "end": 9,
             "flow": 0,
             "capacity": 43212,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        39.64,
+                        -104.69
+                    ],
+                    [
+                        39.84,
+                        -112.25
+                    ]
+                ]
+            }
         },
         {
             "id": 27,
@@ -1280,7 +1961,20 @@
             "end": 25,
             "flow": 0,
             "capacity": 76457,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        39.64,
+                        -104.69
+                    ],
+                    [
+                        42.73,
+                        -96.76
+                    ]
+                ]
+            }
         },
         {
             "id": 28,
@@ -1293,7 +1987,20 @@
             "end": 9,
             "flow": 0,
             "capacity": 79009,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        33.94,
+                        -107.77
+                    ],
+                    [
+                        39.84,
+                        -112.25
+                    ]
+                ]
+            }
         },
         {
             "id": 29,
@@ -1306,7 +2013,20 @@
             "end": 9,
             "flow": 0,
             "capacity": 50939,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        33.94,
+                        -107.77
+                    ],
+                    [
+                        39.84,
+                        -112.25
+                    ]
+                ]
+            }
         },
         {
             "id": 30,
@@ -1319,7 +2039,20 @@
             "end": 15,
             "flow": 0,
             "capacity": 37614,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        33.94,
+                        -107.77
+                    ],
+                    [
+                        33.28,
+                        -111.81
+                    ]
+                ]
+            }
         },
         {
             "id": 31,
@@ -1332,7 +2065,20 @@
             "end": 15,
             "flow": 0,
             "capacity": 27759,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        33.94,
+                        -107.77
+                    ],
+                    [
+                        33.28,
+                        -111.81
+                    ]
+                ]
+            }
         },
         {
             "id": 32,
@@ -1345,7 +2091,20 @@
             "end": 16,
             "flow": 0,
             "capacity": 69355,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        33.94,
+                        -107.77
+                    ],
+                    [
+                        39.64,
+                        -104.69
+                    ]
+                ]
+            }
         },
         {
             "id": 33,
@@ -1358,7 +2117,20 @@
             "end": 16,
             "flow": 0,
             "capacity": 63368,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        33.94,
+                        -107.77
+                    ],
+                    [
+                        39.64,
+                        -104.69
+                    ]
+                ]
+            }
         },
         {
             "id": 34,
@@ -1371,7 +2143,20 @@
             "end": 17,
             "flow": 0,
             "capacity": 60328,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        32.1,
+                        -106.64
+                    ],
+                    [
+                        33.94,
+                        -107.77
+                    ]
+                ]
+            }
         },
         {
             "id": 35,
@@ -1384,7 +2169,20 @@
             "end": 17,
             "flow": 0,
             "capacity": 74166,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        32.1,
+                        -106.64
+                    ],
+                    [
+                        33.94,
+                        -107.77
+                    ]
+                ]
+            }
         },
         {
             "id": 36,
@@ -1397,7 +2195,20 @@
             "end": 7,
             "flow": 0,
             "capacity": 22365,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        32.01,
+                        -103.05
+                    ],
+                    [
+                        41.38,
+                        -109.79
+                    ]
+                ]
+            }
         },
         {
             "id": 37,
@@ -1410,7 +2221,20 @@
             "end": 14,
             "flow": 0,
             "capacity": 27558,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        32.01,
+                        -103.05
+                    ],
+                    [
+                        35.1,
+                        -114.71
+                    ]
+                ]
+            }
         },
         {
             "id": 38,
@@ -1423,7 +2247,20 @@
             "end": 22,
             "flow": 0,
             "capacity": 45152,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        32.01,
+                        -103.05
+                    ],
+                    [
+                        35.28,
+                        -99.48
+                    ]
+                ]
+            }
         },
         {
             "id": 39,
@@ -1436,7 +2273,20 @@
             "end": 19,
             "flow": 0,
             "capacity": 45447,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        26.57,
+                        -98.11
+                    ],
+                    [
+                        32.01,
+                        -103.05
+                    ]
+                ]
+            }
         },
         {
             "id": 40,
@@ -1449,7 +2299,20 @@
             "end": 47,
             "flow": 0,
             "capacity": 67495,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        26.57,
+                        -98.11
+                    ],
+                    [
+                        40.61,
+                        -73.95
+                    ]
+                ]
+            }
         },
         {
             "id": 41,
@@ -1462,7 +2325,20 @@
             "end": 18,
             "flow": 0,
             "capacity": 44647,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        29.38,
+                        -98.5
+                    ],
+                    [
+                        32.1,
+                        -106.64
+                    ]
+                ]
+            }
         },
         {
             "id": 42,
@@ -1475,7 +2351,20 @@
             "end": 18,
             "flow": 0,
             "capacity": 43136,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        29.38,
+                        -98.5
+                    ],
+                    [
+                        32.1,
+                        -106.64
+                    ]
+                ]
+            }
         },
         {
             "id": 43,
@@ -1488,7 +2377,20 @@
             "end": 23,
             "flow": 0,
             "capacity": 24753,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        29.38,
+                        -98.5
+                    ],
+                    [
+                        36.59,
+                        -99.08
+                    ]
+                ]
+            }
         },
         {
             "id": 44,
@@ -1501,7 +2403,20 @@
             "end": 23,
             "flow": 0,
             "capacity": 38044,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        29.38,
+                        -98.5
+                    ],
+                    [
+                        36.59,
+                        -99.08
+                    ]
+                ]
+            }
         },
         {
             "id": 45,
@@ -1514,7 +2429,20 @@
             "end": 7,
             "flow": 0,
             "capacity": 70429,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        35.28,
+                        -99.48
+                    ],
+                    [
+                        41.38,
+                        -109.79
+                    ]
+                ]
+            }
         },
         {
             "id": 46,
@@ -1527,7 +2455,20 @@
             "end": 26,
             "flow": 0,
             "capacity": 64090,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        35.28,
+                        -99.48
+                    ],
+                    [
+                        44.84,
+                        -93.1
+                    ]
+                ]
+            }
         },
         {
             "id": 47,
@@ -1540,7 +2481,20 @@
             "end": 16,
             "flow": 0,
             "capacity": 50454,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        36.59,
+                        -99.08
+                    ],
+                    [
+                        39.64,
+                        -104.69
+                    ]
+                ]
+            }
         },
         {
             "id": 48,
@@ -1553,7 +2507,20 @@
             "end": 16,
             "flow": 0,
             "capacity": 39198,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        36.59,
+                        -99.08
+                    ],
+                    [
+                        39.64,
+                        -104.69
+                    ]
+                ]
+            }
         },
         {
             "id": 49,
@@ -1566,7 +2533,20 @@
             "end": 24,
             "flow": 0,
             "capacity": 53911,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        36.59,
+                        -99.08
+                    ],
+                    [
+                        39.74,
+                        -95.48
+                    ]
+                ]
+            }
         },
         {
             "id": 50,
@@ -1579,7 +2559,20 @@
             "end": 24,
             "flow": 0,
             "capacity": 52646,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        36.59,
+                        -99.08
+                    ],
+                    [
+                        39.74,
+                        -95.48
+                    ]
+                ]
+            }
         },
         {
             "id": 51,
@@ -1592,7 +2585,20 @@
             "end": 16,
             "flow": 0,
             "capacity": 29632,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        39.74,
+                        -95.48
+                    ],
+                    [
+                        39.64,
+                        -104.69
+                    ]
+                ]
+            }
         },
         {
             "id": 52,
@@ -1605,7 +2611,20 @@
             "end": 26,
             "flow": 0,
             "capacity": 42023,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        39.74,
+                        -95.48
+                    ],
+                    [
+                        44.84,
+                        -93.1
+                    ]
+                ]
+            }
         },
         {
             "id": 53,
@@ -1618,7 +2637,20 @@
             "end": 26,
             "flow": 0,
             "capacity": 79428,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        39.74,
+                        -95.48
+                    ],
+                    [
+                        44.84,
+                        -93.1
+                    ]
+                ]
+            }
         },
         {
             "id": 54,
@@ -1631,7 +2663,20 @@
             "end": 26,
             "flow": 0,
             "capacity": 25707,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        42.73,
+                        -96.76
+                    ],
+                    [
+                        44.84,
+                        -93.1
+                    ]
+                ]
+            }
         },
         {
             "id": 55,
@@ -1644,7 +2689,20 @@
             "end": 6,
             "flow": 0,
             "capacity": 67774,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        44.84,
+                        -93.1
+                    ],
+                    [
+                        47.81,
+                        -103.28
+                    ]
+                ]
+            }
         },
         {
             "id": 56,
@@ -1657,7 +2715,20 @@
             "end": 40,
             "flow": 0,
             "capacity": 64357,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        44.84,
+                        -93.1
+                    ],
+                    [
+                        41.81,
+                        -83.47
+                    ]
+                ]
+            }
         },
         {
             "id": 57,
@@ -1670,7 +2741,20 @@
             "end": 24,
             "flow": 0,
             "capacity": 73526,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        38.03,
+                        -90.33
+                    ],
+                    [
+                        39.74,
+                        -95.48
+                    ]
+                ]
+            }
         },
         {
             "id": 58,
@@ -1683,7 +2767,20 @@
             "end": 26,
             "flow": 0,
             "capacity": 77211,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        38.03,
+                        -90.33
+                    ],
+                    [
+                        44.84,
+                        -93.1
+                    ]
+                ]
+            }
         },
         {
             "id": 59,
@@ -1696,7 +2793,20 @@
             "end": 39,
             "flow": 0,
             "capacity": 56170,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        38.03,
+                        -90.33
+                    ],
+                    [
+                        40.41,
+                        -85.9
+                    ]
+                ]
+            }
         },
         {
             "id": 60,
@@ -1709,7 +2819,20 @@
             "end": 24,
             "flow": 0,
             "capacity": 26211,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        35.21,
+                        -90.16
+                    ],
+                    [
+                        39.74,
+                        -95.48
+                    ]
+                ]
+            }
         },
         {
             "id": 61,
@@ -1722,7 +2845,20 @@
             "end": 27,
             "flow": 0,
             "capacity": 28050,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        35.21,
+                        -90.16
+                    ],
+                    [
+                        38.03,
+                        -90.33
+                    ]
+                ]
+            }
         },
         {
             "id": 62,
@@ -1735,7 +2871,20 @@
             "end": 38,
             "flow": 0,
             "capacity": 21480,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        35.21,
+                        -90.16
+                    ],
+                    [
+                        36.228,
+                        -87.31
+                    ]
+                ]
+            }
         },
         {
             "id": 63,
@@ -1748,7 +2897,20 @@
             "end": 22,
             "flow": 0,
             "capacity": 44065,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        32.36,
+                        -93.54
+                    ],
+                    [
+                        35.28,
+                        -99.48
+                    ]
+                ]
+            }
         },
         {
             "id": 64,
@@ -1761,7 +2923,20 @@
             "end": 23,
             "flow": 0,
             "capacity": 58672,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        32.36,
+                        -93.54
+                    ],
+                    [
+                        36.59,
+                        -99.08
+                    ]
+                ]
+            }
         },
         {
             "id": 65,
@@ -1774,7 +2949,20 @@
             "end": 26,
             "flow": 0,
             "capacity": 68622,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        32.36,
+                        -93.54
+                    ],
+                    [
+                        44.84,
+                        -93.1
+                    ]
+                ]
+            }
         },
         {
             "id": 66,
@@ -1787,7 +2975,20 @@
             "end": 28,
             "flow": 0,
             "capacity": 54630,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        32.36,
+                        -93.54
+                    ],
+                    [
+                        35.21,
+                        -90.16
+                    ]
+                ]
+            }
         },
         {
             "id": 67,
@@ -1800,7 +3001,20 @@
             "end": 40,
             "flow": 0,
             "capacity": 27995,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        32.36,
+                        -93.54
+                    ],
+                    [
+                        41.81,
+                        -83.47
+                    ]
+                ]
+            }
         },
         {
             "id": 68,
@@ -1813,7 +3027,20 @@
             "end": 21,
             "flow": 0,
             "capacity": 79145,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        29.66,
+                        -95.12
+                    ],
+                    [
+                        29.38,
+                        -98.5
+                    ]
+                ]
+            }
         },
         {
             "id": 69,
@@ -1826,7 +3053,20 @@
             "end": 21,
             "flow": 0,
             "capacity": 78006,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        29.66,
+                        -95.12
+                    ],
+                    [
+                        29.38,
+                        -98.5
+                    ]
+                ]
+            }
         },
         {
             "id": 70,
@@ -1839,7 +3079,20 @@
             "end": 22,
             "flow": 0,
             "capacity": 59961,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        29.66,
+                        -95.12
+                    ],
+                    [
+                        35.28,
+                        -99.48
+                    ]
+                ]
+            }
         },
         {
             "id": 71,
@@ -1852,7 +3105,20 @@
             "end": 23,
             "flow": 0,
             "capacity": 76358,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        29.66,
+                        -95.12
+                    ],
+                    [
+                        36.59,
+                        -99.08
+                    ]
+                ]
+            }
         },
         {
             "id": 72,
@@ -1865,7 +3131,20 @@
             "end": 28,
             "flow": 0,
             "capacity": 41461,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        29.66,
+                        -95.12
+                    ],
+                    [
+                        35.21,
+                        -90.16
+                    ]
+                ]
+            }
         },
         {
             "id": 73,
@@ -1878,7 +3157,20 @@
             "end": 31,
             "flow": 0,
             "capacity": 43119,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        29.66,
+                        -95.12
+                    ],
+                    [
+                        29.65,
+                        -90.77
+                    ]
+                ]
+            }
         },
         {
             "id": 74,
@@ -1891,7 +3183,20 @@
             "end": 45,
             "flow": 0,
             "capacity": 47068,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        29.66,
+                        -95.12
+                    ],
+                    [
+                        38.29,
+                        -76.39
+                    ]
+                ]
+            }
         },
         {
             "id": 75,
@@ -1904,7 +3209,20 @@
             "end": 28,
             "flow": 0,
             "capacity": 73800,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        29.65,
+                        -90.77
+                    ],
+                    [
+                        35.21,
+                        -90.16
+                    ]
+                ]
+            }
         },
         {
             "id": 76,
@@ -1917,7 +3235,20 @@
             "end": 28,
             "flow": 0,
             "capacity": 65539,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        29.65,
+                        -90.77
+                    ],
+                    [
+                        35.21,
+                        -90.16
+                    ]
+                ]
+            }
         },
         {
             "id": 77,
@@ -1930,7 +3261,20 @@
             "end": 29,
             "flow": 0,
             "capacity": 66176,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        29.65,
+                        -90.77
+                    ],
+                    [
+                        32.36,
+                        -93.54
+                    ]
+                ]
+            }
         },
         {
             "id": 78,
@@ -1943,7 +3287,20 @@
             "end": 29,
             "flow": 0,
             "capacity": 78039,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        29.65,
+                        -90.77
+                    ],
+                    [
+                        32.36,
+                        -93.54
+                    ]
+                ]
+            }
         },
         {
             "id": 79,
@@ -1956,7 +3313,20 @@
             "end": 32,
             "flow": 0,
             "capacity": 69864,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        29.65,
+                        -90.77
+                    ],
+                    [
+                        33.72,
+                        -86.59
+                    ]
+                ]
+            }
         },
         {
             "id": 80,
@@ -1969,7 +3339,20 @@
             "end": 44,
             "flow": 0,
             "capacity": 59292,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        29.65,
+                        -90.77
+                    ],
+                    [
+                        35.57,
+                        -76.67
+                    ]
+                ]
+            }
         },
         {
             "id": 81,
@@ -1982,7 +3365,20 @@
             "end": 28,
             "flow": 0,
             "capacity": 68852,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        33.72,
+                        -86.59
+                    ],
+                    [
+                        35.21,
+                        -90.16
+                    ]
+                ]
+            }
         },
         {
             "id": 82,
@@ -1995,7 +3391,20 @@
             "end": 33,
             "flow": 0,
             "capacity": 67678,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        33.72,
+                        -86.59
+                    ],
+                    [
+                        33.87,
+                        -84.39
+                    ]
+                ]
+            }
         },
         {
             "id": 83,
@@ -2008,7 +3417,20 @@
             "end": 37,
             "flow": 0,
             "capacity": 23723,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        33.87,
+                        -84.39
+                    ],
+                    [
+                        34.85,
+                        -79.59
+                    ]
+                ]
+            }
         },
         {
             "id": 84,
@@ -2021,7 +3443,20 @@
             "end": 37,
             "flow": 0,
             "capacity": 59309,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        33.87,
+                        -84.39
+                    ],
+                    [
+                        34.85,
+                        -79.59
+                    ]
+                ]
+            }
         },
         {
             "id": 85,
@@ -2034,7 +3469,20 @@
             "end": 38,
             "flow": 0,
             "capacity": 33658,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        33.87,
+                        -84.39
+                    ],
+                    [
+                        36.228,
+                        -87.31
+                    ]
+                ]
+            }
         },
         {
             "id": 86,
@@ -2047,7 +3495,20 @@
             "end": 33,
             "flow": 0,
             "capacity": 54607,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        37.0,
+                        -82.15
+                    ],
+                    [
+                        33.87,
+                        -84.39
+                    ]
+                ]
+            }
         },
         {
             "id": 87,
@@ -2060,7 +3521,20 @@
             "end": 33,
             "flow": 0,
             "capacity": 32451,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        37.0,
+                        -82.15
+                    ],
+                    [
+                        33.87,
+                        -84.39
+                    ]
+                ]
+            }
         },
         {
             "id": 88,
@@ -2073,7 +3547,20 @@
             "end": 42,
             "flow": 0,
             "capacity": 31452,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        37.0,
+                        -82.15
+                    ],
+                    [
+                        39.47,
+                        -79.92
+                    ]
+                ]
+            }
         },
         {
             "id": 89,
@@ -2086,7 +3573,20 @@
             "end": 48,
             "flow": 0,
             "capacity": 29677,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        37.0,
+                        -82.15
+                    ],
+                    [
+                        42.2,
+                        -71.01
+                    ]
+                ]
+            }
         },
         {
             "id": 90,
@@ -2099,7 +3599,20 @@
             "end": 33,
             "flow": 0,
             "capacity": 39866,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        29.23,
+                        -81.13
+                    ],
+                    [
+                        33.87,
+                        -84.39
+                    ]
+                ]
+            }
         },
         {
             "id": 91,
@@ -2112,7 +3625,20 @@
             "end": 33,
             "flow": 0,
             "capacity": 51654,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        29.23,
+                        -81.13
+                    ],
+                    [
+                        33.87,
+                        -84.39
+                    ]
+                ]
+            }
         },
         {
             "id": 92,
@@ -2125,7 +3651,20 @@
             "end": 36,
             "flow": 0,
             "capacity": 20959,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        29.23,
+                        -81.13
+                    ],
+                    [
+                        33.54,
+                        -79.15
+                    ]
+                ]
+            }
         },
         {
             "id": 93,
@@ -2138,7 +3677,20 @@
             "end": 49,
             "flow": 0,
             "capacity": 78896,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        29.23,
+                        -81.13
+                    ],
+                    [
+                        44.37,
+                        -68.32
+                    ]
+                ]
+            }
         },
         {
             "id": 94,
@@ -2151,7 +3703,20 @@
             "end": 43,
             "flow": 0,
             "capacity": 44440,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        34.85,
+                        -79.59
+                    ],
+                    [
+                        38.17,
+                        -78.03
+                    ]
+                ]
+            }
         },
         {
             "id": 95,
@@ -2164,7 +3729,20 @@
             "end": 43,
             "flow": 0,
             "capacity": 72319,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        34.85,
+                        -79.59
+                    ],
+                    [
+                        38.17,
+                        -78.03
+                    ]
+                ]
+            }
         },
         {
             "id": 96,
@@ -2177,7 +3755,20 @@
             "end": 37,
             "flow": 0,
             "capacity": 57281,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        36.228,
+                        -87.31
+                    ],
+                    [
+                        34.85,
+                        -79.59
+                    ]
+                ]
+            }
         },
         {
             "id": 97,
@@ -2190,7 +3781,20 @@
             "end": 39,
             "flow": 0,
             "capacity": 27418,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        36.228,
+                        -87.31
+                    ],
+                    [
+                        40.41,
+                        -85.9
+                    ]
+                ]
+            }
         },
         {
             "id": 99,
@@ -2203,7 +3807,20 @@
             "end": 41,
             "flow": 0,
             "capacity": 59332,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        40.41,
+                        -85.9
+                    ],
+                    [
+                        39.3,
+                        -82.47
+                    ]
+                ]
+            }
         },
         {
             "id": 100,
@@ -2216,7 +3833,20 @@
             "end": 41,
             "flow": 0,
             "capacity": 59347,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        40.41,
+                        -85.9
+                    ],
+                    [
+                        39.3,
+                        -82.47
+                    ]
+                ]
+            }
         },
         {
             "id": 101,
@@ -2229,7 +3859,20 @@
             "end": 39,
             "flow": 0,
             "capacity": 28122,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        41.81,
+                        -83.47
+                    ],
+                    [
+                        40.41,
+                        -85.9
+                    ]
+                ]
+            }
         },
         {
             "id": 102,
@@ -2242,7 +3885,20 @@
             "end": 39,
             "flow": 0,
             "capacity": 65091,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        41.81,
+                        -83.47
+                    ],
+                    [
+                        40.41,
+                        -85.9
+                    ]
+                ]
+            }
         },
         {
             "id": 103,
@@ -2255,7 +3911,20 @@
             "end": 41,
             "flow": 0,
             "capacity": 74919,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        41.81,
+                        -83.47
+                    ],
+                    [
+                        39.3,
+                        -82.47
+                    ]
+                ]
+            }
         },
         {
             "id": 104,
@@ -2268,7 +3937,20 @@
             "end": 41,
             "flow": 0,
             "capacity": 32651,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        41.81,
+                        -83.47
+                    ],
+                    [
+                        39.3,
+                        -82.47
+                    ]
+                ]
+            }
         },
         {
             "id": 105,
@@ -2281,7 +3963,20 @@
             "end": 46,
             "flow": 0,
             "capacity": 50461,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        41.81,
+                        -83.47
+                    ],
+                    [
+                        43.04,
+                        -78.43
+                    ]
+                ]
+            }
         },
         {
             "id": 106,
@@ -2294,7 +3989,20 @@
             "end": 46,
             "flow": 0,
             "capacity": 71087,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        41.81,
+                        -83.47
+                    ],
+                    [
+                        43.04,
+                        -78.43
+                    ]
+                ]
+            }
         },
         {
             "id": 107,
@@ -2307,7 +4015,20 @@
             "end": 46,
             "flow": 0,
             "capacity": 29829,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        41.81,
+                        -83.47
+                    ],
+                    [
+                        43.04,
+                        -78.43
+                    ]
+                ]
+            }
         },
         {
             "id": 108,
@@ -2320,7 +4041,20 @@
             "end": 42,
             "flow": 0,
             "capacity": 66125,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        39.3,
+                        -82.47
+                    ],
+                    [
+                        39.47,
+                        -79.92
+                    ]
+                ]
+            }
         },
         {
             "id": 109,
@@ -2333,7 +4067,20 @@
             "end": 43,
             "flow": 0,
             "capacity": 79459,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        39.3,
+                        -82.47
+                    ],
+                    [
+                        38.17,
+                        -78.03
+                    ]
+                ]
+            }
         },
         {
             "id": 111,
@@ -2346,7 +4093,20 @@
             "end": 46,
             "flow": 0,
             "capacity": 47679,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        39.47,
+                        -79.92
+                    ],
+                    [
+                        43.04,
+                        -78.43
+                    ]
+                ]
+            }
         },
         {
             "id": 112,
@@ -2359,7 +4119,20 @@
             "end": 46,
             "flow": 0,
             "capacity": 39827,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        39.47,
+                        -79.92
+                    ],
+                    [
+                        43.04,
+                        -78.43
+                    ]
+                ]
+            }
         },
         {
             "id": 113,
@@ -2372,7 +4145,20 @@
             "end": 47,
             "flow": 0,
             "capacity": 57751,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        39.47,
+                        -79.92
+                    ],
+                    [
+                        40.61,
+                        -73.95
+                    ]
+                ]
+            }
         },
         {
             "id": 114,
@@ -2385,7 +4171,20 @@
             "end": 47,
             "flow": 0,
             "capacity": 72133,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        38.17,
+                        -78.03
+                    ],
+                    [
+                        40.61,
+                        -73.95
+                    ]
+                ]
+            }
         },
         {
             "id": 115,
@@ -2398,7 +4197,20 @@
             "end": 47,
             "flow": 0,
             "capacity": 34496,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        38.17,
+                        -78.03
+                    ],
+                    [
+                        40.61,
+                        -73.95
+                    ]
+                ]
+            }
         },
         {
             "id": 116,
@@ -2411,7 +4223,20 @@
             "end": 47,
             "flow": 0,
             "capacity": 29303,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        43.04,
+                        -78.43
+                    ],
+                    [
+                        40.61,
+                        -73.95
+                    ]
+                ]
+            }
         },
         {
             "id": 117,
@@ -2424,7 +4249,20 @@
             "end": 47,
             "flow": 0,
             "capacity": 60456,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        43.04,
+                        -78.43
+                    ],
+                    [
+                        40.61,
+                        -73.95
+                    ]
+                ]
+            }
         },
         {
             "id": 118,
@@ -2437,7 +4275,20 @@
             "end": 48,
             "flow": 0,
             "capacity": 77606,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        43.04,
+                        -78.43
+                    ],
+                    [
+                        42.2,
+                        -71.01
+                    ]
+                ]
+            }
         },
         {
             "id": 119,
@@ -2450,7 +4301,20 @@
             "end": 48,
             "flow": 0,
             "capacity": 72395,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        43.04,
+                        -78.43
+                    ],
+                    [
+                        42.2,
+                        -71.01
+                    ]
+                ]
+            }
         },
         {
             "id": 120,
@@ -2463,7 +4327,20 @@
             "end": 48,
             "flow": 0,
             "capacity": 46521,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        43.04,
+                        -78.43
+                    ],
+                    [
+                        42.2,
+                        -71.01
+                    ]
+                ]
+            }
         },
         {
             "id": 121,
@@ -2476,7 +4353,20 @@
             "end": 48,
             "flow": 0,
             "capacity": 20357,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        40.61,
+                        -73.95
+                    ],
+                    [
+                        42.2,
+                        -71.01
+                    ]
+                ]
+            }
         },
         {
             "id": 122,
@@ -2489,7 +4379,20 @@
             "end": 48,
             "flow": 0,
             "capacity": 65910,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        40.61,
+                        -73.95
+                    ],
+                    [
+                        42.2,
+                        -71.01
+                    ]
+                ]
+            }
         },
         {
             "id": 123,
@@ -2502,7 +4405,20 @@
             "end": 48,
             "flow": 0,
             "capacity": 43533,
-            "risks": []
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        44.37,
+                        -68.32
+                    ],
+                    [
+                        42.2,
+                        -71.01
+                    ]
+                ]
+            }
         },
         {
             "id": 1,
@@ -2525,7 +4441,274 @@
                     0.0,
                     400.0
                 ]
-            ]
+            ],
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            28.964908,
+                            -92.732412
+                        ],
+                        [
+                            28.9646,
+                            -92.732429
+                        ],
+                        [
+                            28.964295,
+                            -92.732481
+                        ],
+                        [
+                            28.963995,
+                            -92.732566
+                        ],
+                        [
+                            28.963705,
+                            -92.732685
+                        ],
+                        [
+                            28.963426,
+                            -92.732836
+                        ],
+                        [
+                            28.963161,
+                            -92.733017
+                        ],
+                        [
+                            28.962914,
+                            -92.733227
+                        ],
+                        [
+                            28.962685,
+                            -92.733464
+                        ],
+                        [
+                            28.962478,
+                            -92.733725
+                        ],
+                        [
+                            28.962294,
+                            -92.734009
+                        ],
+                        [
+                            28.962135,
+                            -92.734311
+                        ],
+                        [
+                            28.962003,
+                            -92.73463
+                        ],
+                        [
+                            28.9619,
+                            -92.734962
+                        ],
+                        [
+                            28.961825,
+                            -92.735304
+                        ],
+                        [
+                            28.961779,
+                            -92.735653
+                        ],
+                        [
+                            28.961764,
+                            -92.736005
+                        ],
+                        [
+                            28.961779,
+                            -92.736357
+                        ],
+                        [
+                            28.961825,
+                            -92.736706
+                        ],
+                        [
+                            28.9619,
+                            -92.737048
+                        ],
+                        [
+                            28.962003,
+                            -92.73738
+                        ],
+                        [
+                            28.962135,
+                            -92.737699
+                        ],
+                        [
+                            28.962294,
+                            -92.738001
+                        ],
+                        [
+                            28.962478,
+                            -92.738285
+                        ],
+                        [
+                            28.962685,
+                            -92.738546
+                        ],
+                        [
+                            28.962914,
+                            -92.738783
+                        ],
+                        [
+                            28.963161,
+                            -92.738993
+                        ],
+                        [
+                            28.963426,
+                            -92.739174
+                        ],
+                        [
+                            28.963705,
+                            -92.739325
+                        ],
+                        [
+                            28.963995,
+                            -92.739444
+                        ],
+                        [
+                            28.964295,
+                            -92.739529
+                        ],
+                        [
+                            28.9646,
+                            -92.739581
+                        ],
+                        [
+                            28.964908,
+                            -92.739598
+                        ],
+                        [
+                            28.965216,
+                            -92.739581
+                        ],
+                        [
+                            28.965521,
+                            -92.739529
+                        ],
+                        [
+                            28.965821,
+                            -92.739444
+                        ],
+                        [
+                            28.966111,
+                            -92.739325
+                        ],
+                        [
+                            28.96639,
+                            -92.739174
+                        ],
+                        [
+                            28.966655,
+                            -92.738993
+                        ],
+                        [
+                            28.966902,
+                            -92.738783
+                        ],
+                        [
+                            28.967131,
+                            -92.738546
+                        ],
+                        [
+                            28.967338,
+                            -92.738285
+                        ],
+                        [
+                            28.967522,
+                            -92.738001
+                        ],
+                        [
+                            28.967681,
+                            -92.737699
+                        ],
+                        [
+                            28.967812,
+                            -92.73738
+                        ],
+                        [
+                            28.967916,
+                            -92.737048
+                        ],
+                        [
+                            28.967991,
+                            -92.736706
+                        ],
+                        [
+                            28.968037,
+                            -92.736357
+                        ],
+                        [
+                            28.968052,
+                            -92.736005
+                        ],
+                        [
+                            28.968037,
+                            -92.735653
+                        ],
+                        [
+                            28.967991,
+                            -92.735304
+                        ],
+                        [
+                            28.967916,
+                            -92.734962
+                        ],
+                        [
+                            28.967812,
+                            -92.73463
+                        ],
+                        [
+                            28.967681,
+                            -92.734311
+                        ],
+                        [
+                            28.967522,
+                            -92.734009
+                        ],
+                        [
+                            28.967338,
+                            -92.733725
+                        ],
+                        [
+                            28.967131,
+                            -92.733464
+                        ],
+                        [
+                            28.966902,
+                            -92.733227
+                        ],
+                        [
+                            28.966655,
+                            -92.733017
+                        ],
+                        [
+                            28.96639,
+                            -92.732836
+                        ],
+                        [
+                            28.966111,
+                            -92.732685
+                        ],
+                        [
+                            28.965821,
+                            -92.732566
+                        ],
+                        [
+                            28.965521,
+                            -92.732481
+                        ],
+                        [
+                            28.965216,
+                            -92.732429
+                        ],
+                        [
+                            28.964908,
+                            -92.732412
+                        ]
+                    ]
+                ]
+            }
         },
         {
             "id": 2,
@@ -2540,15 +4723,38 @@
             "impact": 0.3,
             "shape": "Box",
             "location": [
-                [
-                    46.80383,
-                    -94.713544
-                ],
-                [
-                    41.512702,
-                    -78.277998
+                41.512702,
+                -78.277998,
+                46.80383,
+                -94.713544
+            ],
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            46.80383,
+                            -78.277998
+                        ],
+                        [
+                            46.80383,
+                            -94.713544
+                        ],
+                        [
+                            41.512702,
+                            -94.713544
+                        ],
+                        [
+                            41.512702,
+                            -78.277998
+                        ],
+                        [
+                            46.80383,
+                            -78.277998
+                        ]
+                    ]
                 ]
-            ]
+            }
         },
         {
             "id": 3,
@@ -2563,15 +4769,38 @@
             "impact": 0.2,
             "shape": "Box",
             "location": [
-                [
-                    35.357709,
-                    -121.476239
-                ],
-                [
-                    30.073861,
-                    -102.272138
+                30.073861,
+                -102.272138,
+                35.357709,
+                -121.476239
+            ],
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            35.357709,
+                            -102.272138
+                        ],
+                        [
+                            35.357709,
+                            -121.476239
+                        ],
+                        [
+                            30.073861,
+                            -121.476239
+                        ],
+                        [
+                            30.073861,
+                            -102.272138
+                        ],
+                        [
+                            35.357709,
+                            -102.272138
+                        ]
+                    ]
                 ]
-            ]
+            }
         },
         {
             "id": 4,
