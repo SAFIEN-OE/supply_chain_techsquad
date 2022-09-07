@@ -31,7 +31,6 @@ Need a way to flatten a list of risks
                 }
             ]
         },
-        
         {
             type : node, 
             id : 12,

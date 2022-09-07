@@ -69,8 +69,11 @@ class Node(GraphComponent):
     def get_storage_capacity(self):
         return self.storage_capacity
 
-    def get_supply(self):
-        return self.supply
+    def get_supply(self, include_storage = False):
+        if include_storage:
+            return self.supply + self.current_storage
+        else:
+            return self.supply
 
     def set_supply(self, new_supply):
         self.supply = new_supply
@@ -183,31 +186,23 @@ class Graph:
     def __init__(self, nodes = None, edges = None, risks = None, filename = None):
 
         if filename:
-            self.nodes = []
-            self.edges = []
-            self.risks = []
+            self.nodes = {}
+            self.edges = {}
+            self.risks = {}
             with open(filename) as f:
                 g = json.load(f)
                 try:
                     for obj in g['graph']:
                         match obj['type'][0]:
                             case 'node':
-                                self.nodes.append(Node(id = obj['id'], name = obj['name'], type = obj['type'], 
+                                self.nodes[obj['id']] = Node(id = obj['id'], name = obj['name'], type = obj['type'], 
                                 throughput=obj['throughput'], storage_capacity=obj['storage capacity'],
                                 supply = obj['supply'], demand = obj['demand'], current_storage = obj['current storage'],
-                                resupply = obj['resupply'], location = obj['location'], risks = obj['risks']))
+                                resupply = obj['resupply'], location = obj['location'], risks = obj['risks'])
                             case 'edge':
-                                self.edges.append(Edge(id = obj['id'], name = obj['name'], start = obj['start'], end = obj['end'],
+                                self.edges[obj['id']] = Edge(id = obj['id'], name = obj['name'], start = obj['start'], end = obj['end'],
                                 type = obj['type'], flow = obj['flow'], capacity = obj['capacity'],
-                                risks = obj['risks']))
-                            # case 'risk':
-                            #     match obj['type'][1]:
-                            #         case 'location':
-                            #             location = (obj['Latitude'], obj['Longitude'], obj['Inner Distance'], obj['Outer Distance']) if obj['shape'] == 'Circle'
-                            #                     else (obj['Top Left Lat'], obj['Top Left Long'], obj['Bottom Right Lat'], obj['Bottom Right Long'])
-                            #         case 'type':
-                                    
-                            #         case 'list':
+                                risks = obj['risks'])
 
                 except KeyError:
                     print("Key Error: JSON incorrectly formatted")
@@ -216,8 +211,8 @@ class Graph:
             self.edges = edges
             self.risks = risks
 
-        self.edges_by_source = dict([(n.get_id(), []) for n in self.nodes])
-        for edge in self.edges:
+        self.edges_by_source = dict([(k, []) for k in self.nodes])
+        for k, edge in self.edges.items():
             self.edges_by_source[edge.start].append(edge)
 
     def get_node(self, id):
@@ -321,13 +316,13 @@ class Graph:
 
     def to_adj_list(self):
         g = {}
-        for node in self.nodes:
-            g[node.get_id()] = [edge.end for edge in self.get_edges_from_start(node.get_id())]
+        for k, node in self.nodes.items():
+            g[k] = [edge.end for edge in self.get_edges_from_start(node.get_id())]
         return g
 
     def topological_sort(self):
         adj_list = self.to_adj_list()
-        unmarked_nodes = [n.get_id() for n in self.nodes]
+        unmarked_nodes = [id for id in self.nodes]
         temporary_mark = dict([(id, False) for id in unmarked_nodes])
         sort = []
 
@@ -419,6 +414,8 @@ class Graph:
         with(open(filename, 'w', encoding='utf-8')) as f:
             geojson.dump(self.flatten(), f, ensure_ascii=False, indent = 4)
         
+    def to_json(self):
+        return geojson.dumps(self.flatten(), ensure_ascii=False, indent = 4)
     # # Ensures each node/edge has correct linkage to associated risks    
     # def update_risks(self):
     #     for risk in self.risks:
@@ -429,6 +426,66 @@ class Graph:
                     
                     
     #             case 'list':
+
+    def compute_plan(self):
+        #TODO: Add support for throughput
+
+        # Operate on copy
+        graph_copy = self.copy()
+
+        # Round 1
+        first_round_solver = pywrapgraph.SimpleMinCostFlow()
+        for k, v in graph_copy.nodes.items():
+            first_round_solver.SetNodeSupply(k, v.get_supply(include_storage = True) - v.get_demand())
+        for k, v in graph_copy.edges.items():
+            first_round_solver.AddArcWithCapacityAndUnitCost(v.get_start(), v.get_end(), v.get_capacity(), 0)
+
+        if first_round_solver.SolveMaxFlowWithMinCost():
+            print('Max flow:', first_round_solver.MaximumFlow())
+            for i in range(first_round_solver.NumArcs()):
+                print('%1s -> %1s   %3s  / %3s' %
+                    (first_round_solver.Tail(i), first_round_solver.Head(i), first_round_solver.Flow(i),
+                    first_round_solver.Capacity(i)))
+        
+        for i in range(first_round_solver.NumArcs()):
+            tail = graph_copy.get_node(first_round_solver.Tail(i))
+            head = graph_copy.get_node(first_round_solver.Head(i))
+
+            flow = first_round_solver.Flow(i)
+            head.set_current_storage(head.get_current_storage() + flow)
+            head.set_demand(head.get_demand() - flow)
+
+            storage = tail.get_current_storage()
+            storage -= flow
+            tail.set_current_storage(max(0, storage))
+            tail.set_supply(tail.get_supply() + storage)
+
+            # Need to reduce capacity along edge before round 2, to account for flow that has already gone across
+            # Can have multiple edges b/t the same nodes, so basic test is just to reduce the capacity along the edge
+            # that has the same capacity as the plan expects
+            edges = graph_copy.get_edges(start_id = first_round_solver.Tail(i), end_id = first_round_solver.Head(i))
+            for e in edges:
+                if e.get_capacity() == first_round_solver.Capacity(i):
+                    print("New capacity:", e.get_capacity() - flow)
+                    e.set_capacity(e.get_capacity() - flow)
+
+        # Round 2
+        second_round_solver = pywrapgraph.SimpleMinCostFlow()
+        for k, v in graph_copy.nodes.items():
+            second_round_solver.SetNodeSupply(k, v.get_supply() - v.get_demand() - int(v.get_storage_capacity() + v.get_current_storage()))
+        for k, v in graph_copy.edges.items():
+            second_round_solver.AddArcWithCapacityAndUnitCost(v.get_start(), v.get_end(), v.get_capacity(), 0)
+
+        if second_round_solver.SolveMaxFlowWithMinCost():
+            print('Max flow:', second_round_solver.MaximumFlow())
+            for i in range(second_round_solver.NumArcs()):
+                print('%1s -> %1s   %3s  / %3s' %
+                    (second_round_solver.Tail(i), second_round_solver.Head(i), second_round_solver.Flow(i),
+                    second_round_solver.Capacity(i)))
+
+        # Reconcile plans
+        #   Plan 2 will never flow backwards, so can safely sum flow along edges
+        
             
 class Risk:
     
