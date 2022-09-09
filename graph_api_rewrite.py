@@ -36,6 +36,22 @@ class GraphComponent():
         return self.risks
 
 class Node(GraphComponent):
+    '''
+        Nodes consist of
+            id - a unique identifier
+            name - a (non-unique) string identifier
+            type - a field identifying the type, found in constants
+            throughput - the amount of fuel that can pass through the node in one time step
+            storage_capacity - the amount of fuel that can remain in the node at the end of one time step
+            supply - the amount of supply provided by the node (distinct from storage)
+            demand - the amount of fuel demanded by the node at the end of one time step
+            current_storage - the amount of fuel already stored by the node
+            resupply - [LEGACY]
+            location - where the node is in (Lat, Long) coordinates (in arbitrary coordinate system)
+            risks - the list of risks applying to the node
+            geometry - an object encapsulating where the node is (likely a point or None)
+    '''
+
 
     def __init__(self, id = None, name = '', type = constants.NODE_TYPE_DEFAULT, 
                     throughput = 0, storage_capacity = 0, supply = 0, demand = 0,
@@ -54,58 +70,79 @@ class Node(GraphComponent):
         self.risks = risks
         self.geometry = geometry
 
+    def copy(self):
+        return Node(self.id, self.name, self.type, self.throughput, self.storage_capacity,
+                    self.supply, self.demand, self.current_storage, self.resupply, self.location,
+                    self.risks, self.geometry)
+
     def get_type(self):
+        '''returns the constant type of the node'''
         return super().get_type()
 
     def get_id(self):
+        '''returns the unique id of the node'''
         return super().get_id()
 
     def get_name(self):
+        '''returns the (non-unique) string identifier of the node'''
         return super().get_name()
 
     def get_throughput(self):
+        '''returns the amount of fuel that can pass through the node in one time step'''
         return self.throughput
 
     def get_storage_capacity(self):
+        '''returns the amount of fuel that can remain in the node at the end of one time step'''
         return self.storage_capacity
 
     def get_supply(self, include_storage = False):
+        '''returns the supply of fuel provided by the node, plus the current storage of fuel if include_storage==True'''
         if include_storage:
             return self.supply + self.current_storage
         else:
             return self.supply
 
     def set_supply(self, new_supply):
+        '''sets the amount of supply provided by the node (distinct from storage) and returns the updated supply'''
         self.supply = new_supply
         return self.supply
     
     def get_demand(self):
+        '''returns the amount of fuel demanded by the node at the end of one time step'''
         return self.demand
 
     def set_demand(self, new_demand):
+        '''sets the amount of fuel demanded by the node at the end of one time step and returns the updated demand'''
         self.demand = new_demand
         return self.demand
 
     def get_current_storage(self):
+        '''returns the amount of fuel already stored by the node'''
         return self.current_storage
 
     def set_current_storage(self, new_current_storage):
+        '''sets the amount of fuel already stored by the node and returns the updated storage'''
         self.current_storage = new_current_storage
         return self.current_storage
 
     def get_resupply(self):
+        '''[LEGACY]'''
         return self.resupply
 
     def get_geometry(self):
+        '''returns an object encapsulating where the node is (likely a point or None)'''
         return super().get_geometry()
 
     def get_location(self):
+        '''returns where the node is in (Lat, Long) coordinates (in arbitrary coordinate system)'''
         return self.location
 
     def get_risks(self):
+        '''returns the list of risks applying to the node'''
         return super().get_risks()
 
     def to_dict(self):
+        '''returns the node serialized as a dictionary'''
         return {
             "id" : self.id,
             "name" : self.name,
@@ -122,6 +159,18 @@ class Node(GraphComponent):
         }
 
 class Edge(GraphComponent):
+    '''
+            Edges consist of
+                id - a unique identifier
+                name - a (non-unique) string identifier
+                flow - [LEGACY]
+                type - a field identifying the type, found in constants
+                start - the id of the node at the beginning of the edge (tail)
+                capacity - the max flow across the edge in one time step
+                end - the id of the node at the end of the edge (head)
+                risks - the set of risks applying to the edge
+                geometry - an object encapsulating where the edge is (likely a line or None)
+    '''
 
     def __init__(self, id = None, start = None, end = None, name = '', flow = 0, type = constants.EDGE_TYPE_DEFAULT, capacity = 0, risks = [], geometry = None):
         self.id = id
@@ -134,40 +183,56 @@ class Edge(GraphComponent):
         self.risks = risks
         self.geometry = geometry
 
+    def copy(self):
+        return Edge(self.id, self.start, self.end, self.name, self.flow, self.type, self.capacity, self.risks, self.geometry)
+
     def get_type(self):
+        '''returns the constant type of the edge'''
         return super().get_type()
 
     def get_id(self):
+        '''returns the unique id of the edge'''
         return super().get_id()
 
     def get_name(self):
+        '''returns the (non-unique) string identifier of the edge'''
         return super().get_name()
 
     def get_capacity(self):
+        '''returns the max flow across the edge in one time step'''
         return self.capacity
 
     def set_capacity(self, new_capacity):
+        '''sets the max flow across the edge in one time step and returns the new capacity'''
         self.capacity = new_capacity
+        return self.capacity
 
     def get_flow(self):
+        '''[LEGACY]'''
         return self.flow
 
     def set_flow(self, new_flow):
+        '''[LEGACY]'''
         self.flow = new_flow
 
     def get_start(self):
+        '''returns the id of the node at the beginning of the edge (tail)'''
         return self.start
 
     def get_end(self):
+        '''returns the id of the node at the end of the edge (head)'''
         return self.end
 
     def get_geometry(self):
+        '''returns an object encapsulating where the edge is (likely a line or None)'''
         return super().get_geometry()
 
     def get_risks(self):
+        '''returns the list of risks applying to the edge'''
         return super().get_risks()
 
     def to_dict(self):
+        '''returns the edge serialized as a dictionary'''
         return {
             "id" : self.id,
             "name" : self.name,
@@ -181,9 +246,18 @@ class Edge(GraphComponent):
         }
 
 class Graph:
+    '''
+            Graphs consist of
+                nodes - a dictionary of (id, Node) pairs that map unique ids to Node objects
+                edges - a dictionary of (id, Edge) pairs that map unique ids to Edge objects
+                risks - a dictionary of (id, Risk) pairs that map unique ids to Risk objects
+    '''
 
-    # TODO: add support for additional properties packaged with nodes and edges
     def __init__(self, nodes = None, edges = None, risks = None, filename = None):
+        '''
+            Initialize a new Graph object, either from a filename (if provided),
+            or by passing in existing nodes, edges, and risks objects
+        '''
 
         if filename:
             self.nodes = {}
@@ -203,6 +277,20 @@ class Graph:
                                 self.edges[obj['id']] = Edge(id = obj['id'], name = obj['name'], start = obj['start'], end = obj['end'],
                                 type = obj['type'], flow = obj['flow'], capacity = obj['capacity'],
                                 risks = obj['risks'])
+                            case 'risk':
+                                match obj['type'][1]:
+                                    case 'list':
+                                        self.risks[obj['id']] = Risk(id = obj['id'], name = obj['name'], description = obj['description'], 
+                                        type = obj['type'], affected_objects = obj['affected_objects'], probability = obj['probability'], 
+                                        impact = obj['impact'], target_ids = obj['target_ids'])
+                                    case 'type':
+                                        self.risks[obj['id']] = Risk(id = obj['id'], name = obj['name'], description = obj['description'],
+                                        type = obj['type'], affected_objects = obj['affected_objects'], probability = obj['probability'],
+                                        impact = obj['impact'], target_types = obj['target_types'])
+                                    case 'location':
+                                        self.risks[obj['id']] = Risk(id = obj['id'], name = obj['name'], description = obj['description'],
+                                        type = obj['type'], probability = obj['probability'], impact = obj['impact'], shape = obj['shape'],
+                                        location = obj['location'], geometry = shp.geometry.shape(obj['geometry']))
 
                 except KeyError:
                     print("Key Error: JSON incorrectly formatted")
@@ -211,40 +299,67 @@ class Graph:
             self.edges = edges
             self.risks = risks
 
+        '''a dict mapping a node's id to the list of edge ids for all edges that start at the node id'''
         self.edges_by_source = dict([(k, []) for k in self.nodes])
         for k, edge in self.edges.items():
-            self.edges_by_source[edge.start].append(edge)
+            self.edges_by_source[edge.start].append(k)
 
     def get_node(self, id):
-        return self.nodes[id]
+        '''returns the Node in nodes by id;
+            fails silently and returns None if id not in self.nodes.keys'''
+        try:
+            return self.nodes[id]
+        except KeyError:
+            return None
 
     def get_all_nodes(self):
+        '''returns the dictionary of (id, Node) pairs that map unique ids to Node objects'''
         return self.nodes
 
     def get_edge(self, id):
-        return self.edges[id]
+        '''returns the Edge in edges by id;
+            fails silently and returns None if id not in self.edges.keys'''
+        try:
+            return self.edges[id]
+        except KeyError:
+            return None
 
     def get_edges(self, start_id, end_id):
-        return [edge for edge in self.get_edges_from_start(start_id) if edge.end == end_id]
+        '''returns all the Edge objects in edges from start_id to end_id;
+            fails silently and returns [] if start_id is not in self.edges.keys'''
+        try:
+            return [edge for edge in self.get_edges_from_start(start_id) if edge.end == end_id]
+        except KeyError:
+            return []
 
     def get_all_edges(self):
+        '''returns the dictionary of (id, Edge) pairs that map unique ids to Edge objects'''
         return self.edges
 
-    def flatten(self):
-        return {'graph' : [n.to_dict() for n in self.nodes] + [e.to_dict() for e in self.edges]
-                        + [r.to_dict() for r in self.risks]}
+    def flatten(self, plan = None):
+        '''returns the graph serialized as a dictionary;
+            nodes, edges, and risks are each serialized themselves using their flatten() methods'''
+        serial = {'graph' : [n.to_dict() for k, n in self.nodes.items()] + [e.to_dict() for k, e in self.edges.items()]
+                        + [r.to_dict() for k, r in self.risks.items()]}
 
-    # TODO: Change to assume edges hold references directly to nodes
+        if plan:
+            serial['plan'] = plan
+
+        return serial
+
     def get_edges_from_start(self, start_id):
-        edges = self.edges_by_source[start_id]
-        ret = []
-
-        for e in edges:
-            ret.append(e)
-
-        return ret
+        '''returns a list containing all of the Edge ids in edges that start at start_id;
+            fails silently and returns [] if start_id not in self.edges.keys'''
+        try:
+            return self.edges_by_source[start_id]
+        except KeyError:
+            return None
 
     def cut_edges(self, ids = None, start_id = None, end_id = None):
+        '''removes all edges from the Graph whose ids appear in ids or
+            that start at start_id and end at end_id; this is useful for
+            removing edges in a graph with cycles, without having to 
+            modify any input files directly'''
 
         if ids:
             for id in ids:
@@ -252,16 +367,31 @@ class Graph:
         else:
             edges = self.edges_by_source[start_id]
             for e in edges:
-                if e.end == end_id:
-                    # CHECK: Is e a live reference into edges? Might need to change below
-                    self.edges.remove(e)
+                if self.edges[e].end == end_id:
+                    del self.edges[e]
                     self.edges_by_source[start_id].remove(e)
 
     def copy(self):
-        return Graph(self.nodes.copy(), self.edges.copy(), self.risks.copy())
+        '''returns a deep copy of the Graph object'''
+
+        def dict_copy(d):
+            c = {}
+            for k, v in d.items():
+                c[k] = v.copy()
+            return c
+
+        return Graph(dict_copy(self.nodes), dict_copy(self.edges), dict_copy(self.risks))
         
     @staticmethod
     def geometry_from_points(shape, points, outer_distance = 0, spherical_projection = constants.DEFAULT_SPHERICAL_PROJECTION, flat_projection = constants.DEFAULT_FLAT_PROJECTION):
+        '''
+            Given a string shape from {'box', 'circle', 'point', 'line', 'polygon'}, return a shapely
+            geometry object corresponding to that shpae using the points in points; use the given
+            sphecerical and flat projections or the default appearing in constants;
+
+            Note: outer_distance is the radius in METERS of the circle created if shape=='circle'
+        '''
+        
         flat_crs = pyproj.CRS(flat_projection)
         spherical_crs = pyproj.CRS(spherical_projection)
         spherical_to_flat = pyproj.Transformer.from_crs(spherical_crs, flat_crs, always_xy=True).transform
@@ -287,47 +417,86 @@ class Graph:
                 
         return geometry
         
-    def compute_location_risk(self, lrisks, risk_metric = constants.STANDARD_RISK):
-        for node in self.nodes:
+    def compute_location_risk(self, risks = None, risk_metric = constants.STANDARD_RISK):
+        '''Given list of Risk objects, risks, 
+            compute whether each risk intersects each node and each edge in Graph
+            and update IN-PLACE that node or edge's list of risks to include the
+            id, probability, and impact of that risk'''
+
+        if not risks:
+            risks = self.risks
+
+        lrisks = [lrisk for risk_id, lrisk in self.risks.items() if 'location' in lrisk.type]
+        print(lrisks)
+
+        for node_id, node in self.nodes.items():
             if not node.geometry:
-                node.geometry = geometry_from_points('Point', node.location)
+                node.geometry = self.geometry_from_points('Point', node.location)
             for lrisk in lrisks:
-                if lrisk['geometry'].intersects(node.geometry):
-                    node.risks.append({'type' : 'location',
-                                        'probability' : lrisk['probability'],
-                                        'impact' : lrisk['impact']})
+                if lrisk.geometry.intersects(node.geometry):
+                    node.risks.append({ 'id' : lrisk.id,
+                                        'type' : 'location',
+                                        'probability' : lrisk.probability,
+                                        'impact' : lrisk.impact})
                                         
-        for edge in self.edges:
+        for edge_id, edge in self.edges.items():
             if not edge.geometry:
-                p1 = next((n for n in self.nodes if n.get_id() == edge.start))
-                p2 = next((n for n in self.nodes if n.get_id() == edge.end))
-                edge.geometry = geometry_from_points('Line', [p1.location, p2.location])
+                p1 = self.nodes[edge.start]
+                p2 = self.nodes[edge.end]
+                edge.geometry = self.geometry_from_points('Line', [p1.location, p2.location])
             for lrisk in lrisks:
-                if lrisk['geometry'].intersects(edge.geometry):
-                    edge.risks.append({'type' : 'location',
-                                        'probability' : lrisk['probability'],
-                                        'impact' : lrisk['impact']})
-                                        
+                if lrisk.geometry.intersects(edge.geometry):
+                    edge.risks.append({ 'id' : lrisk.id,
+                                        'type' : 'location',
+                                        'probability' : lrisk.probability,
+                                        'impact' : lrisk.impact})
+
+    def populate_geometry(self):
+        for node_id, node in self.nodes.items():
+            node.geometry = self.geometry_from_points('Point', node.location)
+        for edge_id, edge in self.edges.items():
+            location = [self.nodes[edge.start].location, self.nodes[edge.end].location]
+            edge.geometry = self.geometry_from_points('Line', location)
+
     def clear_risks(self):
+        '''Clear IN-PLACE all risks for all nodes and edges appearing in the Graph object
+            
+            Note: DOES NOT clear the list of risks contained in the Graph object    
+        '''
+
         for node in self.nodes:
             node.risks = []
         for edge in self.edges:
             edge.risks = []
 
     def to_adj_list(self):
+        '''
+            Returns a dictionary corresponding to an adjacency list representation of the Graph
+            object, where each Node id in the graph maps to a list of the Node ids of all Node
+            objects that are at the end of an Edge starting at the key Node
+        '''
+
         g = {}
         for k, node in self.nodes.items():
-            g[k] = [edge.end for edge in self.get_edges_from_start(node.get_id())]
+            g[k] = [self.get_edge(edge).end for edge in self.get_edges_from_start(node.get_id())]
         return g
 
     def topological_sort(self):
+        '''
+            Returns a partially ordered list of Node ids, where id_1 appears before id_2 if and
+            only if there is no path from edges starting at id_2 and ending at id_1 (i.e.,
+            id_1 is upstream of id_2)
+
+            Note: The graph must be a directed acyclic graph (DAG) or there is no notion of a
+            topological ordering of the nodes and an Exception will be raised
+        '''
+
         adj_list = self.to_adj_list()
         unmarked_nodes = [id for id in self.nodes]
         temporary_mark = dict([(id, False) for id in unmarked_nodes])
         sort = []
 
         def visit(id):
-            #g.cut_edges(start_id = 39, end_id = 26)
             if id not in unmarked_nodes:
                 return
             elif temporary_mark[id]:
@@ -348,13 +517,42 @@ class Graph:
         return sort
 
     def flow(self, edge, amount, with_risk = False):
+        '''
+            Key helper method for simulation;
 
-        if isinstance(edge, int):
-            edge = next((e for e in self.edges if e.get_id() == edge))
+            Simulates flow of amount along edge (either by reference or id;
+            If with_risk is True, perform flow in three stages:
+                1. Simulate risk on the start node, by iterating through
+                    each Risk affecting the start node and reducing the flow by
+                    impact based on a biased coin flip
+                2. Simulate risk along the edge, by iterating through
+                    each Risk affecting the edge and reducing the flow (*which 
+                    may have already been reduced from amount in stage 1*) by
+                    impact based on a biased coin flip
+                3. Simulate risk on the end node, by iterating through each
+                    Risk affecting the end node and reducing the incoming flow 
+                    (*which may have already been reduced from amount in stages 1
+                    and 2*) by impact based on a biased coin flip
+            Otherwise, the full amount is flowed, without regard to risk;
 
-        start = next((n for n in self.nodes if n.get_id() == edge.start))
-        end = next((n for n in self.nodes if n.get_id() == edge.end))
+            Returns the amount that actually flows along the edge
 
+            Fails silently and returns 0 flow if the edge does not exist
+        '''
+
+        if not isinstance(edge, Edge):
+            try:
+                edge = self.edges[edge]
+            except KeyError:
+                return 0
+
+        try:
+            start = self.nodes[edge.start]
+            end = self.nodes[edge.end]
+        except KeyError:
+            return 0
+
+        # Drain supply before using current storage
         getter = start.get_current_storage
         setter = start.set_current_storage
         if start.get_supply() > 0:
@@ -362,96 +560,110 @@ class Graph:
             setter = start.set_supply
 
         # Stage 1: Apply risk to start node (How much flows out?)
+        #   Note: 'amount' leaves the start node, but may be lost
+        #           due to risk (captured in 'flow_out')
         flow_out = amount
-        for risk in start.risks:
-            if random.random() < risk['probability']:
-                print("Simulation Impact: Flow out reduced from", flow_out)
-                flow_out *= (1.0 - risk['impact'])
-                print("\tto", flow_out)
-            else:
-                print("Simulation Impact: Flow out maintained at", flow_out)
+        if with_risk:
+            for risk in start.risks:
+                if random.random() < risk['probability']:
+                    print("Simulation Impact: Flow out reduced from", flow_out)
+                    flow_out *= (1.0 - risk['impact'])
+                    print("\tto", flow_out)
+                else:
+                    print("Simulation Impact: Flow out maintained at", flow_out)
 
         flow_out = min(getter(), flow_out, edge.get_capacity())
         setter(max(0, getter() - amount))
 
         # Stage 2: Apply risk to edge (How much flows along?)
         flow_across = flow_out
-        for risk in edge.risks:
-            if random.random() < risk['probability']:
-                print("Simulation Impact: Flow across reduced from", flow_across)
-                flow_across *= (1.0 - risk['impact'])
-                print("\tto", flow_across)
-            else:
-                print("Simulation Impact: Flow across maintained", flow_across)
-        edge.set_flow(edge.get_flow() - flow_out)
+        if with_risk:
+            for risk in edge.risks:
+                if random.random() < risk['probability']:
+                    print("Simulation Impact: Flow across reduced from", flow_across)
+                    flow_across *= (1.0 - risk['impact'])
+                    print("\tto", flow_across)
+                else:
+                    print("Simulation Impact: Flow across maintained", flow_across)
 
         # Stage 3: Apply risk to end node (How much flows in?)
         flow_in = flow_across
-        for risk in end.risks:
-            if random.random() < risk['probability']:
-                print("Simulation Impact: Flow in reduced from", flow_in)
-                flow_in *= (1.0 - risk['impact'])
-                print("\tto", flow_in)
-            else:
-                print("Simulation Impact: Flow in maintained at", flow_in)
+        if with_risk:
+            for risk in end.risks:
+                if random.random() < risk['probability']:
+                    print("Simulation Impact: Flow in reduced from", flow_in)
+                    flow_in *= (1.0 - risk['impact'])
+                    print("\tto", flow_in)
+                else:
+                    print("Simulation Impact: Flow in maintained at", flow_in)
 
+        # The amount of fuel entering a node cannot exceed its throughput;
+        #   Currently, extra fuel is simply "lost"
+        #   Note that for current networks, throughput is normally substantially 
+        #   higher than any intended flow
         flow_in = min(end.get_throughput(), flow_in)
+
+        # Flow goes into current storage
         end.set_current_storage(end.get_current_storage() + flow_in)
 
         return flow_in
 
-    def simulate(self, with_risk = False):
+    def simulate(self, plan, with_risk = False):
+        '''Returns a graph which is equivalent to the current graph simulated with the plan,
+            which is a dictionary mapping edge ids to the flow along the edges;
+            
+            this will (and should!) raise an error if an edge appears in the Graph but not
+            in the plan    
+        '''
         
-        ordering = self.topological_sort()
+        ret = self.copy()
+
+        ordering = ret.topological_sort()
 
         for node_id in ordering:
-            edges = self.get_edges_from_start(node_id)
-
+            edges = ret.get_edges_from_start(node_id)
             for edge in edges:
-                self.flow(edge, edge.get_flow(), with_risk)
+                ret.flow(edge, plan[edge], with_risk)
 
-    def export_json(self, filename):
+        return ret
+
+    def export_json(self, filename, plan = None):
+        '''Writes the Graph, serialized in JSON, to filename'''
+
         with(open(filename, 'w', encoding='utf-8')) as f:
-            geojson.dump(self.flatten(), f, ensure_ascii=False, indent = 4)
+            geojson.dump(self.flatten(plan), f, ensure_ascii=False, indent = 4)
         
-    def to_json(self):
-        return geojson.dumps(self.flatten(), ensure_ascii=False, indent = 4)
-    # # Ensures each node/edge has correct linkage to associated risks    
-    # def update_risks(self):
-    #     for risk in self.risks:
-    #         match risk.type[1].lower():
-    #             case 'location':
-                    
-    #             case 'type':
-                    
-                    
-    #             case 'list':
+    def to_json(self, plan = None):
+        '''returns a string consisting of the Graph serialized in JSON'''
+
+        return geojson.dumps(self.flatten(plan), ensure_ascii=False, indent = 4)
 
     def compute_plan(self):
-        #TODO: Add support for throughput
+        '''Returns a dictionary mapping 'Edge' ids to Integer flows'''
 
         # Operate on copy
         graph_copy = self.copy()
 
         # Round 1
         first_round_solver = pywrapgraph.SimpleMinCostFlow()
-        for k, v in graph_copy.nodes.items():
-            first_round_solver.SetNodeSupply(k, v.get_supply(include_storage = True) - v.get_demand())
-        for k, v in graph_copy.edges.items():
-            first_round_solver.AddArcWithCapacityAndUnitCost(v.get_start(), v.get_end(), v.get_capacity(), 0)
+
+        # Maybe not the most elegant solution, but fast and fine for this size of network
+        edges_to_arcs_first = {}
+        arcs_to_edges_first = {}
+        for node_id, node in graph_copy.nodes.items():
+            first_round_solver.SetNodeSupply(node_id, node.get_supply(include_storage = True) - node.get_demand())
+        for edge_id, edge in graph_copy.edges.items():
+            edges_to_arcs_first[edge_id] = first_round_solver.AddArcWithCapacityAndUnitCost(edge.get_start(), edge.get_end(), edge.get_capacity(), 0)
+            arcs_to_edges_first[edges_to_arcs_first[edge_id]] = edge_id
 
         if first_round_solver.SolveMaxFlowWithMinCost():
             print('Max flow:', first_round_solver.MaximumFlow())
-            for i in range(first_round_solver.NumArcs()):
-                print('%1s -> %1s   %3s  / %3s' %
-                    (first_round_solver.Tail(i), first_round_solver.Head(i), first_round_solver.Flow(i),
-                    first_round_solver.Capacity(i)))
         
-        for i in range(first_round_solver.NumArcs()):
-            tail = graph_copy.get_node(first_round_solver.Tail(i))
-            head = graph_copy.get_node(first_round_solver.Head(i))
+        for arc in range(first_round_solver.NumArcs()):
+            tail = graph_copy.get_node(first_round_solver.Tail(arc))
+            head = graph_copy.get_node(first_round_solver.Head(arc))
 
-            flow = first_round_solver.Flow(i)
+            flow = first_round_solver.Flow(arc)
             head.set_current_storage(head.get_current_storage() + flow)
             head.set_demand(head.get_demand() - flow)
 
@@ -461,34 +673,52 @@ class Graph:
             tail.set_supply(tail.get_supply() + storage)
 
             # Need to reduce capacity along edge before round 2, to account for flow that has already gone across
-            # Can have multiple edges b/t the same nodes, so basic test is just to reduce the capacity along the edge
-            # that has the same capacity as the plan expects
-            edges = graph_copy.get_edges(start_id = first_round_solver.Tail(i), end_id = first_round_solver.Head(i))
-            for e in edges:
-                if e.get_capacity() == first_round_solver.Capacity(i):
-                    print("New capacity:", e.get_capacity() - flow)
-                    e.set_capacity(e.get_capacity() - flow)
+            edge = graph_copy.get_edge(arcs_to_edges_first[arc])
+            edge.set_capacity(edge.get_capacity() - flow)
 
         # Round 2
         second_round_solver = pywrapgraph.SimpleMinCostFlow()
-        for k, v in graph_copy.nodes.items():
-            second_round_solver.SetNodeSupply(k, v.get_supply() - v.get_demand() - int(v.get_storage_capacity() + v.get_current_storage()))
-        for k, v in graph_copy.edges.items():
-            second_round_solver.AddArcWithCapacityAndUnitCost(v.get_start(), v.get_end(), v.get_capacity(), 0)
+        edges_to_arcs_second = {}
+        for node_id, node in graph_copy.nodes.items():
+            second_round_solver.SetNodeSupply(node_id, node.get_supply() - node.get_demand() - int(node.get_storage_capacity() + node.get_current_storage()))
+        for edge_id, edge in graph_copy.edges.items():
+            edges_to_arcs_second[edge_id] = second_round_solver.AddArcWithCapacityAndUnitCost(edge.get_start(), edge.get_end(), edge.get_capacity(), 0)
 
         if second_round_solver.SolveMaxFlowWithMinCost():
             print('Max flow:', second_round_solver.MaximumFlow())
-            for i in range(second_round_solver.NumArcs()):
-                print('%1s -> %1s   %3s  / %3s' %
-                    (second_round_solver.Tail(i), second_round_solver.Head(i), second_round_solver.Flow(i),
-                    second_round_solver.Capacity(i)))
 
         # Reconcile plans
-        #   Plan 2 will never flow backwards, so can safely sum flow along edges
+        #   Round 2 will never flow backwards, so can safely sum flow along edges
+        plan = dict([(e, 0) for e in graph_copy.get_all_edges().keys()])
+
+        for edge in plan.keys():
+            plan[edge] += first_round_solver.Flow(edges_to_arcs_first[edge])
+            plan[edge] += second_round_solver.Flow(edges_to_arcs_second[edge])
+            print('%1s -> %1s   %3s  / %3s' %
+                    (second_round_solver.Tail(edges_to_arcs_second[edge]), second_round_solver.Head(edges_to_arcs_second[edge]), plan[edge],
+                    first_round_solver.Capacity(edges_to_arcs_second[edge])))
         
-            
+        return plan
+
 class Risk:
-    
+    '''
+            Risks consist of
+                id - a unique identifier
+                name - a (non-unique) string identifier
+                description - a (non-unique) string description
+                type - a (non-standardized) string type
+                affected_objects - a list of the Node or Edge objects affected by the Risk
+                shape - a string description of the shape of the risk
+                location - the coordinates of the risk, consisting of one or more (Lat, Long) tuples
+                probability - the likelihood of the risk occuring
+                impact - the proportion of fuel lost if the risk occurs
+                target_types - the type of objects impacted by the risk (some subset of the Nodes and Edges keyed by their type fields)
+                target_ids - the ids of objects affected by the Risk (e.g., Node 12 or Edge 27)
+                geometry - a shapely object encapsulating where the Risk is located
+
+    '''
+
+
     def __init__(self, id = None, name = '', description = '', type = '', 
                         affected_objects = [], shape = None, location = None, probability = 0.0, impact = 0.0,
                         target_types = [], target_ids = [], geometry = None):
@@ -505,7 +735,14 @@ class Risk:
         self.target_ids = target_ids
         self.geometry = geometry
 
+    def copy(self):
+        return Risk(id = self.id, name = self.name, description = self.description, type = self.type,
+            affected_objects = self.affected_objects, shape = self.shape, location = self.location,
+            probability = self.probability, impact = self.impact, target_types = self.target_types,
+            target_ids = self.target_ids, geometry = self.geometry)
+
     def to_dict(self):
+        '''returns the risk serialized as a dictionary'''
         ret = {
             'id' : self.id,
             'name' : self.name,
