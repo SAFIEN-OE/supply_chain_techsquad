@@ -638,7 +638,7 @@ class Graph:
 
         return geojson.dumps(self.flatten(plan), ensure_ascii=False, indent = 4)
 
-    def compute_plan(self):
+    def compute_plan(self, worst_case_planning = False):
         '''Returns a dictionary mapping 'Edge' ids to Integer flows'''
 
         # Operate on copy

@@ -1,0 +1,162 @@
+{
+    "graph": [
+        {
+            "id": 0,
+            "name": "Sample Node A",
+            "type": [
+                "node", 
+                "Production"
+            ],
+            "throughput": 1000,
+            "storage capacity": 0,
+            "supply": 100,
+            "demand": 0,
+            "current storage": 0,
+            "resupply": false,
+            "location": [0.0,0.0],
+            "risks": []
+        },
+        {
+            "id": 1,
+            "name": "Sample Node B",
+            "type": [
+                "node", 
+                "Intermediate"
+            ],
+            "throughput": 1000,
+            "storage capacity": 0,
+            "supply": 0,
+            "demand": 0,
+            "current storage": 0,
+            "resupply": false,
+            "location": [0.0,0.0],
+            "risks": []
+        },
+        {
+            "id": 2,
+            "name": "Sample Node C",
+            "type": [
+                "node", 
+                "Intermediate"
+            ],
+            "throughput": 1000,
+            "storage capacity": 0,
+            "supply": 0,
+            "demand": 0,
+            "current storage": 0,
+            "resupply": false,
+            "location": [0.0,0.0],
+            "risks": []
+        },
+        {
+            "id": 3,
+            "name": "Sample Node D",
+            "type": [
+                "node", 
+                "Intermediate"
+            ],
+            "throughput": 1000,
+            "storage capacity": 0,
+            "supply": 0,
+            "demand": 0,
+            "current storage": 0,
+            "resupply": false,
+            "location": [0.0,0.0],
+            "risks": []
+        },
+        {
+            "id": 4,
+            "name": "Sample Node E",
+            "type": [
+                "node", 
+                "End"
+            ],
+            "throughput": 1000,
+            "storage capacity": 0,
+            "supply": 0,
+            "demand": 100,
+            "current storage": 0,
+            "resupply": false,
+            "location": [0.0,0.0],
+            "risks": []
+        },
+        {
+            "id": 0,
+            "name": "Sample Edge 0",
+            "type": [
+                "edge",
+                "Railroad"
+            ],
+            "start": 0,
+            "end": 1,
+            "flow": 0,
+            "capacity": 75,
+            "risks": []
+        },
+        {
+            "id": 1,
+            "name": "Sample Edge 1",
+            "type": [
+                "edge",
+                "Railroad"
+            ],
+            "start": 0,
+            "end": 3,
+            "flow": 0,
+            "capacity": 50,
+            "risks": []
+        },
+        {
+            "id": 2,
+            "name": "Sample Edge 2",
+            "type": [
+                "edge",
+                "Railroad"
+            ],
+            "start": 1,
+            "end": 2,
+            "flow": 0,
+            "capacity": 50,
+            "risks": []
+        },
+        {
+            "id": 3,
+            "name": "Sample Edge 3",
+            "type": [
+                "edge",
+                "Railroad"
+            ],
+            "start": 2,
+            "end": 4,
+            "flow": 0,
+            "capacity": 50,
+            "risks": []
+        },
+        {
+            "id": 4,
+            "name": "Sample Edge 4",
+            "type": [
+                "edge",
+                "Railroad"
+            ],
+            "start": 1,
+            "end": 4,
+            "flow": 0,
+            "capacity": 25,
+            "risks": []
+        },
+        {
+            "id": 5,
+            "name": "Sample Edge 5",
+            "type": [
+                "edge",
+                "Railroad"
+            ],
+            "start": 3,
+            "end": 4,
+            "flow": 0,
+            "capacity": 25,
+            "risks": []
+        }
+    ]
+}

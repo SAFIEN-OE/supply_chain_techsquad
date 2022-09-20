@@ -3,8 +3,7 @@ Need a way to flatten a list of risks
         - Problem: could plan for one set of risks, simulate another
     - Could output a "risk file" that lists risks for each node/edge
         - Would need to tag with a key to make sure risk file matches planning
-        - Could output a "plan file" that contains both a plan and the assumptions
-            that were made when generating that plan
+        - Could output a "plan file" that contains both a plan and the assumptions that were made when generating that plan
 
     - Require JSON: 
         - The graph/simulator library will start off only importing things in the JSON format
