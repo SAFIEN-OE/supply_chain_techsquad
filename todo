@@ -1,0 +1,94 @@
+[ ] Change flow:
+    DO NOT store in edge. Plans should always be distinct,
+    captured in JSON either within the same network json file
+    or in a separate file that is loaded
+
+[ ] Ensure links are performed by id, not object reference
+
+[ ] Switch shapes to use enums instead of raw strings (eww)
+
+[ ] Add support for inner_distance to describe donut regions
+
+[ ] Check risk calculations (esp. for locations w/ radius)
+
+[ ] Change support for plans
+        - Either with graph or separate file?
+        - Read in only as a part of sim?
+            - Store in the same file, but only read in at this stage?
+
+[ ] Write up remaining changes and ideas in transition memo
+
+[ ] Model expected loss
+    [ ] Expected loss to edges
+        For an edge E, set the unit cost equal
+            to the overall expected proportional cost
+            cost = (sum forall r in E_risks, p_r * i_r) and
+            increase the capacity of the edge to 
+            capacity_E + cost
+    [ ] Expected loss to nodes
+        For a node N, add a dummy node, N', immediately 
+            downstream of N. Let E' be the edge from 
+            N to N'. Set the unit cost of E' equal to
+            the overall expected proportional cost
+            = (sum forall r in N_risks, p_r * i_r) and 
+            increase the 
+
+Google OR tools won't let me create the kinds of losses I need; what we can do is plan based on expected loss, then
+compute the maximum surplus and the maximum deficit. When 
+a plan computed using expected loss is executed, surplus 
+can be trapped at a variety of places:
+    - If an edge doesn't have sufficient capacity, the 
+    excess is stored at the tail of the edge (permit 
+    over-the-top storage, but flag it)
+    - If a node doesn't have sufficient throughput, the
+    fuel is stuck "ahead" of the node; it is NOT available
+    in storage to be routed forward, nor is it in storage 
+    in the final state of the network. It is instead stuck
+    in a separate place that is between the head of the edge
+    and the node itself
+    - If too much fuel reaches a node, but it remains below 
+    the throughput (it can be received, but isn't being flowed forward), then place the excess in storage and 
+    flag it as over-the-top
+
+Modeling the worst case requires a new type of planning
+    - Set the cost of the edges equal to the cumulative loss
+    of every event occuring (ignore probability, just make 
+    it the sum of all the impacts)
+        E.x., R_E = [(p=0.1, i=0.1), (p=0.5, 0.8)]
+            Then worst case loss = 0.82 = 1 - (1 - 0.1) * (1 - 0.8)
+    - Set the cost of the nodes in the manner above equal 
+    to the cumulative loss of every event occuring
+
+BEST CASE VS. RISK FREE:
+    Best case is "any event that can not happen, doesn't"
+    Risk free is "no events happen"
+
+
+Event 1:
+    Probability - 50%
+    Impact - 50%
+
+Event 2:
+    Probability - 10%
+    Impact - 90%
+
+Fuel: 100 gallons
+
+Event 1, Event 2:
+    25 gallons
+    6.75 gallons
+    ------------
+    31.75 gallons
+
+Event 2, Event 1:
+    9 gallons
+    22.75 gallons
+    -------------
+    31.75 gallons
+
+total_fuel = F
+expected_loss = 0
+For each risk, r:
+    expected_loss += total_fuel * (probabiliity * impact)
+    total_fuel -= total_fuel * (probabiility * impact)
+    
