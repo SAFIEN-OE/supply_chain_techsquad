@@ -518,9 +518,9 @@ class Graph:
 
     def flow(self, edge, amount, with_risk = False):
         '''
-            Key helper method for simulation;
+            Helper method for simulation;
 
-            Simulates flow of amount along edge (either by reference or id;
+            Simulates flow of amount along edge (either by reference or id)
             If with_risk is True, perform flow in three stages:
                 1. Simulate risk on the start node, by iterating through
                     each Risk affecting the start node and reducing the flow by
