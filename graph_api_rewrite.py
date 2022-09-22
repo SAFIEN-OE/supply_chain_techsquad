@@ -134,7 +134,7 @@ class Node(GraphComponent):
         return super().get_geometry()
 
     def get_location(self):
-        '''returns where the node is in (Lat, Long) coordinates (in arbitrary coordinate system)'''
+        '''returns where the node is in (Long, Lat) coordinates (in arbitrary coordinate system)'''
         return self.location
 
     def get_risks(self):
@@ -331,6 +331,9 @@ class Graph:
             return [edge for edge in self.get_edges_from_start(start_id) if edge.end == end_id]
         except KeyError:
             return []
+
+    def get_risk(self, risk_id):
+        return self.risks[risk_id]
 
     def get_all_edges(self):
         '''returns the dictionary of (id, Edge) pairs that map unique ids to Edge objects'''
@@ -638,7 +641,7 @@ class Graph:
 
         return geojson.dumps(self.flatten(plan), ensure_ascii=False, indent = 4)
 
-    def compute_plan(self, worst_case_planning = False):
+    def compute_plan(self, use_expected_risk = False):
         '''Returns a dictionary mapping 'Edge' ids to Integer flows'''
 
         # Operate on copy
@@ -650,10 +653,20 @@ class Graph:
         # Maybe not the most elegant solution, but fast and fine for this size of network
         edges_to_arcs_first = {}
         arcs_to_edges_first = {}
+        expected_edge_capacity = {}
+        edge_risks = {}
         for node_id, node in graph_copy.nodes.items():
             first_round_solver.SetNodeSupply(node_id, node.get_supply(include_storage = True) - node.get_demand())
         for edge_id, edge in graph_copy.edges.items():
-            edges_to_arcs_first[edge_id] = first_round_solver.AddArcWithCapacityAndUnitCost(edge.get_start(), edge.get_end(), edge.get_capacity(), 0)
+            # Compute expected risk on edges
+            expected_edge_capacity[edge_id] = 0
+            edge_risks[edge_id] = 0
+            if use_expected_risk:
+                for r in edge.get_risks():
+                    edge_risks[edge_id] += self.get_risk(r['id']).get_probability() * self.get_risk(r['id']).get_impact()
+            print(edge_risks[edge_id])
+            expected_edge_capacity[edge_id] = int((1 - edge_risks[edge_id]) * edge.get_capacity())
+            edges_to_arcs_first[edge_id] = first_round_solver.AddArcWithCapacityAndUnitCost(edge.get_start(), edge.get_end(), expected_edge_capacity[edge_id], 0)
             arcs_to_edges_first[edges_to_arcs_first[edge_id]] = edge_id
 
         if first_round_solver.SolveMaxFlowWithMinCost():
@@ -673,8 +686,7 @@ class Graph:
             tail.set_supply(tail.get_supply() + storage)
 
             # Need to reduce capacity along edge before round 2, to account for flow that has already gone across
-            edge = graph_copy.get_edge(arcs_to_edges_first[arc])
-            edge.set_capacity(edge.get_capacity() - flow)
+            expected_edge_capacity[arcs_to_edges_first[arc]] -= flow
 
         # Round 2
         second_round_solver = pywrapgraph.SimpleMinCostFlow()
@@ -682,7 +694,7 @@ class Graph:
         for node_id, node in graph_copy.nodes.items():
             second_round_solver.SetNodeSupply(node_id, node.get_supply() - node.get_demand() - int(node.get_storage_capacity() + node.get_current_storage()))
         for edge_id, edge in graph_copy.edges.items():
-            edges_to_arcs_second[edge_id] = second_round_solver.AddArcWithCapacityAndUnitCost(edge.get_start(), edge.get_end(), edge.get_capacity(), 0)
+            edges_to_arcs_second[edge_id] = second_round_solver.AddArcWithCapacityAndUnitCost(edge.get_start(), edge.get_end(), expected_edge_capacity[edge_id], 0)
 
         if second_round_solver.SolveMaxFlowWithMinCost():
             print('Max flow:', second_round_solver.MaximumFlow())
@@ -694,9 +706,10 @@ class Graph:
         for edge in plan.keys():
             plan[edge] += first_round_solver.Flow(edges_to_arcs_first[edge])
             plan[edge] += second_round_solver.Flow(edges_to_arcs_second[edge])
-            print('%1s -> %1s   %3s  / %3s' %
+            plan[edge] /= (1 - edge_risks[edge])
+            print('%1s -> %1s   %3s  / %3s -- %3s' %
                     (second_round_solver.Tail(edges_to_arcs_second[edge]), second_round_solver.Head(edges_to_arcs_second[edge]), plan[edge],
-                    first_round_solver.Capacity(edges_to_arcs_second[edge])))
+                    self.get_edge(edge).get_capacity(), self.get_edge(edge).get_capacity() * (1 - edge_risks[edge])))
         
         return plan
 
@@ -740,6 +753,12 @@ class Risk:
             affected_objects = self.affected_objects, shape = self.shape, location = self.location,
             probability = self.probability, impact = self.impact, target_types = self.target_types,
             target_ids = self.target_ids, geometry = self.geometry)
+
+    def get_probability(self):
+        return self.probability
+
+    def get_impact(self):
+        return self.impact
 
     def to_dict(self):
         '''returns the risk serialized as a dictionary'''
