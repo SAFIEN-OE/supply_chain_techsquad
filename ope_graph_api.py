@@ -430,7 +430,6 @@ class Graph:
             risks = self.risks
 
         lrisks = [lrisk for risk_id, lrisk in self.risks.items() if 'location' in lrisk.type]
-        print(lrisks)
 
         for node_id, node in self.nodes.items():
             if not node.geometry:
@@ -499,7 +498,9 @@ class Graph:
         temporary_mark = dict([(id, False) for id in unmarked_nodes])
         sort = []
 
-        def visit(id):
+        def visit(id, tabs = None):
+            if tabs:
+                print('\t' * tabs + str(id))
             if id not in unmarked_nodes:
                 return
             elif temporary_mark[id]:
@@ -552,8 +553,13 @@ class Graph:
         # Stage 1: Apply risk to start node (How much flows out?)
         #   Note: 'amount' leaves the start node, but may be lost
         #           due to risk (captured in 'flow_out')
-        flow_out = start.get_supply() - start.set_supply(max(0, start.get_supply() - amount))
-        flow_out += start.get_current_storage() - start.set_current_storage(max(0, start.get_current_storage() - amount + flow_out))
+        #flow_out = start.get_supply() - start.set_supply(max(0, start.get_supply() - amount))
+        #flow_out += start.get_current_storage() - start.set_current_storage(max(0, start.get_current_storage() - amount + flow_out))
+        flow_out = amount
+        temp = flow_out
+        temp -= start.get_supply()
+        start.set_supply(max(0, start.get_supply() - flow_out))
+        start.set_current_storage(start.get_current_storage() - temp)
 
         # Stage 2: Apply risk to edge (How much flows along?)
         flow_across = flow_out
@@ -587,9 +593,13 @@ class Graph:
 
         # Flow satisfies demand, then goes into current storage
         demand = end.get_demand()
-        end.set_demand(max(0, demand - flow_in))
-        end.set_current_storage(end.get_current_storage() + demand - flow_in)
-        print("Flow in is %3s" % flow_in)
+        print("Flowing %3s from %s (%s) to %s (%s) to satisfy demand of %s" % (flow_in, start.get_name(), start.get_id(), end.get_name(), end.get_id(), demand))
+        if demand > 0:
+            overflow = max(0, flow_in - demand)
+            end.set_demand(max(0, demand - flow_in))
+            end.set_current_storage(end.get_current_storage() + overflow)
+        else:
+            end.set_current_storage(end.get_current_storage() + flow_in)
         return flow_in
 
     def simulate(self, plan, with_risk = False):
@@ -603,7 +613,7 @@ class Graph:
         ret = self.copy()
 
         ordering = ret.topological_sort()
-        ordering.reverse()
+        #ordering.reverse()
 
         print("--------BEGINNING SIMULATION--------")
 
@@ -615,6 +625,8 @@ class Graph:
         for node_id, node in ret.get_all_nodes().items():
             if node.get_demand() > 0:
                 print("WARNING: Unmet demand for Node '%s' (%s); Still needs %3s" % (node.get_name(), node.get_id(), node.get_demand()))
+            if node.get_current_storage() < 0:
+                print("WARNING: Negative storage for '%s' (%s); Current storage of %3s" % (node.get_name(), node.get_id(), node.get_current_storage()))
 
         print("--------ENDING SIMULATION--------")
 
@@ -654,29 +666,28 @@ class Graph:
             if use_expected_risk:
                 for r in edge.get_risks():
                     edge_risks[edge_id] += self.get_risk(r['id']).get_probability() * self.get_risk(r['id']).get_impact()
-            print(edge_risks[edge_id])
             expected_edge_capacity[edge_id] = int((1 - edge_risks[edge_id]) * edge.get_capacity())
             edges_to_arcs_first[edge_id] = first_round_solver.AddArcWithCapacityAndUnitCost(edge.get_start(), edge.get_end(), expected_edge_capacity[edge_id], 0)
             arcs_to_edges_first[edges_to_arcs_first[edge_id]] = edge_id
 
-        if first_round_solver.solve():
+        if first_round_solver.SolveMaxFlowWithMinCost():
             print('Max flow:', first_round_solver.MaximumFlow())
         
-        for arc in range(first_round_solver.NumArcs()):
-            tail = graph_copy.get_node(first_round_solver.Tail(arc))
-            head = graph_copy.get_node(first_round_solver.Head(arc))
+        # for arc in range(first_round_solver.NumArcs()):
+        #     tail = graph_copy.get_node(first_round_solver.Tail(arc))
+        #     head = graph_copy.get_node(first_round_solver.Head(arc))
 
-            flow = first_round_solver.Flow(arc)
-            head.set_current_storage(head.get_current_storage() + flow - head.get_demand())
-            head.set_demand(max(0, head.get_demand() - flow))
+        #     flow = first_round_solver.Flow(arc)
+        #     head.set_current_storage(head.get_current_storage() + flow - head.get_demand())
+        #     head.set_demand(max(0, head.get_demand() - flow))
 
-            storage = tail.get_current_storage()
-            storage -= flow
-            tail.set_current_storage(max(0, storage))
-            tail.set_supply(tail.get_supply() + storage)
+        #     storage = tail.get_current_storage()
+        #     storage -= flow
+        #     tail.set_current_storage(max(0, storage))
+        #     tail.set_supply(tail.get_supply() + storage)
 
-            # Need to reduce capacity along edge before round 2, to account for flow that has already gone across
-            expected_edge_capacity[arcs_to_edges_first[arc]] -= flow
+        #     # Need to reduce capacity along edge before round 2, to account for flow that has already gone across
+        #     expected_edge_capacity[arcs_to_edges_first[arc]] -= flow
 
         # Round 2
         # second_round_solver = pywrapgraph.SimpleMinCostFlow()
@@ -696,7 +707,7 @@ class Graph:
         for edge in plan.keys():
             plan[edge] += first_round_solver.Flow(edges_to_arcs_first[edge])
             #plan[edge] += second_round_solver.Flow(edges_to_arcs_second[edge])
-            plan[edge] /= (1 - edge_risks[edge])
+            #plan[edge] /= (1 - edge_risks[edge])
             print('%1s -> %1s   %3s  / %3s -- %3s -- %3s' %
                     (first_round_solver.Tail(edges_to_arcs_first[edge]), first_round_solver.Head(edges_to_arcs_first[edge]), plan[edge],
                     self.get_edge(edge).get_capacity(), self.get_edge(edge).get_capacity() * (1 - edge_risks[edge]), first_round_solver.Supply(first_round_solver.Head(edges_to_arcs_first[edge]))))

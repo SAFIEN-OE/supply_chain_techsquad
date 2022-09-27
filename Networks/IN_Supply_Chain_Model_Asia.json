@@ -1,0 +1,4580 @@
+{
+    "graph": [
+        {
+            "id": 1,
+            "name": "Malaysia oil field 1",
+            "type": [
+                "node",
+                "Production"
+            ],
+            "throughput": 41000,
+            "storage capacity": 0.0,
+            "supply": 36900,
+            "demand": 0,
+            "current storage": 0,
+            "resupply": false,
+            "location": [
+                5.70323,
+                103.36891
+            ],
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    5.70323,
+                    103.36891
+                ]
+            }
+        },
+        {
+            "id": 2,
+            "name": "Malaysia oil field 2",
+            "type": [
+                "node",
+                "Production"
+            ],
+            "throughput": 22000,
+            "storage capacity": 0.0,
+            "supply": 19800,
+            "demand": 0,
+            "current storage": 0,
+            "resupply": false,
+            "location": [
+                6.8858,
+                116.25766
+            ],
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    6.8858,
+                    116.25766
+                ]
+            }
+        },
+        {
+            "id": 3,
+            "name": "Thailand oil field",
+            "type": [
+                "node",
+                "Production"
+            ],
+            "throughput": 30000,
+            "storage capacity": 0.0,
+            "supply": 27000,
+            "demand": 0,
+            "current storage": 0,
+            "resupply": false,
+            "location": [
+                16.88926,
+                99.77986
+            ],
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    16.88926,
+                    99.77986
+                ]
+            }
+        },
+        {
+            "id": 4,
+            "name": "Myanmar oil field",
+            "type": [
+                "node",
+                "Production"
+            ],
+            "throughput": 36000,
+            "storage capacity": 0.0,
+            "supply": 32400,
+            "demand": 0,
+            "current storage": 0,
+            "resupply": false,
+            "location": [
+                18.86335,
+                94.74381
+            ],
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.86335,
+                    94.74381
+                ]
+            }
+        },
+        {
+            "id": 5,
+            "name": "Vietnam oil field",
+            "type": [
+                "node",
+                "Production"
+            ],
+            "throughput": 34000,
+            "storage capacity": 0.0,
+            "supply": 30600,
+            "demand": 0,
+            "current storage": 0,
+            "resupply": false,
+            "location": [
+                10.10807,
+                107.75162
+            ],
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.10807,
+                    107.75162
+                ]
+            }
+        },
+        {
+            "id": 6,
+            "name": "Indonesia oil field 1",
+            "type": [
+                "node",
+                "Production"
+            ],
+            "throughput": 34000,
+            "storage capacity": 0.0,
+            "supply": 30600,
+            "demand": 0,
+            "current storage": 0,
+            "resupply": false,
+            "location": [
+                4.83777,
+                96.94107
+            ],
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    4.83777,
+                    96.94107
+                ]
+            }
+        },
+        {
+            "id": 7,
+            "name": "Indonesia oil field 2",
+            "type": [
+                "node",
+                "Production"
+            ],
+            "throughput": 27000,
+            "storage capacity": 0.0,
+            "supply": 24300,
+            "demand": 0,
+            "current storage": 0,
+            "resupply": false,
+            "location": [
+                1.58658,
+                101.449
+            ],
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    1.58658,
+                    101.449
+                ]
+            }
+        },
+        {
+            "id": 8,
+            "name": "Indonesia oil field 3",
+            "type": [
+                "node",
+                "Production"
+            ],
+            "throughput": 21000,
+            "storage capacity": 0.0,
+            "supply": 18900,
+            "demand": 0,
+            "current storage": 0,
+            "resupply": false,
+            "location": [
+                -5.81905,
+                107.01443
+            ],
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -5.81905,
+                    107.01443
+                ]
+            }
+        },
+        {
+            "id": 9,
+            "name": "Philippines oil field",
+            "type": [
+                "node",
+                "Production"
+            ],
+            "throughput": 21000,
+            "storage capacity": 0.0,
+            "supply": 18900,
+            "demand": 0,
+            "current storage": 0,
+            "resupply": false,
+            "location": [
+                10.00327,
+                123.542
+            ],
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.00327,
+                    123.542
+                ]
+            }
+        },
+        {
+            "id": 10,
+            "name": "Dagang China oil field",
+            "type": [
+                "node",
+                "Production"
+            ],
+            "throughput": 26000,
+            "storage capacity": 0.0,
+            "supply": 23400,
+            "demand": 0,
+            "current storage": 0,
+            "resupply": false,
+            "location": [
+                33.18919,
+                120.10347
+            ],
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    33.18919,
+                    120.10347
+                ]
+            }
+        },
+        {
+            "id": 11,
+            "name": "Bogai Sea China oil field",
+            "type": [
+                "node",
+                "Production"
+            ],
+            "throughput": 16000,
+            "storage capacity": 0.0,
+            "supply": 14400,
+            "demand": 0,
+            "current storage": 0,
+            "resupply": false,
+            "location": [
+                38.86832,
+                119.7366
+            ],
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    38.86832,
+                    119.7366
+                ]
+            }
+        },
+        {
+            "id": 12,
+            "name": "Changqing China oil field",
+            "type": [
+                "node",
+                "Production"
+            ],
+            "throughput": 43000,
+            "storage capacity": 0.0,
+            "supply": 38700,
+            "demand": 0,
+            "current storage": 0,
+            "resupply": false,
+            "location": [
+                36.55376,
+                116.75198
+            ],
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    36.55376,
+                    116.75198
+                ]
+            }
+        },
+        {
+            "id": 13,
+            "name": "Brunei oil field",
+            "type": [
+                "node",
+                "Production"
+            ],
+            "throughput": 39000,
+            "storage capacity": 0.0,
+            "supply": 35100,
+            "demand": 0,
+            "current storage": 0,
+            "resupply": false,
+            "location": [
+                5.19644,
+                114.86503
+            ],
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    5.19644,
+                    114.86503
+                ]
+            }
+        },
+        {
+            "id": 14,
+            "name": "Thailand port",
+            "type": [
+                "node",
+                "Port"
+            ],
+            "throughput": 47965,
+            "storage capacity": 2398.25,
+            "supply": 0,
+            "demand": 0,
+            "current storage": 1419,
+            "resupply": false,
+            "location": [
+                12.82478,
+                100.91569
+            ],
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.82478,
+                    100.91569
+                ]
+            }
+        },
+        {
+            "id": 15,
+            "name": "Indonesia port 1",
+            "type": [
+                "node",
+                "Port"
+            ],
+            "throughput": 53525,
+            "storage capacity": 2676.25,
+            "supply": 0,
+            "demand": 0,
+            "current storage": 1462,
+            "resupply": false,
+            "location": [
+                0.26874,
+                103.72063
+            ],
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    0.26874,
+                    103.72063
+                ]
+            }
+        },
+        {
+            "id": 16,
+            "name": "Indonesia port 2",
+            "type": [
+                "node",
+                "Port"
+            ],
+            "throughput": 48134,
+            "storage capacity": 2406.7,
+            "supply": 0,
+            "demand": 0,
+            "current storage": 1177,
+            "resupply": false,
+            "location": [
+                1.64435,
+                101.78093
+            ],
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    1.64435,
+                    101.78093
+                ]
+            }
+        },
+        {
+            "id": 17,
+            "name": "Malaysia port 1",
+            "type": [
+                "node",
+                "Port"
+            ],
+            "throughput": 46721,
+            "storage capacity": 2336.05,
+            "supply": 0,
+            "demand": 0,
+            "current storage": 1326,
+            "resupply": false,
+            "location": [
+                2.62693,
+                101.67107
+            ],
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    2.62693,
+                    101.67107
+                ]
+            }
+        },
+        {
+            "id": 18,
+            "name": "Malaysia port 2",
+            "type": [
+                "node",
+                "Port"
+            ],
+            "throughput": 51416,
+            "storage capacity": 2570.8,
+            "supply": 0,
+            "demand": 0,
+            "current storage": 668,
+            "resupply": false,
+            "location": [
+                2.18804,
+                102.23549
+            ],
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    2.18804,
+                    102.23549
+                ]
+            }
+        },
+        {
+            "id": 19,
+            "name": "Malaysia port 3",
+            "type": [
+                "node",
+                "Port"
+            ],
+            "throughput": 45775,
+            "storage capacity": 2288.75,
+            "supply": 0,
+            "demand": 0,
+            "current storage": 1329,
+            "resupply": false,
+            "location": [
+                4.35686,
+                113.9772
+            ],
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    4.35686,
+                    113.9772
+                ]
+            }
+        },
+        {
+            "id": 20,
+            "name": "Philippines port",
+            "type": [
+                "node",
+                "Port"
+            ],
+            "throughput": 48465,
+            "storage capacity": 2423.25,
+            "supply": 0,
+            "demand": 0,
+            "current storage": 453,
+            "resupply": false,
+            "location": [
+                14.82398,
+                120.2738
+            ],
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    14.82398,
+                    120.2738
+                ]
+            }
+        },
+        {
+            "id": 21,
+            "name": "China port 1",
+            "type": [
+                "node",
+                "Port"
+            ],
+            "throughput": 52241,
+            "storage capacity": 2612.05,
+            "supply": 0,
+            "demand": 0,
+            "current storage": 346,
+            "resupply": false,
+            "location": [
+                37.51136,
+                121.43318
+            ],
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    37.51136,
+                    121.43318
+                ]
+            }
+        },
+        {
+            "id": 22,
+            "name": "China port 2",
+            "type": [
+                "node",
+                "Port"
+            ],
+            "throughput": 48986,
+            "storage capacity": 2449.3,
+            "supply": 0,
+            "demand": 0,
+            "current storage": 601,
+            "resupply": false,
+            "location": [
+                30.84712,
+                121.84609
+            ],
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    30.84712,
+                    121.84609
+                ]
+            }
+        },
+        {
+            "id": 23,
+            "name": "Thailand refinery",
+            "type": [
+                "node",
+                "Refinery"
+            ],
+            "throughput": 48793,
+            "storage capacity": 2439.65,
+            "supply": 0,
+            "demand": 0,
+            "current storage": 307,
+            "resupply": false,
+            "location": [
+                12.90109,
+                100.93766
+            ],
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.90109,
+                    100.93766
+                ]
+            }
+        },
+        {
+            "id": 24,
+            "name": "Indonesia refinery",
+            "type": [
+                "node",
+                "Refinery"
+            ],
+            "throughput": 52188,
+            "storage capacity": 2609.4,
+            "supply": 0,
+            "demand": 0,
+            "current storage": 834,
+            "resupply": false,
+            "location": [
+                1.62239,
+                101.66558
+            ],
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    1.62239,
+                    101.66558
+                ]
+            }
+        },
+        {
+            "id": 25,
+            "name": "Malaysia refinery 1",
+            "type": [
+                "node",
+                "Refinery"
+            ],
+            "throughput": 50224,
+            "storage capacity": 2511.2,
+            "supply": 0,
+            "demand": 0,
+            "current storage": 1435,
+            "resupply": false,
+            "location": [
+                2.67083,
+                101.73699
+            ],
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    2.67083,
+                    101.73699
+                ]
+            }
+        },
+        {
+            "id": 26,
+            "name": "Malaysia refinery 2",
+            "type": [
+                "node",
+                "Refinery"
+            ],
+            "throughput": 52202,
+            "storage capacity": 2610.1,
+            "supply": 0,
+            "demand": 0,
+            "current storage": 1101,
+            "resupply": false,
+            "location": [
+                2.24825,
+                102.19292
+            ],
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    2.24825,
+                    102.19292
+                ]
+            }
+        },
+        {
+            "id": 27,
+            "name": "Malaysia refinery 3",
+            "type": [
+                "node",
+                "Refinery"
+            ],
+            "throughput": 48081,
+            "storage capacity": 2404.05,
+            "supply": 0,
+            "demand": 0,
+            "current storage": 726,
+            "resupply": false,
+            "location": [
+                4.23666,
+                114.16459
+            ],
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    4.23666,
+                    114.16459
+                ]
+            }
+        },
+        {
+            "id": 28,
+            "name": "Philippines refinery",
+            "type": [
+                "node",
+                "Refinery"
+            ],
+            "throughput": 54262,
+            "storage capacity": 2713.1,
+            "supply": 0,
+            "demand": 0,
+            "current storage": 444,
+            "resupply": false,
+            "location": [
+                14.6656,
+                120.96971
+            ],
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    14.6656,
+                    120.96971
+                ]
+            }
+        },
+        {
+            "id": 29,
+            "name": "China refinery 1",
+            "type": [
+                "node",
+                "Refinery"
+            ],
+            "throughput": 47928,
+            "storage capacity": 2396.4,
+            "supply": 0,
+            "demand": 0,
+            "current storage": 1404,
+            "resupply": false,
+            "location": [
+                37.53968,
+                121.12007
+            ],
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    37.53968,
+                    121.12007
+                ]
+            }
+        },
+        {
+            "id": 30,
+            "name": "China refinery 2",
+            "type": [
+                "node",
+                "Refinery"
+            ],
+            "throughput": 51399,
+            "storage capacity": 2569.95,
+            "supply": 0,
+            "demand": 0,
+            "current storage": 1375,
+            "resupply": false,
+            "location": [
+                30.91578,
+                121.7353
+            ],
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    30.91578,
+                    121.7353
+                ]
+            }
+        },
+        {
+            "id": 31,
+            "name": "South Korea port",
+            "type": [
+                "node",
+                "Port"
+            ],
+            "throughput": 50774,
+            "storage capacity": 2538.7,
+            "supply": 0,
+            "demand": 0,
+            "current storage": 1486,
+            "resupply": false,
+            "location": [
+                37.49517,
+                126.61532
+            ],
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    37.49517,
+                    126.61532
+                ]
+            }
+        },
+        {
+            "id": 32,
+            "name": "Japan port 1",
+            "type": [
+                "node",
+                "Port"
+            ],
+            "throughput": 53697,
+            "storage capacity": 2684.85,
+            "supply": 0,
+            "demand": 0,
+            "current storage": 394,
+            "resupply": false,
+            "location": [
+                35.62036,
+                139.76814
+            ],
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    35.62036,
+                    139.76814
+                ]
+            }
+        },
+        {
+            "id": 33,
+            "name": "Japan port 2",
+            "type": [
+                "node",
+                "Port"
+            ],
+            "throughput": 48706,
+            "storage capacity": 2435.3,
+            "supply": 0,
+            "demand": 0,
+            "current storage": 335,
+            "resupply": false,
+            "location": [
+                40.54519,
+                141.50968
+            ],
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    40.54519,
+                    141.50968
+                ]
+            }
+        },
+        {
+            "id": 34,
+            "name": "Japan port 3",
+            "type": [
+                "node",
+                "Port"
+            ],
+            "throughput": 51660,
+            "storage capacity": 2583.0,
+            "supply": 0,
+            "demand": 0,
+            "current storage": 1020,
+            "resupply": false,
+            "location": [
+                26.21195,
+                127.65456
+            ],
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    26.21195,
+                    127.65456
+                ]
+            }
+        },
+        {
+            "id": 35,
+            "name": "Guam port",
+            "type": [
+                "node",
+                "Port"
+            ],
+            "throughput": 48713,
+            "storage capacity": 2435.65,
+            "supply": 0,
+            "demand": 0,
+            "current storage": 1259,
+            "resupply": false,
+            "location": [
+                13.46221,
+                144.66438
+            ],
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    13.46221,
+                    144.66438
+                ]
+            }
+        },
+        {
+            "id": 36,
+            "name": "Japan bulk storage 1",
+            "type": [
+                "node",
+                "Bulk Storage"
+            ],
+            "throughput": 46969,
+            "storage capacity": 2348.45,
+            "supply": 0,
+            "demand": 0,
+            "current storage": 1164,
+            "resupply": false,
+            "location": [
+                35.86822,
+                139.68673
+            ],
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    35.86822,
+                    139.68673
+                ]
+            }
+        },
+        {
+            "id": 37,
+            "name": "Japan bulk storage 2",
+            "type": [
+                "node",
+                "Bulk Storage"
+            ],
+            "throughput": 50561,
+            "storage capacity": 2528.05,
+            "supply": 0,
+            "demand": 0,
+            "current storage": 1429,
+            "resupply": false,
+            "location": [
+                40.56581,
+                141.3871
+            ],
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    40.56581,
+                    141.3871
+                ]
+            }
+        },
+        {
+            "id": 38,
+            "name": "Japan bulk storage 3",
+            "type": [
+                "node",
+                "Bulk Storage"
+            ],
+            "throughput": 49173,
+            "storage capacity": 2458.65,
+            "supply": 0,
+            "demand": 0,
+            "current storage": 901,
+            "resupply": false,
+            "location": [
+                26.23128,
+                127.69637
+            ],
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    26.23128,
+                    127.69637
+                ]
+            }
+        },
+        {
+            "id": 39,
+            "name": "South Korea bulk storage",
+            "type": [
+                "node",
+                "Bulk Storage"
+            ],
+            "throughput": 52274,
+            "storage capacity": 2613.7,
+            "supply": 0,
+            "demand": 0,
+            "current storage": 553,
+            "resupply": false,
+            "location": [
+                34.47983,
+                126.82155
+            ],
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    34.47983,
+                    126.82155
+                ]
+            }
+        },
+        {
+            "id": 40,
+            "name": "Guam bulk storage",
+            "type": [
+                "node",
+                "Bulk Storage"
+            ],
+            "throughput": 53829,
+            "storage capacity": 2691.45,
+            "supply": 0,
+            "demand": 0,
+            "current storage": 1373,
+            "resupply": false,
+            "location": [
+                13.59839,
+                144.8532
+            ],
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    13.59839,
+                    144.8532
+                ]
+            }
+        },
+        {
+            "id": 41,
+            "name": "Malaysia bulk storage 1",
+            "type": [
+                "node",
+                "Bulk Storage"
+            ],
+            "throughput": 54681,
+            "storage capacity": 2734.05,
+            "supply": 0,
+            "demand": 0,
+            "current storage": 1313,
+            "resupply": false,
+            "location": [
+                2.71353,
+                102.06286
+            ],
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    2.71353,
+                    102.06286
+                ]
+            }
+        },
+        {
+            "id": 42,
+            "name": "Malaysia bulk storage 2",
+            "type": [
+                "node",
+                "Bulk Storage"
+            ],
+            "throughput": 51834,
+            "storage capacity": 2591.7,
+            "supply": 0,
+            "demand": 0,
+            "current storage": 879,
+            "resupply": false,
+            "location": [
+                4.27274,
+                114.2443
+            ],
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    4.27274,
+                    114.2443
+                ]
+            }
+        },
+        {
+            "id": 43,
+            "name": "Thailand bulk storage",
+            "type": [
+                "node",
+                "Bulk Storage"
+            ],
+            "throughput": 48056,
+            "storage capacity": 2402.8,
+            "supply": 0,
+            "demand": 0,
+            "current storage": 1360,
+            "resupply": false,
+            "location": [
+                12.85956,
+                101.0147
+            ],
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.85956,
+                    101.0147
+                ]
+            }
+        },
+        {
+            "id": 44,
+            "name": "Philippines bulk storage",
+            "type": [
+                "node",
+                "Bulk Storage"
+            ],
+            "throughput": 45229,
+            "storage capacity": 2261.45,
+            "supply": 0,
+            "demand": 0,
+            "current storage": 994,
+            "resupply": false,
+            "location": [
+                14.697,
+                121.12001
+            ],
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    14.697,
+                    121.12001
+                ]
+            }
+        },
+        {
+            "id": 45,
+            "name": "China bulk storage 1",
+            "type": [
+                "node",
+                "Bulk Storage"
+            ],
+            "throughput": 51157,
+            "storage capacity": 2557.85,
+            "supply": 0,
+            "demand": 0,
+            "current storage": 1051,
+            "resupply": false,
+            "location": [
+                37.10487,
+                119.84559
+            ],
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    37.10487,
+                    119.84559
+                ]
+            }
+        },
+        {
+            "id": 46,
+            "name": "China bulk storage 2",
+            "type": [
+                "node",
+                "Bulk Storage"
+            ],
+            "throughput": 47368,
+            "storage capacity": 2368.4,
+            "supply": 0,
+            "demand": 0,
+            "current storage": 313,
+            "resupply": false,
+            "location": [
+                31.0029,
+                121.52931
+            ],
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    31.0029,
+                    121.52931
+                ]
+            }
+        },
+        {
+            "id": 47,
+            "name": "Misawa AFB",
+            "type": [
+                "node",
+                "Use"
+            ],
+            "throughput": 74000,
+            "storage capacity": 0.0,
+            "supply": 0,
+            "demand": 66600,
+            "current storage": 0,
+            "resupply": false,
+            "location": [
+                40.69645,
+                141.38776
+            ],
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    40.69645,
+                    141.38776
+                ]
+            }
+        },
+        {
+            "id": 48,
+            "name": "Yokota AFB",
+            "type": [
+                "node",
+                "Use"
+            ],
+            "throughput": 50000,
+            "storage capacity": 0.0,
+            "supply": 0,
+            "demand": 45000,
+            "current storage": 0,
+            "resupply": false,
+            "location": [
+                35.74233,
+                139.33841
+            ],
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    35.74233,
+                    139.33841
+                ]
+            }
+        },
+        {
+            "id": 49,
+            "name": "Osan AFB",
+            "type": [
+                "node",
+                "Use"
+            ],
+            "throughput": 66000,
+            "storage capacity": 0.0,
+            "supply": 0,
+            "demand": 59400,
+            "current storage": 0,
+            "resupply": false,
+            "location": [
+                37.08852,
+                127.03384
+            ],
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    37.08852,
+                    127.03384
+                ]
+            }
+        },
+        {
+            "id": 50,
+            "name": "Kadena AFB",
+            "type": [
+                "node",
+                "Use"
+            ],
+            "throughput": 69000,
+            "storage capacity": 0.0,
+            "supply": 0,
+            "demand": 62100,
+            "current storage": 0,
+            "resupply": false,
+            "location": [
+                26.35568,
+                127.76787
+            ],
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    26.35568,
+                    127.76787
+                ]
+            }
+        },
+        {
+            "id": 51,
+            "name": "Andersen AFB",
+            "type": [
+                "node",
+                "Use"
+            ],
+            "throughput": 53000,
+            "storage capacity": 0.0,
+            "supply": 0,
+            "demand": 47700,
+            "current storage": 0,
+            "resupply": false,
+            "location": [
+                13.58822,
+                144.9202
+            ],
+            "risks": [],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    13.58822,
+                    144.9202
+                ]
+            }
+        },
+        {
+            "id": 1,
+            "name": "Ship Transport 1",
+            "type": [
+                "edge",
+                "Ship Transport"
+            ],
+            "start": 1,
+            "end": 14,
+            "flow": 0,
+            "capacity": 20204,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        5.70323,
+                        103.36891
+                    ],
+                    [
+                        12.82478,
+                        100.91569
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 2,
+            "name": "Ship Transport 2",
+            "type": [
+                "edge",
+                "Ship Transport"
+            ],
+            "start": 1,
+            "end": 15,
+            "flow": 0,
+            "capacity": 43780,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        5.70323,
+                        103.36891
+                    ],
+                    [
+                        0.26874,
+                        103.72063
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 3,
+            "name": "Ship Transport 12",
+            "type": [
+                "edge",
+                "Ship Transport"
+            ],
+            "start": 1,
+            "end": 16,
+            "flow": 0,
+            "capacity": 62065,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        5.70323,
+                        103.36891
+                    ],
+                    [
+                        1.64435,
+                        101.78093
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 4,
+            "name": "Ship Transport 13",
+            "type": [
+                "edge",
+                "Ship Transport"
+            ],
+            "start": 1,
+            "end": 17,
+            "flow": 0,
+            "capacity": 34353,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        5.70323,
+                        103.36891
+                    ],
+                    [
+                        2.62693,
+                        101.67107
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 5,
+            "name": "Ship Transport 14",
+            "type": [
+                "edge",
+                "Ship Transport"
+            ],
+            "start": 1,
+            "end": 18,
+            "flow": 0,
+            "capacity": 50980,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        5.70323,
+                        103.36891
+                    ],
+                    [
+                        2.18804,
+                        102.23549
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 6,
+            "name": "Ship Transport 3",
+            "type": [
+                "edge",
+                "Ship Transport"
+            ],
+            "start": 1,
+            "end": 19,
+            "flow": 0,
+            "capacity": 53426,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        5.70323,
+                        103.36891
+                    ],
+                    [
+                        4.35686,
+                        113.9772
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 7,
+            "name": "Ship Transport 4",
+            "type": [
+                "edge",
+                "Ship Transport"
+            ],
+            "start": 2,
+            "end": 19,
+            "flow": 0,
+            "capacity": 34160,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        6.8858,
+                        116.25766
+                    ],
+                    [
+                        4.35686,
+                        113.9772
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 8,
+            "name": "Ship Transport 5",
+            "type": [
+                "edge",
+                "Ship Transport"
+            ],
+            "start": 2,
+            "end": 20,
+            "flow": 0,
+            "capacity": 22193,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        6.8858,
+                        116.25766
+                    ],
+                    [
+                        14.82398,
+                        120.2738
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 9,
+            "name": "Crude Oil Pipeline 1",
+            "type": [
+                "edge",
+                "Crude Oil Pipeline"
+            ],
+            "start": 3,
+            "end": 23,
+            "flow": 0,
+            "capacity": 52769,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        16.88926,
+                        99.77986
+                    ],
+                    [
+                        12.90109,
+                        100.93766
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 10,
+            "name": "Crude Oil Pipeline 2",
+            "type": [
+                "edge",
+                "Crude Oil Pipeline"
+            ],
+            "start": 4,
+            "end": 23,
+            "flow": 0,
+            "capacity": 24219,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        18.86335,
+                        94.74381
+                    ],
+                    [
+                        12.90109,
+                        100.93766
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 11,
+            "name": "Ship Transport 6",
+            "type": [
+                "edge",
+                "Ship Transport"
+            ],
+            "start": 5,
+            "end": 14,
+            "flow": 0,
+            "capacity": 54528,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        10.10807,
+                        107.75162
+                    ],
+                    [
+                        12.82478,
+                        100.91569
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 12,
+            "name": "Ship Transport 9",
+            "type": [
+                "edge",
+                "Ship Transport"
+            ],
+            "start": 5,
+            "end": 15,
+            "flow": 0,
+            "capacity": 45008,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        10.10807,
+                        107.75162
+                    ],
+                    [
+                        0.26874,
+                        103.72063
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 13,
+            "name": "Ship Transport 15",
+            "type": [
+                "edge",
+                "Ship Transport"
+            ],
+            "start": 5,
+            "end": 16,
+            "flow": 0,
+            "capacity": 31448,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        10.10807,
+                        107.75162
+                    ],
+                    [
+                        1.64435,
+                        101.78093
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 14,
+            "name": "Ship Transport 16",
+            "type": [
+                "edge",
+                "Ship Transport"
+            ],
+            "start": 5,
+            "end": 17,
+            "flow": 0,
+            "capacity": 71026,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        10.10807,
+                        107.75162
+                    ],
+                    [
+                        2.62693,
+                        101.67107
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 15,
+            "name": "Ship Transport 17",
+            "type": [
+                "edge",
+                "Ship Transport"
+            ],
+            "start": 5,
+            "end": 18,
+            "flow": 0,
+            "capacity": 64460,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        10.10807,
+                        107.75162
+                    ],
+                    [
+                        2.18804,
+                        102.23549
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 16,
+            "name": "Ship Transport 8",
+            "type": [
+                "edge",
+                "Ship Transport"
+            ],
+            "start": 5,
+            "end": 19,
+            "flow": 0,
+            "capacity": 56895,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        10.10807,
+                        107.75162
+                    ],
+                    [
+                        4.35686,
+                        113.9772
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 17,
+            "name": "Ship Transport 7",
+            "type": [
+                "edge",
+                "Ship Transport"
+            ],
+            "start": 5,
+            "end": 20,
+            "flow": 0,
+            "capacity": 69376,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        10.10807,
+                        107.75162
+                    ],
+                    [
+                        14.82398,
+                        120.2738
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 18,
+            "name": "Rail Transport 1",
+            "type": [
+                "edge",
+                "Rail Transport"
+            ],
+            "start": 6,
+            "end": 24,
+            "flow": 0,
+            "capacity": 75165,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        4.83777,
+                        96.94107
+                    ],
+                    [
+                        1.62239,
+                        101.66558
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 19,
+            "name": "Rail Transport 2",
+            "type": [
+                "edge",
+                "Rail Transport"
+            ],
+            "start": 7,
+            "end": 24,
+            "flow": 0,
+            "capacity": 36873,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        1.58658,
+                        101.449
+                    ],
+                    [
+                        1.62239,
+                        101.66558
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 20,
+            "name": "Ship Transport 10",
+            "type": [
+                "edge",
+                "Ship Transport"
+            ],
+            "start": 8,
+            "end": 15,
+            "flow": 0,
+            "capacity": 29790,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -5.81905,
+                        107.01443
+                    ],
+                    [
+                        0.26874,
+                        103.72063
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 21,
+            "name": "Ship Transport 11",
+            "type": [
+                "edge",
+                "Ship Transport"
+            ],
+            "start": 8,
+            "end": 16,
+            "flow": 0,
+            "capacity": 62868,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -5.81905,
+                        107.01443
+                    ],
+                    [
+                        1.64435,
+                        101.78093
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 22,
+            "name": "Ship Transport 18",
+            "type": [
+                "edge",
+                "Ship Transport"
+            ],
+            "start": 8,
+            "end": 17,
+            "flow": 0,
+            "capacity": 40694,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -5.81905,
+                        107.01443
+                    ],
+                    [
+                        2.62693,
+                        101.67107
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 23,
+            "name": "Ship Transport 19",
+            "type": [
+                "edge",
+                "Ship Transport"
+            ],
+            "start": 8,
+            "end": 18,
+            "flow": 0,
+            "capacity": 79481,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -5.81905,
+                        107.01443
+                    ],
+                    [
+                        2.18804,
+                        102.23549
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 24,
+            "name": "Ship Transport 21",
+            "type": [
+                "edge",
+                "Ship Transport"
+            ],
+            "start": 9,
+            "end": 19,
+            "flow": 0,
+            "capacity": 48871,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        10.00327,
+                        123.542
+                    ],
+                    [
+                        4.35686,
+                        113.9772
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 25,
+            "name": "Ship Transport 20",
+            "type": [
+                "edge",
+                "Ship Transport"
+            ],
+            "start": 9,
+            "end": 20,
+            "flow": 0,
+            "capacity": 29467,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        10.00327,
+                        123.542
+                    ],
+                    [
+                        14.82398,
+                        120.2738
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 26,
+            "name": "Rail Transport 3",
+            "type": [
+                "edge",
+                "Rail Transport"
+            ],
+            "start": 10,
+            "end": 29,
+            "flow": 0,
+            "capacity": 73720,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        33.18919,
+                        120.10347
+                    ],
+                    [
+                        37.53968,
+                        121.12007
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 27,
+            "name": "Rail Transport 4",
+            "type": [
+                "edge",
+                "Rail Transport"
+            ],
+            "start": 10,
+            "end": 30,
+            "flow": 0,
+            "capacity": 33228,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        33.18919,
+                        120.10347
+                    ],
+                    [
+                        30.91578,
+                        121.7353
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 28,
+            "name": "Ship Transport 22",
+            "type": [
+                "edge",
+                "Ship Transport"
+            ],
+            "start": 11,
+            "end": 21,
+            "flow": 0,
+            "capacity": 65224,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        38.86832,
+                        119.7366
+                    ],
+                    [
+                        37.51136,
+                        121.43318
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 29,
+            "name": "Rail Transport 5",
+            "type": [
+                "edge",
+                "Rail Transport"
+            ],
+            "start": 12,
+            "end": 29,
+            "flow": 0,
+            "capacity": 74651,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        36.55376,
+                        116.75198
+                    ],
+                    [
+                        37.53968,
+                        121.12007
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 30,
+            "name": "Rail Transport 6",
+            "type": [
+                "edge",
+                "Rail Transport"
+            ],
+            "start": 12,
+            "end": 30,
+            "flow": 0,
+            "capacity": 20499,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        36.55376,
+                        116.75198
+                    ],
+                    [
+                        30.91578,
+                        121.7353
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 31,
+            "name": "Ship Transport 23",
+            "type": [
+                "edge",
+                "Ship Transport"
+            ],
+            "start": 13,
+            "end": 19,
+            "flow": 0,
+            "capacity": 46813,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        5.19644,
+                        114.86503
+                    ],
+                    [
+                        4.35686,
+                        113.9772
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 32,
+            "name": "Ship Transport 24",
+            "type": [
+                "edge",
+                "Ship Transport"
+            ],
+            "start": 13,
+            "end": 20,
+            "flow": 0,
+            "capacity": 65816,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        5.19644,
+                        114.86503
+                    ],
+                    [
+                        14.82398,
+                        120.2738
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 33,
+            "name": "Truck Transport 1",
+            "type": [
+                "edge",
+                "Truck Transport"
+            ],
+            "start": 14,
+            "end": 23,
+            "flow": 0,
+            "capacity": 68784,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        12.82478,
+                        100.91569
+                    ],
+                    [
+                        12.90109,
+                        100.93766
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 34,
+            "name": "Ship Transport 26",
+            "type": [
+                "edge",
+                "Ship Transport"
+            ],
+            "start": 14,
+            "end": 34,
+            "flow": 0,
+            "capacity": 26699,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        12.82478,
+                        100.91569
+                    ],
+                    [
+                        26.21195,
+                        127.65456
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 35,
+            "name": "Ship Transport 25",
+            "type": [
+                "edge",
+                "Ship Transport"
+            ],
+            "start": 14,
+            "end": 35,
+            "flow": 0,
+            "capacity": 78380,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        12.82478,
+                        100.91569
+                    ],
+                    [
+                        13.46221,
+                        144.66438
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 36,
+            "name": "Rail Transport 7",
+            "type": [
+                "edge",
+                "Rail Transport"
+            ],
+            "start": 15,
+            "end": 24,
+            "flow": 0,
+            "capacity": 51300,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        0.26874,
+                        103.72063
+                    ],
+                    [
+                        1.62239,
+                        101.66558
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 37,
+            "name": "Ship Transport 28",
+            "type": [
+                "edge",
+                "Ship Transport"
+            ],
+            "start": 15,
+            "end": 34,
+            "flow": 0,
+            "capacity": 71161,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        0.26874,
+                        103.72063
+                    ],
+                    [
+                        26.21195,
+                        127.65456
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 38,
+            "name": "Ship Transport 27",
+            "type": [
+                "edge",
+                "Ship Transport"
+            ],
+            "start": 15,
+            "end": 35,
+            "flow": 0,
+            "capacity": 47318,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        0.26874,
+                        103.72063
+                    ],
+                    [
+                        13.46221,
+                        144.66438
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 40,
+            "name": "Ship Transport 30",
+            "type": [
+                "edge",
+                "Ship Transport"
+            ],
+            "start": 16,
+            "end": 34,
+            "flow": 0,
+            "capacity": 44819,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        1.64435,
+                        101.78093
+                    ],
+                    [
+                        26.21195,
+                        127.65456
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 41,
+            "name": "Ship Transport 29",
+            "type": [
+                "edge",
+                "Ship Transport"
+            ],
+            "start": 16,
+            "end": 35,
+            "flow": 0,
+            "capacity": 23057,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        1.64435,
+                        101.78093
+                    ],
+                    [
+                        13.46221,
+                        144.66438
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 42,
+            "name": "Truck Transport 3",
+            "type": [
+                "edge",
+                "Truck Transport"
+            ],
+            "start": 17,
+            "end": 25,
+            "flow": 0,
+            "capacity": 68927,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        2.62693,
+                        101.67107
+                    ],
+                    [
+                        2.67083,
+                        101.73699
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 43,
+            "name": "Ship Transport 32",
+            "type": [
+                "edge",
+                "Ship Transport"
+            ],
+            "start": 17,
+            "end": 34,
+            "flow": 0,
+            "capacity": 50178,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        2.62693,
+                        101.67107
+                    ],
+                    [
+                        26.21195,
+                        127.65456
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 44,
+            "name": "Ship Transport 31",
+            "type": [
+                "edge",
+                "Ship Transport"
+            ],
+            "start": 17,
+            "end": 35,
+            "flow": 0,
+            "capacity": 57018,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        2.62693,
+                        101.67107
+                    ],
+                    [
+                        13.46221,
+                        144.66438
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 45,
+            "name": "Truck Transport 4",
+            "type": [
+                "edge",
+                "Truck Transport"
+            ],
+            "start": 18,
+            "end": 26,
+            "flow": 0,
+            "capacity": 49283,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        2.18804,
+                        102.23549
+                    ],
+                    [
+                        2.24825,
+                        102.19292
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 46,
+            "name": "Ship Transport 34",
+            "type": [
+                "edge",
+                "Ship Transport"
+            ],
+            "start": 18,
+            "end": 34,
+            "flow": 0,
+            "capacity": 41417,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        2.18804,
+                        102.23549
+                    ],
+                    [
+                        26.21195,
+                        127.65456
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 47,
+            "name": "Ship Transport 33",
+            "type": [
+                "edge",
+                "Ship Transport"
+            ],
+            "start": 18,
+            "end": 35,
+            "flow": 0,
+            "capacity": 75014,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        2.18804,
+                        102.23549
+                    ],
+                    [
+                        13.46221,
+                        144.66438
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 48,
+            "name": "Truck Transport 5",
+            "type": [
+                "edge",
+                "Truck Transport"
+            ],
+            "start": 19,
+            "end": 27,
+            "flow": 0,
+            "capacity": 35316,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        4.35686,
+                        113.9772
+                    ],
+                    [
+                        4.23666,
+                        114.16459
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 49,
+            "name": "Ship Transport 35",
+            "type": [
+                "edge",
+                "Ship Transport"
+            ],
+            "start": 19,
+            "end": 32,
+            "flow": 0,
+            "capacity": 77047,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        4.35686,
+                        113.9772
+                    ],
+                    [
+                        35.62036,
+                        139.76814
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 50,
+            "name": "Ship Transport 36",
+            "type": [
+                "edge",
+                "Ship Transport"
+            ],
+            "start": 19,
+            "end": 33,
+            "flow": 0,
+            "capacity": 77766,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        4.35686,
+                        113.9772
+                    ],
+                    [
+                        40.54519,
+                        141.50968
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 51,
+            "name": "Truck Transport 6",
+            "type": [
+                "edge",
+                "Truck Transport"
+            ],
+            "start": 20,
+            "end": 28,
+            "flow": 0,
+            "capacity": 78231,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        14.82398,
+                        120.2738
+                    ],
+                    [
+                        14.6656,
+                        120.96971
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 52,
+            "name": "Ship Transport 38",
+            "type": [
+                "edge",
+                "Ship Transport"
+            ],
+            "start": 20,
+            "end": 32,
+            "flow": 0,
+            "capacity": 23627,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        14.82398,
+                        120.2738
+                    ],
+                    [
+                        35.62036,
+                        139.76814
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 53,
+            "name": "Ship Transport 39",
+            "type": [
+                "edge",
+                "Ship Transport"
+            ],
+            "start": 20,
+            "end": 33,
+            "flow": 0,
+            "capacity": 60645,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        14.82398,
+                        120.2738
+                    ],
+                    [
+                        40.54519,
+                        141.50968
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 54,
+            "name": "Ship Transport 37",
+            "type": [
+                "edge",
+                "Ship Transport"
+            ],
+            "start": 20,
+            "end": 35,
+            "flow": 0,
+            "capacity": 62206,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        14.82398,
+                        120.2738
+                    ],
+                    [
+                        13.46221,
+                        144.66438
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 56,
+            "name": "Ship Transport 40",
+            "type": [
+                "edge",
+                "Ship Transport"
+            ],
+            "start": 21,
+            "end": 31,
+            "flow": 0,
+            "capacity": 35635,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        37.51136,
+                        121.43318
+                    ],
+                    [
+                        37.49517,
+                        126.61532
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 57,
+            "name": "Ship Transport 41",
+            "type": [
+                "edge",
+                "Ship Transport"
+            ],
+            "start": 21,
+            "end": 32,
+            "flow": 0,
+            "capacity": 37879,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        37.51136,
+                        121.43318
+                    ],
+                    [
+                        35.62036,
+                        139.76814
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 58,
+            "name": "Ship Transport 42",
+            "type": [
+                "edge",
+                "Ship Transport"
+            ],
+            "start": 21,
+            "end": 33,
+            "flow": 0,
+            "capacity": 54347,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        37.51136,
+                        121.43318
+                    ],
+                    [
+                        40.54519,
+                        141.50968
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 59,
+            "name": "Ship Transport 46",
+            "type": [
+                "edge",
+                "Ship Transport"
+            ],
+            "start": 21,
+            "end": 34,
+            "flow": 0,
+            "capacity": 60265,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        37.51136,
+                        121.43318
+                    ],
+                    [
+                        26.21195,
+                        127.65456
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 61,
+            "name": "Ship Transport 43",
+            "type": [
+                "edge",
+                "Ship Transport"
+            ],
+            "start": 22,
+            "end": 31,
+            "flow": 0,
+            "capacity": 37747,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        30.84712,
+                        121.84609
+                    ],
+                    [
+                        37.49517,
+                        126.61532
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 62,
+            "name": "Ship Transport 44",
+            "type": [
+                "edge",
+                "Ship Transport"
+            ],
+            "start": 22,
+            "end": 32,
+            "flow": 0,
+            "capacity": 37911,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        30.84712,
+                        121.84609
+                    ],
+                    [
+                        35.62036,
+                        139.76814
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 63,
+            "name": "Ship Transport 45",
+            "type": [
+                "edge",
+                "Ship Transport"
+            ],
+            "start": 22,
+            "end": 33,
+            "flow": 0,
+            "capacity": 46839,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        30.84712,
+                        121.84609
+                    ],
+                    [
+                        40.54519,
+                        141.50968
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 64,
+            "name": "Ship Transport 47",
+            "type": [
+                "edge",
+                "Ship Transport"
+            ],
+            "start": 22,
+            "end": 34,
+            "flow": 0,
+            "capacity": 31837,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        30.84712,
+                        121.84609
+                    ],
+                    [
+                        26.21195,
+                        127.65456
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 66,
+            "name": "Truck Transport 9",
+            "type": [
+                "edge",
+                "Truck Transport"
+            ],
+            "start": 23,
+            "end": 43,
+            "flow": 0,
+            "capacity": 45041,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        12.90109,
+                        100.93766
+                    ],
+                    [
+                        12.85956,
+                        101.0147
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 68,
+            "name": "Truck Transport 11",
+            "type": [
+                "edge",
+                "Truck Transport"
+            ],
+            "start": 24,
+            "end": 16,
+            "flow": 0,
+            "capacity": 79555,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        1.62239,
+                        101.66558
+                    ],
+                    [
+                        1.64435,
+                        101.78093
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 70,
+            "name": "Truck Transport 12",
+            "type": [
+                "edge",
+                "Truck Transport"
+            ],
+            "start": 25,
+            "end": 41,
+            "flow": 0,
+            "capacity": 47238,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        2.67083,
+                        101.73699
+                    ],
+                    [
+                        2.71353,
+                        102.06286
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 74,
+            "name": "Truck Transport 17",
+            "type": [
+                "edge",
+                "Truck Transport"
+            ],
+            "start": 27,
+            "end": 42,
+            "flow": 0,
+            "capacity": 39530,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        4.23666,
+                        114.16459
+                    ],
+                    [
+                        4.27274,
+                        114.2443
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 76,
+            "name": "Truck Transport 19",
+            "type": [
+                "edge",
+                "Truck Transport"
+            ],
+            "start": 28,
+            "end": 44,
+            "flow": 0,
+            "capacity": 79750,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        14.6656,
+                        120.96971
+                    ],
+                    [
+                        14.697,
+                        121.12001
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 77,
+            "name": "Truck Transport 20",
+            "type": [
+                "edge",
+                "Truck Transport"
+            ],
+            "start": 29,
+            "end": 21,
+            "flow": 0,
+            "capacity": 67198,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        37.53968,
+                        121.12007
+                    ],
+                    [
+                        37.51136,
+                        121.43318
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 78,
+            "name": "Truck Transport 21",
+            "type": [
+                "edge",
+                "Truck Transport"
+            ],
+            "start": 29,
+            "end": 45,
+            "flow": 0,
+            "capacity": 51099,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        37.53968,
+                        121.12007
+                    ],
+                    [
+                        37.10487,
+                        119.84559
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 79,
+            "name": "Truck Transport 23",
+            "type": [
+                "edge",
+                "Truck Transport"
+            ],
+            "start": 30,
+            "end": 22,
+            "flow": 0,
+            "capacity": 57632,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        30.91578,
+                        121.7353
+                    ],
+                    [
+                        30.84712,
+                        121.84609
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 80,
+            "name": "Truck Transport 22",
+            "type": [
+                "edge",
+                "Truck Transport"
+            ],
+            "start": 30,
+            "end": 46,
+            "flow": 0,
+            "capacity": 38938,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        30.91578,
+                        121.7353
+                    ],
+                    [
+                        31.0029,
+                        121.52931
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 81,
+            "name": "Truck Transport 31",
+            "type": [
+                "edge",
+                "Truck Transport"
+            ],
+            "start": 31,
+            "end": 39,
+            "flow": 0,
+            "capacity": 40177,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        37.49517,
+                        126.61532
+                    ],
+                    [
+                        34.47983,
+                        126.82155
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 82,
+            "name": "Truck Transport 32",
+            "type": [
+                "edge",
+                "Truck Transport"
+            ],
+            "start": 31,
+            "end": 49,
+            "flow": 0,
+            "capacity": 55448,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        37.49517,
+                        126.61532
+                    ],
+                    [
+                        37.08852,
+                        127.03384
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 83,
+            "name": "Truck Transport 33",
+            "type": [
+                "edge",
+                "Truck Transport"
+            ],
+            "start": 32,
+            "end": 36,
+            "flow": 0,
+            "capacity": 52332,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        35.62036,
+                        139.76814
+                    ],
+                    [
+                        35.86822,
+                        139.68673
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 84,
+            "name": "Truck Transport 34",
+            "type": [
+                "edge",
+                "Truck Transport"
+            ],
+            "start": 32,
+            "end": 48,
+            "flow": 0,
+            "capacity": 77484,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        35.62036,
+                        139.76814
+                    ],
+                    [
+                        35.74233,
+                        139.33841
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 85,
+            "name": "Truck Transport 35",
+            "type": [
+                "edge",
+                "Truck Transport"
+            ],
+            "start": 33,
+            "end": 37,
+            "flow": 0,
+            "capacity": 28211,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        40.54519,
+                        141.50968
+                    ],
+                    [
+                        40.56581,
+                        141.3871
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 86,
+            "name": "Truck Transport 36",
+            "type": [
+                "edge",
+                "Truck Transport"
+            ],
+            "start": 33,
+            "end": 47,
+            "flow": 0,
+            "capacity": 31002,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        40.54519,
+                        141.50968
+                    ],
+                    [
+                        40.69645,
+                        141.38776
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 87,
+            "name": "Truck Transport 37",
+            "type": [
+                "edge",
+                "Truck Transport"
+            ],
+            "start": 34,
+            "end": 38,
+            "flow": 0,
+            "capacity": 53391,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        26.21195,
+                        127.65456
+                    ],
+                    [
+                        26.23128,
+                        127.69637
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 88,
+            "name": "Truck Transport 38",
+            "type": [
+                "edge",
+                "Truck Transport"
+            ],
+            "start": 34,
+            "end": 50,
+            "flow": 0,
+            "capacity": 79089,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        26.21195,
+                        127.65456
+                    ],
+                    [
+                        26.35568,
+                        127.76787
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 89,
+            "name": "Truck Transport 39",
+            "type": [
+                "edge",
+                "Truck Transport"
+            ],
+            "start": 35,
+            "end": 40,
+            "flow": 0,
+            "capacity": 36573,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        13.46221,
+                        144.66438
+                    ],
+                    [
+                        13.59839,
+                        144.8532
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 90,
+            "name": "Truck Transport 40",
+            "type": [
+                "edge",
+                "Truck Transport"
+            ],
+            "start": 35,
+            "end": 51,
+            "flow": 0,
+            "capacity": 37067,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        13.46221,
+                        144.66438
+                    ],
+                    [
+                        13.58822,
+                        144.9202
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 91,
+            "name": "Truck Transport 41",
+            "type": [
+                "edge",
+                "Truck Transport"
+            ],
+            "start": 36,
+            "end": 48,
+            "flow": 0,
+            "capacity": 26450,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        35.86822,
+                        139.68673
+                    ],
+                    [
+                        35.74233,
+                        139.33841
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 92,
+            "name": "Truck Transport 42",
+            "type": [
+                "edge",
+                "Truck Transport"
+            ],
+            "start": 37,
+            "end": 47,
+            "flow": 0,
+            "capacity": 56198,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        40.56581,
+                        141.3871
+                    ],
+                    [
+                        40.69645,
+                        141.38776
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 93,
+            "name": "Truck Transport 43",
+            "type": [
+                "edge",
+                "Truck Transport"
+            ],
+            "start": 38,
+            "end": 50,
+            "flow": 0,
+            "capacity": 20909,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        26.23128,
+                        127.69637
+                    ],
+                    [
+                        26.35568,
+                        127.76787
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 94,
+            "name": "Truck Transport 44",
+            "type": [
+                "edge",
+                "Truck Transport"
+            ],
+            "start": 39,
+            "end": 49,
+            "flow": 0,
+            "capacity": 70841,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        34.47983,
+                        126.82155
+                    ],
+                    [
+                        37.08852,
+                        127.03384
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 95,
+            "name": "Truck Transport 45",
+            "type": [
+                "edge",
+                "Truck Transport"
+            ],
+            "start": 40,
+            "end": 51,
+            "flow": 0,
+            "capacity": 33934,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        13.59839,
+                        144.8532
+                    ],
+                    [
+                        13.58822,
+                        144.9202
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 97,
+            "name": "Truck Transport 25",
+            "type": [
+                "edge",
+                "Truck Transport"
+            ],
+            "start": 41,
+            "end": 18,
+            "flow": 0,
+            "capacity": 26309,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        2.71353,
+                        102.06286
+                    ],
+                    [
+                        2.18804,
+                        102.23549
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 101,
+            "name": "Truck Transport 29",
+            "type": [
+                "edge",
+                "Truck Transport"
+            ],
+            "start": 45,
+            "end": 21,
+            "flow": 0,
+            "capacity": 61571,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        37.10487,
+                        119.84559
+                    ],
+                    [
+                        37.51136,
+                        121.43318
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 102,
+            "name": "Truck Transport 30",
+            "type": [
+                "edge",
+                "Truck Transport"
+            ],
+            "start": 46,
+            "end": 22,
+            "flow": 0,
+            "capacity": 53788,
+            "risks": [],
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        31.0029,
+                        121.52931
+                    ],
+                    [
+                        30.84712,
+                        121.84609
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 1,
+            "name": "Bad guys",
+            "description": "Land conflict",
+            "type": [
+                "risk",
+                "location",
+                "Enemy Action"
+            ],
+            "probability": 0.25,
+            "impact": 0.7,
+            "shape": "Box",
+            "location": [
+                35.20877,
+                129.80075,
+                37.66784,
+                125.79151
+            ],
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            37.66784,
+                            129.80075
+                        ],
+                        [
+                            37.66784,
+                            125.79151
+                        ],
+                        [
+                            35.20877,
+                            125.79151
+                        ],
+                        [
+                            35.20877,
+                            129.80075
+                        ],
+                        [
+                            37.66784,
+                            129.80075
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 2,
+            "name": "Tsunami",
+            "description": "Gulf of Thailand",
+            "type": [
+                "risk",
+                "location",
+                "Natural Factors"
+            ],
+            "probability": 0.3,
+            "impact": 0.4,
+            "shape": "Circle",
+            "location": [
+                [
+                    9.82373,
+                    101.76452
+                ],
+                [
+                    0.0,
+                    500.0
+                ]
+            ],
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            9.82373,
+                            101.769012
+                        ],
+                        [
+                            9.823296,
+                            101.76899
+                        ],
+                        [
+                            9.822867,
+                            101.768925
+                        ],
+                        [
+                            9.822445,
+                            101.768818
+                        ],
+                        [
+                            9.822036,
+                            101.76867
+                        ],
+                        [
+                            9.821644,
+                            101.768481
+                        ],
+                        [
+                            9.821271,
+                            101.768255
+                        ],
+                        [
+                            9.820922,
+                            101.767992
+                        ],
+                        [
+                            9.820601,
+                            101.767696
+                        ],
+                        [
+                            9.820309,
+                            101.767369
+                        ],
+                        [
+                            9.82005,
+                            101.767015
+                        ],
+                        [
+                            9.819827,
+                            101.766637
+                        ],
+                        [
+                            9.819641,
+                            101.766239
+                        ],
+                        [
+                            9.819495,
+                            101.765824
+                        ],
+                        [
+                            9.819389,
+                            101.765396
+                        ],
+                        [
+                            9.819326,
+                            101.76496
+                        ],
+                        [
+                            9.819304,
+                            101.76452
+                        ],
+                        [
+                            9.819326,
+                            101.76408
+                        ],
+                        [
+                            9.819389,
+                            101.763644
+                        ],
+                        [
+                            9.819495,
+                            101.763216
+                        ],
+                        [
+                            9.819641,
+                            101.762801
+                        ],
+                        [
+                            9.819827,
+                            101.762403
+                        ],
+                        [
+                            9.82005,
+                            101.762025
+                        ],
+                        [
+                            9.820309,
+                            101.761671
+                        ],
+                        [
+                            9.820601,
+                            101.761344
+                        ],
+                        [
+                            9.820922,
+                            101.761048
+                        ],
+                        [
+                            9.821271,
+                            101.760785
+                        ],
+                        [
+                            9.821644,
+                            101.760559
+                        ],
+                        [
+                            9.822036,
+                            101.76037
+                        ],
+                        [
+                            9.822445,
+                            101.760222
+                        ],
+                        [
+                            9.822867,
+                            101.760115
+                        ],
+                        [
+                            9.823296,
+                            101.76005
+                        ],
+                        [
+                            9.82373,
+                            101.760028
+                        ],
+                        [
+                            9.824164,
+                            101.76005
+                        ],
+                        [
+                            9.824593,
+                            101.760115
+                        ],
+                        [
+                            9.825015,
+                            101.760222
+                        ],
+                        [
+                            9.825424,
+                            101.76037
+                        ],
+                        [
+                            9.825816,
+                            101.760559
+                        ],
+                        [
+                            9.826189,
+                            101.760785
+                        ],
+                        [
+                            9.826538,
+                            101.761048
+                        ],
+                        [
+                            9.826859,
+                            101.761344
+                        ],
+                        [
+                            9.827151,
+                            101.761671
+                        ],
+                        [
+                            9.82741,
+                            101.762025
+                        ],
+                        [
+                            9.827633,
+                            101.762403
+                        ],
+                        [
+                            9.827819,
+                            101.762801
+                        ],
+                        [
+                            9.827965,
+                            101.763216
+                        ],
+                        [
+                            9.828071,
+                            101.763644
+                        ],
+                        [
+                            9.828134,
+                            101.76408
+                        ],
+                        [
+                            9.828156,
+                            101.76452
+                        ],
+                        [
+                            9.828134,
+                            101.76496
+                        ],
+                        [
+                            9.828071,
+                            101.765396
+                        ],
+                        [
+                            9.827965,
+                            101.765824
+                        ],
+                        [
+                            9.827819,
+                            101.766239
+                        ],
+                        [
+                            9.827633,
+                            101.766637
+                        ],
+                        [
+                            9.82741,
+                            101.767015
+                        ],
+                        [
+                            9.827151,
+                            101.767369
+                        ],
+                        [
+                            9.826859,
+                            101.767696
+                        ],
+                        [
+                            9.826538,
+                            101.767992
+                        ],
+                        [
+                            9.826189,
+                            101.768255
+                        ],
+                        [
+                            9.825816,
+                            101.768481
+                        ],
+                        [
+                            9.825424,
+                            101.76867
+                        ],
+                        [
+                            9.825015,
+                            101.768818
+                        ],
+                        [
+                            9.824593,
+                            101.768925
+                        ],
+                        [
+                            9.824164,
+                            101.76899
+                        ],
+                        [
+                            9.82373,
+                            101.769012
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 3,
+            "name": "Rising sea levels",
+            "description": "Effect of climate change",
+            "type": [
+                "risk",
+                "location",
+                "Natural Factors"
+            ],
+            "probability": 0.4,
+            "impact": 0.5,
+            "shape": "Circle",
+            "location": [
+                [
+                    13.46774,
+                    144.78398
+                ],
+                [
+                    0.0,
+                    50.0
+                ]
+            ],
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            13.46774,
+                            144.784429
+                        ],
+                        [
+                            13.467697,
+                            144.784427
+                        ],
+                        [
+                            13.467655,
+                            144.784421
+                        ],
+                        [
+                            13.467613,
+                            144.78441
+                        ],
+                        [
+                            13.467573,
+                            144.784395
+                        ],
+                        [
+                            13.467534,
+                            144.784376
+                        ],
+                        [
+                            13.467497,
+                            144.784353
+                        ],
+                        [
+                            13.467463,
+                            144.784327
+                        ],
+                        [
+                            13.467431,
+                            144.784298
+                        ],
+                        [
+                            13.467402,
+                            144.784265
+                        ],
+                        [
+                            13.467377,
+                            144.78423
+                        ],
+                        [
+                            13.467355,
+                            144.784192
+                        ],
+                        [
+                            13.467336,
+                            144.784152
+                        ],
+                        [
+                            13.467322,
+                            144.78411
+                        ],
+                        [
+                            13.467312,
+                            144.784068
+                        ],
+                        [
+                            13.467305,
+                            144.784024
+                        ],
+                        [
+                            13.467303,
+                            144.78398
+                        ],
+                        [
+                            13.467305,
+                            144.783936
+                        ],
+                        [
+                            13.467312,
+                            144.783892
+                        ],
+                        [
+                            13.467322,
+                            144.78385
+                        ],
+                        [
+                            13.467336,
+                            144.783808
+                        ],
+                        [
+                            13.467355,
+                            144.783768
+                        ],
+                        [
+                            13.467377,
+                            144.78373
+                        ],
+                        [
+                            13.467402,
+                            144.783695
+                        ],
+                        [
+                            13.467431,
+                            144.783662
+                        ],
+                        [
+                            13.467463,
+                            144.783633
+                        ],
+                        [
+                            13.467497,
+                            144.783607
+                        ],
+                        [
+                            13.467534,
+                            144.783584
+                        ],
+                        [
+                            13.467573,
+                            144.783565
+                        ],
+                        [
+                            13.467613,
+                            144.78355
+                        ],
+                        [
+                            13.467655,
+                            144.783539
+                        ],
+                        [
+                            13.467697,
+                            144.783533
+                        ],
+                        [
+                            13.46774,
+                            144.783531
+                        ],
+                        [
+                            13.467783,
+                            144.783533
+                        ],
+                        [
+                            13.467825,
+                            144.783539
+                        ],
+                        [
+                            13.467867,
+                            144.78355
+                        ],
+                        [
+                            13.467907,
+                            144.783565
+                        ],
+                        [
+                            13.467946,
+                            144.783584
+                        ],
+                        [
+                            13.467983,
+                            144.783607
+                        ],
+                        [
+                            13.468017,
+                            144.783633
+                        ],
+                        [
+                            13.468049,
+                            144.783662
+                        ],
+                        [
+                            13.468078,
+                            144.783695
+                        ],
+                        [
+                            13.468103,
+                            144.78373
+                        ],
+                        [
+                            13.468125,
+                            144.783768
+                        ],
+                        [
+                            13.468144,
+                            144.783808
+                        ],
+                        [
+                            13.468158,
+                            144.78385
+                        ],
+                        [
+                            13.468168,
+                            144.783892
+                        ],
+                        [
+                            13.468175,
+                            144.783936
+                        ],
+                        [
+                            13.468177,
+                            144.78398
+                        ],
+                        [
+                            13.468175,
+                            144.784024
+                        ],
+                        [
+                            13.468168,
+                            144.784068
+                        ],
+                        [
+                            13.468158,
+                            144.78411
+                        ],
+                        [
+                            13.468144,
+                            144.784152
+                        ],
+                        [
+                            13.468125,
+                            144.784192
+                        ],
+                        [
+                            13.468103,
+                            144.78423
+                        ],
+                        [
+                            13.468078,
+                            144.784265
+                        ],
+                        [
+                            13.468049,
+                            144.784298
+                        ],
+                        [
+                            13.468017,
+                            144.784327
+                        ],
+                        [
+                            13.467983,
+                            144.784353
+                        ],
+                        [
+                            13.467946,
+                            144.784376
+                        ],
+                        [
+                            13.467907,
+                            144.784395
+                        ],
+                        [
+                            13.467867,
+                            144.78441
+                        ],
+                        [
+                            13.467825,
+                            144.784421
+                        ],
+                        [
+                            13.467783,
+                            144.784427
+                        ],
+                        [
+                            13.46774,
+                            144.784429
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": 4,
+            "name": "Tank leakage",
+            "description": "",
+            "type": [
+                "risk",
+                "type",
+                "Accident"
+            ],
+            "probability": 0.15,
+            "impact": 0.2,
+            "affected_objects": [
+                "node"
+            ],
+            "target_types": "Bulk Storage"
+        },
+        {
+            "id": 5,
+            "name": "Hazardous chemical release into the air",
+            "description": "",
+            "type": [
+                "risk",
+                "type",
+                "Accident"
+            ],
+            "probability": 0.15,
+            "impact": 0.2,
+            "affected_objects": [
+                "node"
+            ],
+            "target_types": "Bulk Storage"
+        },
+        {
+            "id": 6,
+            "name": "Tsunami damage",
+            "description": "",
+            "type": [
+                "risk",
+                "type",
+                "Nature"
+            ],
+            "probability": 0.4,
+            "impact": 0.6,
+            "affected_objects": [
+                "node"
+            ],
+            "target_types": "Port"
+        },
+        {
+            "id": 7,
+            "name": "Broken crane",
+            "description": "",
+            "type": [
+                "risk",
+                "type",
+                "Maintenance"
+            ],
+            "probability": 0.2,
+            "impact": 0.5,
+            "affected_objects": [
+                "node"
+            ],
+            "target_types": "Port"
+        },
+        {
+            "id": 8,
+            "name": "Explosion",
+            "description": "",
+            "type": [
+                "risk",
+                "type",
+                "Accident"
+            ],
+            "probability": 0.2,
+            "impact": 0.44999999999999996,
+            "affected_objects": [
+                "node"
+            ],
+            "target_types": "Production"
+        },
+        {
+            "id": 9,
+            "name": "Drilling delays",
+            "description": "",
+            "type": [
+                "risk",
+                "type",
+                "Maintenance"
+            ],
+            "probability": 0.6,
+            "impact": 0.5,
+            "affected_objects": [
+                "node"
+            ],
+            "target_types": "Production"
+        },
+        {
+            "id": 10,
+            "name": "Facility fire",
+            "description": "",
+            "type": [
+                "risk",
+                "type",
+                "Accident"
+            ],
+            "probability": 0.3,
+            "impact": 0.2,
+            "affected_objects": [
+                "node"
+            ],
+            "target_types": "Refinery"
+        },
+        {
+            "id": 11,
+            "name": "Hacking petroleum mixes",
+            "description": "",
+            "type": [
+                "risk",
+                "type",
+                "Cyber"
+            ],
+            "probability": 0.1,
+            "impact": 0.6,
+            "affected_objects": [
+                "node"
+            ],
+            "target_types": "Refinery"
+        },
+        {
+            "id": 12,
+            "name": "Facility fire",
+            "description": "",
+            "type": [
+                "risk",
+                "type",
+                "Accident"
+            ],
+            "probability": 0.3,
+            "impact": 0.2,
+            "affected_objects": [
+                "node"
+            ],
+            "target_types": "Use"
+        },
+        {
+            "id": 13,
+            "name": "Unplanned pipeline maintenance",
+            "description": "",
+            "type": [
+                "risk",
+                "type",
+                "Maintenance"
+            ],
+            "probability": 0.3,
+            "impact": 0.5,
+            "affected_objects": [
+                "edge"
+            ],
+            "target_types": "Crude Oil Pipeline"
+        },
+        {
+            "id": 14,
+            "name": "Cyber attack on pipeline",
+            "description": "",
+            "type": [
+                "risk",
+                "type",
+                "Cyber"
+            ],
+            "probability": 0.1,
+            "impact": 0.7,
+            "affected_objects": [
+                "edge"
+            ],
+            "target_types": "Crude Oil Pipeline"
+        },
+        {
+            "id": 15,
+            "name": "Hacking of order request",
+            "description": "",
+            "type": [
+                "risk",
+                "type",
+                "Cyber"
+            ],
+            "probability": 0.2,
+            "impact": 0.5,
+            "affected_objects": [
+                "edge"
+            ],
+            "target_types": "Order Request"
+        },
+        {
+            "id": 16,
+            "name": "Train derailment",
+            "description": "",
+            "type": [
+                "risk",
+                "type",
+                "Accident"
+            ],
+            "probability": 0.1,
+            "impact": 0.2,
+            "affected_objects": [
+                "edge"
+            ],
+            "target_types": "Rail Transport"
+        },
+        {
+            "id": 17,
+            "name": "Laying out new rail tracks",
+            "description": "",
+            "type": [
+                "risk",
+                "type",
+                "Maintenance"
+            ],
+            "probability": 0.2,
+            "impact": 0.3,
+            "affected_objects": [
+                "edge"
+            ],
+            "target_types": "Rail Transport"
+        },
+        {
+            "id": 18,
+            "name": "Tsunami cause elongated route change",
+            "description": "",
+            "type": [
+                "risk",
+                "type",
+                "Nature"
+            ],
+            "probability": 0.5,
+            "impact": 0.35,
+            "affected_objects": [
+                "edge"
+            ],
+            "target_types": "Ship Transport"
+        },
+        {
+            "id": 19,
+            "name": "Canal blockage",
+            "description": "",
+            "type": [
+                "risk",
+                "type",
+                "Kinetic"
+            ],
+            "probability": 0.05,
+            "impact": 0.35,
+            "affected_objects": [
+                "edge"
+            ],
+            "target_types": "Ship Transport"
+        },
+        {
+            "id": 20,
+            "name": "Road closures",
+            "description": "",
+            "type": [
+                "risk",
+                "type",
+                "Nature"
+            ],
+            "probability": 0.4,
+            "impact": 0.4,
+            "affected_objects": [
+                "edge"
+            ],
+            "target_types": "Truck Transport"
+        },
+        {
+            "id": 21,
+            "name": "Wear and tear",
+            "description": "",
+            "type": [
+                "risk",
+                "type",
+                "Maintenance"
+            ],
+            "probability": 0.5,
+            "impact": 0.30000000000000004,
+            "affected_objects": [
+                "edge"
+            ],
+            "target_types": "Truck Transport"
+        },
+        {
+            "id": 22,
+            "name": "Giant whale",
+            "description": "In East China Sea",
+            "type": [
+                "risk",
+                "list",
+                "Transport"
+            ],
+            "probability": 0.15,
+            "impact": 0.3,
+            "affected_objects": [
+                "edge"
+            ],
+            "target_ids": 64
+        },
+        {
+            "id": 23,
+            "name": "Lightning strike",
+            "description": "Freak storm",
+            "type": [
+                "risk",
+                "list",
+                "Accident"
+            ],
+            "probability": 0.2,
+            "impact": 0.15,
+            "affected_objects": [
+                "edge"
+            ],
+            "target_ids": 6
+        },
+        {
+            "id": 24,
+            "name": "Tourist takeover",
+            "description": "Giant yacht party blocks port",
+            "type": [
+                "risk",
+                "list",
+                "Human Interference"
+            ],
+            "probability": 0.05,
+            "impact": 0.2,
+            "affected_objects": [
+                "edge"
+            ],
+            "target_ids": 19
+        }
+    ]
+}
